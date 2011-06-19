@@ -1,0 +1,22 @@
+/***************************************************
+ * Websites
+ **************************************************/
+    
+#garyshawnbuyn
+{
+    background: #519bff;
+	/* For Firefox 3.6+ */ 
+	background: -moz-linear-gradient(left, #519bff, #532009);
+    /* For WebKit browsers */
+	background: -webkit-gradient(linear, center top, right top, from(#519bff), to(#532009));
+	border-bottom: 1px solid black;
+	color: white;
+	padding: 10px;
+	vertical-align: middle;
+	width: 700px;
+}
+
+#simpleentertainment
+{
+    background-color: white;
+}
