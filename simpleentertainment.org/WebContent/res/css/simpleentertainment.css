@@ -1,0 +1,176 @@
+/***************************************************
+ * Global
+ **************************************************/
+
+h1
+{
+    font-size: 24px;
+}
+
+h2
+{
+    font-size: 18px;
+}
+
+a
+{
+	color: #7f0000;
+	text-decoration: none;
+}
+
+a:hover
+{
+	color: black;
+	text-decoration: none;
+}
+
+a.selected
+{
+	color: black;
+	text-decoration: none;
+}
+
+table
+{
+    border-spacing: 0px;
+}
+
+td
+{
+    border: 1px solid;
+    padding: 5px;
+}
+
+input[type="button"]
+{
+    /* For WebKit browsers */
+	background: -webkit-gradient(linear, left top, left bottom, from(#7f0000), to(#bf0000));
+	/* For Firefox 3.6+ */ 
+	background: -moz-linear-gradient(top, #7f0000, #bf0000);
+    border-radius: 10px;
+	color: white;
+    font-family: "DejaVu Sans", Sans;
+    font-size: 24px;
+}
+
+#container
+{
+	font-family: "DejaVu Sans", Sans;
+	margin: 0 auto;
+	width: 1000px;
+}
+
+/***************************************************
+ * Header
+ **************************************************/
+
+#header
+{
+	text-align: center;
+}
+
+/***************************************************
+ * Navigation
+ **************************************************/
+
+.menu_top
+{
+	/* For WebKit browsers */
+	background: -webkit-gradient(linear, left top, left bottom, from(white), to(grey));
+	/* For Firefox 3.6+ */ 
+	background: -moz-linear-gradient(top, white, grey);
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.menu_center
+{
+	/* For WebKit browsers */
+	background: -webkit-gradient(linear, left top, left bottom, from(#7f0000), to(white));
+	/* For Firefox 3.6+ */ 
+	background: -moz-linear-gradient(top, #7f0000, white);
+}
+
+.menu_bottom
+{
+    /* For WebKit browsers */
+	background: -webkit-gradient(linear, left top, left bottom, from(white), to(#7f0000));
+	/* For Firefox 3.6+ */ 
+	background: -moz-linear-gradient(top, white, #7f0000);
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+#main_nav
+{
+	text-align: center;
+}
+
+#main_nav a
+{
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+#main_nav .selected
+{
+    /* For WebKit browsers */
+	background: -webkit-gradient(linear, left top, left bottom, from(white), to(#7f0000));
+	/* For Firefox 3.6+ */ 
+	background: -moz-linear-gradient(top, white, #7f0000);
+}
+
+#section_nav
+{
+	text-align: center;
+}
+
+#section_nav a
+{
+	color: white;
+	text-decoration: none;
+}
+
+#section_nav a:hover
+{
+	color: black;
+	text-decoration: none;
+}
+
+#section_nav a.selected
+{
+	color: black;
+	text-decoration: none;
+}
+
+/***************************************************
+ * Actions
+ **************************************************/
+
+#actions
+{
+    float: right;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    width: 20%;
+}
+
+#actions input
+{
+    cursor: pointer;
+    width: 100%;
+}
+
+/***************************************************
+ * Main
+ **************************************************/
+
+#main header
+{
+    text-align: center;
+}
+
+#main table
+{
+    width: 75%;
+}
