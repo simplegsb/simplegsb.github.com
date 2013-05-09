@@ -1,0 +1,79 @@
+/***************************************************
+ * Global
+ **************************************************/
+
+a
+{
+	color: #08e;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+a:hover
+{
+	color: #0e8;
+}
+
+body
+{
+	color: #666;
+	font-family: handwritten;
+	margin: 0px auto;
+	padding: 0px;
+	position: relative;
+	width: 1000px;
+}
+
+h1
+{
+	font-size: 64px;
+	margin: 0px;
+}
+
+h1 a
+{
+	color: #666;
+}
+
+td
+{
+	vertical-align: top;
+}
+
+h3
+{
+	background-color: #ddd;
+}
+
+h4
+{
+	background-color: #eee;
+}
+
+/***************************************************
+ * Header
+ **************************************************/
+
+#header
+{
+	display: table;
+	text-align: center;
+	width: 100%;
+}
+
+#menu
+{
+	display: table;
+	width: 100%;
+}
+
+#menu a
+{
+	display: table-cell;
+}
+
+#title a
+{
+	display: table-cell;
+}
+

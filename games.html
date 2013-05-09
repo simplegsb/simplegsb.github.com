@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Gary Shawn Buyn</title>
+
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="css/fonts.css" />
+		<link rel="stylesheet" type="text/css" href="css/layout.css" />
+		<script type="text/javascript" src="js/script.js"></script>
+	</head>
+
+	<body>
+		<div id="header">
+			<h1>
+			    <a href="index.html">Gary Shawn Buyn</a>
+			</h1>
+			<div id="menu">
+			    <a href="spirituality.html">Spirituality</a>
+			    <a href="health.html">Health</a>
+			    <a href="community.html">Community</a>
+			    <a href="games.html">Games</a>
+			    <a href="software.html">Software</a>
+			    <a href="travel.html">Travel</a>
+			    <a href="film.html">Film</a>
+			    <a href="contactme.html">Contact</a>
+			</div>
+		</div>
+
+		<h2>Games</h2>
+
+		<h3>Competitions</h3>
+
+		<h4>Comvita Move</h4>
+
+		<p>
+			<a href="http://www.comvita.co.nz">Comvita</a> hosted a competition open only to Media Design School students to design a game that would make use of <a href="http://www.fitbit.com">Fitbit</a> to encourage fitness. I don't think I can mention specifics of my entry yet but I won the 2nd place prize.
+		</p>
+
+		<h4>Global Game Jam 2013</h4>
+
+		<p>
+			I teamed up with Stephen Knightly (the chairperson of the <a href="http://www.nzgda.com">NZGDA</a>) and a deadly team of artists to create the game Cupidity in 48 hours using GameMaker. Here's the <a href="http://globalgamejam.org/2013/cupidity">official entry</a>.
+		</p>
+
+		<table>
+			<td>
+				<h5>Source</h5>
+
+				<a href="https://github.com/simplegsb/cupidity">Repository on GitHub</a>
+
+				<h5>Download</h5>
+
+				Windows: <a href="bin/cupidity.zip">cupidity.zip</a>
+
+				<h5>Controls</h5>
+
+				<p>
+					Shoot arrows on the sound of the heart beat. Click the left mouse button to fire the first arrow on the first thud of the heart beat, the second will automatically shoot on the second thud of the heart beat.
+				</p>
+			<td>
+			<td>
+				<h5>Screenshot</h5>
+
+				<img src="images/cupidity.jpg" />
+			</td>
+		</table>
+
+		<h3>Talks</h3>
+
+		<h4>Pecha Kucha Night Auckland #34</h4>
+
+		<p>
+			I gave a talk on "Games for Good" at the 34th <a href="http://www.pechakucha.co.nz">Auckland Pecha Kucha</a> night. The images are a bit ahead of the audio in the video.
+		</p>
+
+		<iframe src="http://player.vimeo.com/video/64213041" width="500" height="375" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
+		<p>
+			<a href="http://vimeo.com/64213041">Pecha Kucha Night Auckland #34 // Gary Buyn</a> from <a href="http://vimeo.com/user7346719">PKN_Auckland</a> on <a href="http://vimeo.com">Vimeo</a>.
+		</p>
+
+		<h3>Personal Projects</h3>
+
+		<a href="https://github.com/simple-entertainment/simplicity"><img src="images/the-simplicity-engine.png" alt="The Simplicity Engine" /></a>
+
+		<h3>Media Design School</h3>
+
+		<p>
+			Here are a bunch of demos from my studies at Media Design School.
+		</p>
+
+		<h4>GazEngine</h4>
+
+		<p>
+			GazEngine is the middleware that I developed during my time at Media Design School and is used with the majority of the demos that follow (except for a couple that use the GDE middleware provided by Media Design School). It was based on earlier work I had done to create <a href="https://github.com/simple-entertainment/simplicity">the simplicity engine</a> but that engine was in C++11 which could not be used for school projects.
+		</p>
+
+		<table>
+			<td>
+				<h5>Source</h5>
+
+				<a href="https://github.com/simplegsb/gazengine">Repository on GitHub</a>
+
+				<h5>Features</h5>
+
+				<ul>
+					<li>Plug and Play Engine Architecture - Allows engines to be swapped in and out with minimal changes required e.g. swapping from DirectX to OpenGL.</li>
+					<li>Component Based Architecture - Entities are constructed using composition, not inheritance to avoid class heirarchy explosions. Components are also interfaced to minimise dependencies on particular implementations.</li>
+					<li>Messaging - Messages are mediated to allow swapping in and out of possible message sources and destinations with minimal changes e.g. swapping WinApi to FreeGLUT.</li>
+					<li>ODBC - Wrapper classes for the ODBC API.</li>
+					<li>Maths - Matrix and Vector implementations and other useful functions.</li>
+					<li>WinApi Engine - An engine that creates a WinApi window and acts as a message source for WinApi events.</li>
+					<li>GDI Engine - An engine that renders models using the GDI API.</li>
+					<li>Direct3D Engine - An engine that renders models using Direct3D 10.</li>
+					<li>FreeGLUT Engine - An engine that creates a FreeGLUT window and acts as a message source for FreeGLUT events.</li>
+					<li>OpenGL Engine - An engine that renders models using OpenGL 2 i.e. the fixed function pipeline.</li>
+					<li>Homegrown Physics Engine - A very basic partial implementation of physics.</li>
+					<li>PhysX Engine - An engine that simulates physics using PhysX.</li>
+					<li>Bullet Engine - An engine that simulates physics using Bullet physics.</li>
+				</ul>
+			<td>
+			<td style="width: 30%;">
+				<h5>Code</h5>
+
+				<code>
+					#include &lt;gazengine/GazEngine.h&gt;
+					</br>
+					</br>
+					int main()
+					</br>
+					{
+						</br>
+						&nbsp;&nbsp;&nbsp;&nbsp;GazEngine::addEngine(...);
+						</br>
+						&nbsp;&nbsp;&nbsp;&nbsp;GazEngine::addEntity(...);
+						</br>
+						&nbsp;&nbsp;&nbsp;&nbsp;GazEngine::play();
+						</br>
+						</br>
+						&nbsp;&nbsp;&nbsp;&nbsp;return 0;
+						</br>
+					}
+				</code>
+			</td>
+		</table>
+
+		<h4>Connect 4</h4>
+
+		<p>
+			This variation of Connect 4 allows multiple connections of 4 to be made by each player. The game ends when the board is full and the winner is the player who has made the most connections.
+		</p>
+
+		<table>
+			<td>
+				<h5>Source</h5>
+
+				<a href="https://github.com/simplegsb/media-design-school/tree/master/AI/Formatives/Connect4">Repository on GitHub</a>
+
+				<h5>Download</h5>
+
+				Windows: <a href="bin/connect4.zip">connect4.zip</a>
+
+				<h5>Controls</h5>
+
+				<p>
+					Use the left mouse button to select which column you want to drop a token into.
+				</p>
+
+				<h5>Features</h5>
+
+				<ul>
+					<li>An AI opponent who decides which move to take using a red-black tree with alpha-beta pruning.</li>
+				</ul>
+			<td>
+			<td>
+				<h5>Screenshot</h5>
+
+				<img src="images/connect4.png" />
+			</td>
+		</table>
+
+		<h4>Steering</h4>
+
+		<p>
+			Steering behaviours give autonomous characters "the ability to navigate around their world in a life-like and improvisational manner" <a href="http://www.red3d.com/cwr/steer/">(?)</a>. This demo uses whiskers, repulsion zones and approach radii as well as various other techniques to acheive this.
+		</p>
+
+		<table>
+			<td>
+				<h5>Source</h5>
+
+				<a href="https://github.com/simplegsb/media-design-school/tree/master/AI/Formatives/Steering">Repository on GitHub</a>
+
+				<h5>Download</h5>
+
+				Windows: <a href="bin/steering.zip">steering.zip</a>
+
+				<h5>Controls</h5>
+
+				<p>
+					Move the mouse around the window so the cats have a moving target.
+				</p>
+
+				<h5>Features</h5>
+
+				<ul>
+					<li>Cats seek the mouse.</li>
+					<li>Cats have whiskers which they use to avoid collisions with other cats and static obstacles.</li>
+					<li>Trees and the ends of walls have repulsion zones which the cats react to.</li>
+					<li>Repulsion zones and whiskers effect both the speed and desired heading of the cats.</li>
+					<li>If a cat gets stuck, it will attempt to turn around.</li>
+					<li>The mouse is surrounded by a large approach radius, when the cats enter it they will begin to slow down.</li>
+					<li>Cats turn faster when they are facing away from the mouse.</li>
+					<li>Cats travel faster when they are not turning (or turning slowly).</li>
+				</ul>
+			<td>
+			<td>
+				<h5>Screenshot</h5>
+
+				<img src="images/steering.png" />
+			</td>
+		</table>
+
+		<h4>Mob Mole Madness</h4>
+
+		<p>
+			The AI in this game combines path finding, steering, state machines, world exploration, visual debugging ...
+		</p>
+
+		<table>
+			<td>
+				<h5>Source</h5>
+
+				<a href="https://github.com/simplegsb/media-design-school/tree/master/AI/Summatives/MobMoleMadness">Repository on GitHub</a>
+
+				<h5>Download</h5>
+
+				Windows: <a href="bin/mobmolemadness.zip">mobmolemadness.zip</a>
+
+				<h5>Controls</h5>
+
+				<p>
+					Use the arrow keys to move the squirrel around the map. Moving gives off vibrations which the moles can detect so be careful not to move too much when close to them. Collect the acorns and take them back to your holes to complete the level.
+				</p>
+
+				<h5>Features</h5>
+
+				<ul>
+					<li>...</li>
+				</ul>
+			<td>
+			<td>
+				<h5>Screenshot</h5>
+
+				<img src="images/mobmolemadness.png" />
+			</td>
+		</table>
+
+		<h4>Graphics: Technical Demo</h4>
+
+		<p>
+			This demo combines vertex, pixel and geometry shaders, depth and stencil buffers, level of detail, ??? animation and mesh loading implemented with the Direct3D 10 programmable pipeline.
+		</p>
+
+		<table>
+			<td>
+				<h5>Source</h5>
+
+				<a href="https://github.com/simplegsb/media-design-school/tree/master/Graphics/Summatives/TechnicalDemo">Repository on GitHub</a>
+
+				<h5>Download</h5>
+
+				Windows: <a href="bin/graphicstechnicaldemo.zip">graphicstechnicaldemo.zip</a>
+
+				<h5>Controls</h5>
+
+				<p>
+					...
+				</p>
+
+				<h5>Features</h5>
+
+				<ul>
+					<li>...</li>
+				</ul>
+			<td>
+			<td>
+				<h5>Screenshot</h5>
+
+				<img src="images/graphicstechnicaldemo.png" />
+			</td>
+		</table>
+
+		<h4>Snake</h4>
+
+		<p>
+			...
+		</p>
+
+		<table>
+			<td>
+				<h5>Source</h5>
+
+				<a href="https://github.com/simplegsb/media-design-school/tree/master/Technology Leverage/Summatives/Snake">Repository on GitHub</a>
+
+				<h5>Download</h5>
+
+				Windows: <a href="bin/snake.zip">snake.zip</a>
+
+				<h5>Controls</h5>
+
+				<p>
+					...
+				</p>
+
+				<h5>Features</h5>
+
+				<ul>
+					<li>...</li>
+				</ul>
+			<td>
+			<td>
+				<h5>Screenshot</h5>
+
+				<img src="images/snake.png" />
+			</td>
+		</table>
+
+		<h4>Grumpy Birds</h4>
+
+		<p>
+			...
+		</p>
+
+		<table>
+			<td>
+				<h5>Source</h5>
+
+				<a href="https://github.com/simplegsb/media-design-school/tree/master/Physics/Formatives/GrumpyBirds">Repository on GitHub</a>
+
+				<h5>Download</h5>
+
+				Windows: <a href="bin/grumpybirds.zip">grumpybirds.zip</a>
+
+				<h5>Controls</h5>
+
+				<p>
+					...
+				</p>
+
+				<h5>Features</h5>
+
+				<ul>
+					<li>...</li>
+				</ul>
+			<td>
+			<td>
+				<h5>Screenshot</h5>
+
+				<img src="images/grumpybirds.png" />
+			</td>
+		</table>
+
+		<h4>Grumpy Birds 3D</h4>
+
+		<p>
+			...
+		</p>
+
+		<table>
+			<td>
+				<h5>Source</h5>
+
+				<a href="https://github.com/simplegsb/media-design-school/tree/master/Physics/Summatives/GrumpyBirds3D">Repository on GitHub</a>
+
+				<h5>Download</h5>
+
+				Windows: <a href="bin/grumpybirds3d.zip">grumpybirds3d.zip</a>
+
+				<h5>Controls</h5>
+
+				<p>
+					...
+				</p>
+
+				<h5>Features</h5>
+
+				<ul>
+					<li>...</li>
+				</ul>
+			<td>
+			<td>
+				<h5>Screenshot</h5>
+
+				<img src="images/grumpybirds3d.png" />
+			</td>
+		</table>
+
+		<h4>3D World</h4>
+
+		<p>
+			...
+		</p>
+
+		<table>
+			<td>
+				<h5>Source</h5>
+
+				<a href="https://github.com/simplegsb/media-design-school/tree/master/Physics/Summatives/GrumpyBirds3D">Repository on GitHub</a>
+
+				<h5>Download</h5>
+
+				Windows: <a href="bin/3dworld.zip">3dworld.zip</a>
+
+				<h5>Controls</h5>
+
+				<p>
+					...
+				</p>
+
+				<h5>Features</h5>
+
+				<ul>
+					<li>...</li>
+				</ul>
+			<td>
+			<td>
+				<h5>Screenshot</h5>
+
+				<img src="images/3dworld.png" />
+			</td>
+		</table>
+	</body>
+
+</html>
