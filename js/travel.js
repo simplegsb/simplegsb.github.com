@@ -1,8 +1,3 @@
-function setProfileImage()
-{
-    document.getElementById('profile_image').src = 'images/profile0' + Math.floor(Math.random() * 5) + '.jpg';
-}
-
 function homeSweetHomeMap()
 {
     var latlng = new google.maps.LatLng(0.0, -110.0);
