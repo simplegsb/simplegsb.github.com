@@ -32,7 +32,7 @@
 		<h2>Games</h2>
 
 		<p>
-			From the disatisfaction of working for large corporations - some of which are in industries I do not agree with - to create and customise enterprise Java applications, I felt the need for a change. I went to the games industry for the challenge, the infinately more interesting products and for the opportunity to make software that does good. It is very important to me now that whatever I do in life, work included, is for a positive end. I studied at <a href="http://www.mediadesignschool.com">Media Design School</a> to assist in the change to the games industry.
+			From the dissatisfaction of working for large corporations - some of which are in industries I do not agree with - to create and customise enterprise Java applications, I felt the need for a change. I went to the games industry for the challenge, the infinately more interesting products and for the opportunity to make software that does good. It is very important to me now that whatever I do in life, work included, is for a positive end. I studied at <a href="http://www.mediadesignschool.com">Media Design School</a> to assist in the change to the games industry.
 		</p>
 
 		<p>
@@ -306,7 +306,7 @@
 		<h4>Graphics: Technical Demo</h4>
 
 		<p>
-			This demo combines vertex, pixel and geometry shaders, depth and stencil buffers, level of detail, ??? animation and mesh loading implemented with the Direct3D 10 programmable pipeline.
+			This demo combines vertex, pixel and geometry shaders, depth and stencil buffers, level of detail, normal mapping, skeletal animation and mesh loading implemented with the Direct3D 10 programmable pipeline.
 		</p>
 
 		<table>
@@ -321,14 +321,27 @@
 
 				<h5>Controls</h5>
 
-				<p>
-					...
-				</p>
+				<ul>
+					<li>WASD - Move chuck around the surface of the world.</li>
+					<li>F1 - Skip the intro.</li>
+					<li>F2 - Change the distance at which the LOD models change so that it is obvious when they change.</li>
+					<li>F3 - Toggle the use of normal maps.</li>
+					<li>F4 - Toggle the cartoon shading used on chuck.</li>
+					<li>F5 - Toggle the outlines (there is a known issue where the outlines can cause performance problems, disable this if it is running slowly).</li>
+					<li>F6 - Toggle the grayscale shading around chuck.</li>
+					<li>F7 - Toggle the shadow volume (I haven't got this finished so it looks a bit crazy!).</li>
+				</ul>
 
 				<h5>Features</h5>
 
 				<ul>
-					<li>...</li>
+					<li>Triangle flipping animation during the intro that constructs the models.</li>
+					<li>Discrete LOD on the tree models.</li>
+					<li>Normal mapping on the world models.</li>
+					<li>Cartoon shading on chuck.</li>
+					<li>Thick outlines around the models.</li>
+					<li>Greyscale shading on the world model around chuck.</li>
+					<li>A floating cube with skeletal animation.</li>
 				</ul>
 			<td>
 			<td>
@@ -341,7 +354,7 @@
 		<h4>Snake</h4>
 
 		<p>
-			...
+			A multiplayer version of the game 'snake' found on many a Nokia phone.
 		</p>
 
 		<table>
@@ -352,18 +365,20 @@
 
 				<h5>Download</h5>
 
-				Windows: <a href="bin/snake.zip">snake.zip</a>
+				Windows: <a href="bin/Snake.exe">Snake.exe</a>
 
 				<h5>Controls</h5>
 
-				<p>
-					...
-				</p>
+				<ul>
+					<li>WASD - Move your snake around the level.</li>
+					<li>Tab - Show the score board.</li>
+				</ul>
 
 				<h5>Features</h5>
 
 				<ul>
-					<li>...</li>
+					<li>Up to 16 players</li>
+					<li>Persistent high scores (requires appropriate ODBC data source)</li>
 				</ul>
 			<td>
 			<td>
