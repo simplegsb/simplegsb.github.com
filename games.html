@@ -93,7 +93,7 @@
 		<img src="images/the-simplicity-engine.png" alt="The Simplicity Engine" />
 
 		<p>
-			The Simplicity Engine is a homegrown component based game engine I created. Originally it was written in Java but I ported it to C++11. This engine has been superceded by the GazEngine middleware I used for my projects at Media Design School where I could not use C++11. The aim now is to port the much more comprehensive and tested GazEngine back to C++11.
+			The Simplicity Engine is a homegrown component-based game engine I created. Originally it was written in Java but I ported it to C++11. This engine was superceded by the GazEngine middleware I used for my projects at Media Design School where I could not use C++11. I am now in the process of bringing the much more comprehensive and tested code from GazEngine back to The Simplicity Engine and C++11.
 		</p>
 
 		<table>
@@ -101,12 +101,24 @@
 				<h5>Source</h5>
 
 				<a href="https://github.com/simple-entertainment/simplicity">Repository on GitHub</a>
+
+				<h5>Features</h5>
+
+				<ul>
+					<li>Plug and Play Engine Architecture - Allows engines to be swapped in and out with minimal changes required e.g. swapping from Direct3D to OpenGL.</li>
+					<li>Component Based Architecture - Entities are constructed using composition, not inheritance to avoid class heirarchy explosions. Components are also interfaced to minimise dependencies on particular implementations.</li>
+					<li>Messaging - Messages are mediated to allow swapping in and out of possible message sources and destinations with minimal changes e.g. swapping from WinApi to FreeGLUT.</li>
+					<li>Maths - Matrix and Vector implementations and other useful functions.</li>
+					<li>FreeGLUT Engine - An engine that creates a FreeGLUT window and acts as a message source for FreeGLUT events.</li>
+					<li>OpenGL Engine - An engine that renders models using OpenGL 4 i.e. the programmable pipeline.</li>
+					<li>More to come...</li>
+				</ul>
 			<td>
 			<td style="width: 30%;">
 				<h5>Code</h5>
 
 				<code>
-					#include &lt;simplicity/Simplicity.h&gt;
+					#include &lt;simplicity/API.h&gt;
 					</br>
 					</br>
 					int main()
@@ -147,7 +159,7 @@
 				<h5>Features</h5>
 
 				<ul>
-					<li>Plug and Play Engine Architecture - Allows engines to be swapped in and out with minimal changes required e.g. swapping from DirectX to OpenGL.</li>
+					<li>Plug and Play Engine Architecture - Allows engines to be swapped in and out with minimal changes required e.g. swapping from Direct3D to OpenGL.</li>
 					<li>Component Based Architecture - Entities are constructed using composition, not inheritance to avoid class heirarchy explosions. Components are also interfaced to minimise dependencies on particular implementations.</li>
 					<li>Messaging - Messages are mediated to allow swapping in and out of possible message sources and destinations with minimal changes e.g. swapping from WinApi to FreeGLUT.</li>
 					<li>ODBC - Wrapper classes for the ODBC API.</li>
