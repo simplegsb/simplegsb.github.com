@@ -1,4 +1,20 @@
 
+function openSection(sectionClass, sectionId)
+{
+	var sections = document.getElementsByClassName(sectionClass);
+	for (index = 0; index < sections.length; index++)
+	{
+		if (sections[index].id === sectionId)
+		{
+			sections[index].style.display = 'block';
+		}
+		else
+		{
+			sections[index].style.display = 'none';
+		}
+	}
+}
+
 function selectSection(sectionClass, sectionId)
 {
 	var sections = document.getElementsByClassName(sectionClass);
