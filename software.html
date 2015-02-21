@@ -2,157 +2,875 @@
 <html>
 
 	<head>
-		<title>Gary Shawn Buyn</title>
+		<title>Gary / Gyan</title>
 
 		<link rel="shortcut icon" href="images/favicon.ico" />
 		<link rel="stylesheet" type="text/css" href="css/fonts.css" />
 		<link rel="stylesheet" type="text/css" href="css/layout.css" />
+		<script type="text/javascript" src="js/scripts.js"></script>
 	</head>
 
 	<body>
 		<div id="header">
-			<h1><a href="index.html">Gary Shawn Buyn</a></h1>
+			<h1><a href="index.html">Gary Shawn Buyn / Prem Gyan</a></h1>
 			<div id="menu">
-				<a href="spirituality.html">Spirituality</a>
-				<a href="food.html">Food</a>
-				<!--a href="community.html">Community</a>
-				<a href="sustainability.html">Sustainability</a>
-				<a href="opensource.html">Open Source</a-->
-				<a href="contactme.html">Contact</a>
-			</div>
-			<div id="menu">
-				<a href="games.html">Games</a>
-				<a href="software.html">Software</a>
-				<a href="travel.html">Travel</a>
+				<a href="osho.html">Osho</a>
+				<h2>Software</h2>
 				<a href="film.html">Film</a>
-				<!--a href="contactme.html">Contact</a-->
+				<a href="campers.html">Campers</a>
+				<a href="contact.html">Contact</a>
 			</div>
 		</div>
 
-		<h2>Software</h2>
-
 		<p>
-			I have a BCMS from the University of Waikato and half a dozen years of industry experience.
+			I have a BCMS from the University of Waikato and half a dozen years of industry experience. I have done everything from enterprise to apps to games, from Java to C++, from Windows to Linux to Mac to Android. I love a good challenge and I have to say that I'm very good at it.
 		</p>
 
-		<h3>Competitions</h3>
+		<a onclick="selectSection('section', 'competitions');"><h3>Competitions</h3></a>
+		<div id="competitions" class="section">
+			<a onclick="selectSection('subSection', 'hacktivateMileHigh');"><h4>Hacktivate: Mile High</h4></a>
+			<div id="hacktivateMileHigh" class="subSection">
+				<p>
+					I was part of the winning team in the Mile High competition held by <a href="http://www.hacktivate.me">Hacktivate</a>. Check out this video of it (pause it at 0:46 to see me and my team with the trophy!):
+				</p>
 
-		<h4>Hacktivate: Mile High</h4>
+				<table>
+					<td>
+						<h5>Source</h5>
 
-		<p>
-			I was part of the winning team in the Mile High competition held by <a href="http://www.hacktivate.me">Hacktivate</a>. Check out this video of it (pause it at 0:46 to see me and my team with the trophy!):
-		</p>
+						<a href="https://github.com/simplegsb/dehacktivate-km-low">Repository on GitHub</a> (I wrote the Java portion of it)
+					<td>
+					<td>
+						<h5>Video</h5>
 
-		<iframe width="560" height="315" src="http://www.youtube.com/embed/clYZQhX5MO4" frameborder="0" allowfullscreen></iframe>
+						<iframe width="560" height="315" src="http://www.youtube.com/embed/clYZQhX5MO4" frameborder="0" allowfullscreen></iframe>
+					</td>
+				</table>
+			</div>
 
-		<h5>Source</h5>
+			<a onclick="selectSection('subSection', 'comvitaMove');"><h4>Comvita Move</h4></a>
+			<div id="comvitaMove" class="subSection">
+				<p>
+					<a href="http://www.comvita.co.nz">Comvita</a> hosted a competition open only to Media Design School students to design a game that would make use of <a href="http://www.fitbit.com">Fitbit</a> to encourage fitness. I don't think I can mention specifics of my entry yet but I won the 2nd place prize.
+				</p>
+			</div>
 
-		<a href="https://github.com/simplegsb/dehacktivate-km-low">Repository on GitHub</a> (I wrote the Java portion of it)
+			<a onclick="selectSection('subSection', 'globalGameJam2013');"><h4>Global Game Jam 2013</h4></a>
+			<div id="globalGameJam2013" class="subSection">
+				<p>
+					I teamed up with Stephen Knightly (the chairperson of the <a href="http://www.nzgda.com">NZGDA</a>) and a deadly team of artists to create the game Cupidity in 48 hours using GameMaker. Here's the <a href="http://globalgamejam.org/2013/cupidity">official entry</a>.
+				</p>
 
-		<h3>Personal Projects</h3>
+				<table>
+					<td>
+						<h5>Source</h5>
 
-		<h4>PC Remote for Android</h4>
+						<a href="https://github.com/simplegsb/cupidity">Repository on GitHub</a>
 
-		<img src="images/pc-remote-for-android.png" alt="PC Remote for Android" />
+						<h5>Download</h5>
 
-		<p>
-			I wanted an excuse to try my hand at Android development and this was the result. You can use it to control your PC using your Android device.
-		</p>
+						Windows: <a href="bin/cupidity.zip">cupidity.zip</a>
 
-		<table>
-			<td>
-				<h5>Source</h5>
+						<h5>Controls</h5>
 
-				<a href="https://github.com/simplegsb/pc-remote">Repository on GitHub</a>
+						<p>
+							Shoot arrows on the sound of the heart beat. Click the left mouse button to fire the first arrow on the first thud of the heart beat, the second will automatically shoot on the second thud of the heart beat.
+						</p>
+					<td>
+					<td>
+						<h5>Screenshot</h5>
 
-				<h5>Download</h5>
+						<img src="images/cupidity.jpg" />
+					</td>
+				</table>
+			</div>
+		</div>
 
-				Android: <a href="bin/pcremoteforandroid.apk">pcremoteforandroid.apk</a>
-				</br>
-				Cross-platform: <a href="bin/pcremoteserver.zip">pcremoteserver.jar</a>
+		<a onclick="selectSection('section', 'talks');"><h3>Talks</h3></a>
+		<div id="talks" class="section">
+			<h4>Pecha Kucha Night Auckland #34</h4>
 
-				<h5>Features</h5>
+			<p>
+				I gave a talk on "Games for Good" at the 34th <a href="http://www.pechakucha.co.nz">Auckland Pecha Kucha</a> night. The images are a bit ahead of the audio in the video.
+			</p>
 
-				<ul>
-					<li>Control the mouse and keyboard.</li>
-					<li>Automatically detect servers on the network.</li>
-					<li>Switch between multiple servers.</li>
-					<li>Switch between multiple control layouts.</li>
-					<li>Customise and create your own layouts with different controls.</li>
-				</ul>
-			<td>
-			<td>
-				<h5>Screenshot</h5>
+			<iframe src="http://player.vimeo.com/video/64213041" width="500" height="375" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+		</div>
 
-				<img src="images/pcremoteforandroid.png" />
-			</td>
-		</table>
+		<a onclick="selectSection('section', 'apps');"><h3>Apps</h3></a>
+		<div id="apps" class="section">
+			<h4>PC Remote for Android</h4>
 
-		<h3>Websites</h3>
+			<img src="images/pc-remote-for-android.png" alt="PC Remote for Android" />
 
-		<h4>www.rawyoga.co.nz</h4>
+			<p>
+				I wanted an excuse to try my hand at Android development and this was the result. You can use it to control your PC using your Android device.
+			</p>
 
-		<p>
-			I was the developer of this website (using Drupal for content management) and Jane from <a href="http://www.janesnation.com">JANESNATION</a> did an awesome job of the design and graphics.
-		</p>
+			<table>
+				<td>
+					<h5>Source</h5>
 
-		<a href="http://www.rawyoga.co.nz"><img alt="RAW Yoga" src="images/rawyoga.png" /></a>
+					<a href="https://github.com/simplegsb/pc-remote">Repository on GitHub</a>
 
-		<h4>www.garyshawnbuyn.me</h4>
+					<h5>Download</h5>
 
-		<p>
-			You are here! I wrote this website all by myself.
-		</p>
+					Android: <a href="bin/pcremoteforandroid.apk">pcremoteforandroid.apk</a>
+					</br>
+					Cross-platform: <a href="bin/pcremoteserver.zip">pcremoteserver.jar</a>
 
-		<a href="http://www.garyshawnbuyn.me"><h1 id="garyshawnbuyn">Gary Shawn Buyn</h1></a>
+					<h5>Features</h5>
 
-		<!--h4>www.simpleentertainment.org</h4>
+					<ul>
+						<li>Control the mouse and keyboard.</li>
+						<li>Automatically detect servers on the network.</li>
+						<li>Switch between multiple servers.</li>
+						<li>Switch between multiple control layouts.</li>
+						<li>Customise and create your own layouts with different controls.</li>
+					</ul>
+				<td>
+				<td>
+					<h5>Screenshot</h5>
 
-		<a href="http://www.simpleentertainment.org"><img id="simpleentertainment" src="images/simpleentertainment.png" /></a-->
+					<img src="images/pcremoteforandroid.png" />
+				</td>
+			</table>
+		</div>
 
-		<h3>Professional</h3>
+		<a onclick="selectSection('section', 'gameEngines');"><h3>Game Engines</h3></a>
+		<div id="gameEngines" class="section">
+			<h4>The Simplicity Engine</h4>
 
-		<h4>Bravura Solutions <a href="http://www.bravurasolutions.com">(website)</a></h4>
+			<img src="images/the-simplicity-engine.png" alt="The Simplicity Engine" />
 
-		<p>
-			I worked primarily on two of their web based enterprise solutions, <a href="http://bravurasolutions.com/solutions/products/wealth-and-life-administration-systems/sonata">Sonata</a> (Web) and eTalis in Agile environments. Both used technology stacks that I had almost no experience with but by the end of my time there I was the authority on most of them in the office where I worked due to my quick ability to learn.
-		</p>
+			<p>
+				The Simplicity Engine is a homegrown component-based game engine I created. Originally it was written in Java but I ported it to C++11. This engine was superceded by the GazEngine middleware I used for my projects at Media Design School where I could not use C++11. I have now taken the much more comprehensive and tested code from GazEngine back to The Simplicity Engine and C++11 and continued to expand on it.
+			</p>
 
-		<p>
-			I also often worked on technical roadmap tasks designed to improve the robustness and maintainability of the software. These tasks were often related to the merging the two products Sonata (Web) and eTalis and taking the best approaches from both into the final result.
-		</p>
+			<table>
+				<td>
+					<h5>Source</h5>
 
-		<p>
-			Before I left I was asked to perform training of employees wishing to move to development of web-based products which used a lot of different technologies and patterns from the desktop applications they had worked on previously.
-		</p>
+					<a href="https://github.com/simple-entertainment/simplicity">Repository on GitHub</a>
 
-		<h4>Matrikon <a href="http://www.matrikon.com">(website)</a></h4>
+					<h5>Features</h5>
 
-		<p>
-			I developed customizations and extensions to the <a href="http://www.maximoassetmanagement.com">Maximo</a> system, an enterprise quality J2EE framework owned by IBM. I also developed integrations to Oracle Apps, SAP and others. The majority of this work was Java coding and database scripting with XML and JSP for the UI elements.
-		</p>
+					<ul>
+						<li>Plug and Play Engine Architecture - Allows engines to be swapped in and out with minimal changes required e.g. swapping from Direct3D to OpenGL.</li>
+						<li>Component Based Architecture - Entities are constructed using composition, not inheritance to avoid class heirarchy explosions. Components are also interfaced to minimise dependencies on particular implementations.</li>
+						<li>Messaging - Messages are mediated to allow swapping in and out of possible message sources and destinations with minimal changes e.g. swapping from WinApi to FreeGLUT.</li>
+						<li>Maths - Matrix and Vector implementations and other useful functions.</li>
+						<li>FreeGLUT Engine - An engine that creates a <a href="http://freeglut.sourceforge.net/">FreeGLUT</a> window and acts as a message source for <a href="http://freeglut.sourceforge.net/">FreeGLUT</a> events.</li>
+						<li>OpenGL Engine - An engine that renders models using <a href="https://www.opengl.org/">OpenGL 4</a> i.e. the programmable pipeline.</li>
+						<li>WinApi Engine - An engine that creates a WinApi window and acts as a message source for WinApi events.</li>
+						<li>Direct3D Engine - An engine that renders models using Direct3D 11.</li>
+						<li>PhysX Engine - An engine that simulates physics using <a href="http://www.geforce.com/hardware/technology/physx">PhysX</a>.</li>
+						<li>Bullet Engine - An engine that simulates physics using <a href="http://bulletphysics.org/">Bullet</a> physics.</li>
+						<li>RakNet Engine - An engine that sends and receives messages over the network using <a href="http://www.jenkinssoftware.com/">RakNet</a>.</li>
+						<li>Rocket Engine - An engine that displays GUIs using <a href="http://librocket.com/">librocket</a>.</li>
+					</ul>
+				<td>
+				<td style="width: 40%;">
+					<h5>Code</h5>
 
-		<p>
-			I liaised with clients, often unsupervised and on-site, determined their needs, designed and implemented solutions, tested these solutions and deployed them to the clients' systems.
-		</p>
+					<code>
+						#include &lt;simplicity/API.h&gt;
+						</br>
+						</br>
+						int main()
+						</br>
+						{
+							</br>
+							&nbsp;&nbsp;&nbsp;&nbsp;Simplicity::addEngine(...);
+							</br>
+							&nbsp;&nbsp;&nbsp;&nbsp;Simplicity::getScene()->addEntity(...);
+							</br>
+							&nbsp;&nbsp;&nbsp;&nbsp;Simplicity::play();
+							</br>
+							</br>
+							&nbsp;&nbsp;&nbsp;&nbsp;return 0;
+							</br>
+						}
+					</code>
+				</td>
+			</table>
+		</div>
 
-		<p>
-			At times I was responsible for teaching and delegating work to up to three other developers. When I left I was the senior Maximo developer in the Canadian HQ office.
-		</p>
+		<a onclick="selectSection('section', 'professional');"><h3>Professional</h3></a>
+		<div id="professional" class="section">
+			<a onclick="selectSection('subSection', 'rushDigital');"><h4>Rush Digital <a href="http://rushdigital.nz">(website)</a></h4></a>
+			<div id="rushDigital" class="subSection">
+				<p>
+					I got to work on a lot of projects that were very technically challenging with a wide range of platforms and technologies.
+				</p>
 
-		<h4>Quadratek <a href="http://www.quadratekgroup.com">(website)</a></h4>
+				<p>
+					Here are some of those projects:
+				</p>
 
-		<p>
-			I was given a three month contract to consult and develop on a military satellite communications project for the UAE with their client <a href="http://www.astrium.eads.net/">EADS Astrium</a>. In this instance the Service Management flavour of Maximo was being used for the ordering of certain communications required for military deployments.
-		</p>
+				<a onclick="selectSection('superSubSection', 'meatPackHunt');"><h5>Monteith's MeatPack Hunt</h5></a>
+				<div id="meatPackHunt" class="superSubSection">
+					<p>
+						We created this game for Monteith's on Android and iOS. To be fair I only played a very small role in this one.
+					</p>
 
-		<p>
-			I advised on the best practices and solutions that could be used to implement this functionality before engaging in designing, developing and testing those solutions in an Agile environment.
-		</p>
+					<table>
+						<td>
+							<h5>Download</h5>
 
-		<p>
-			During this time I delegated work to up to two other developers. Although I was offered an extension to my contract by various parties I was not satisfied with the location of the work and so sought work elsewhere.
-		</p>
+							<a href="https://play.google.com/store/apps/details?id=nz.co.monteiths.meatpackhunt&hl=en">Android</a>
+							<br />
+							<a href="https://itunes.apple.com/nz/app/monteiths-meatpack-hunt/id824041610?mt=8">iOS</a>
+						<td>
+						<td>
+							<h5>Trailer</h5>
+
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/wKGvWgLrt30" frameborder="0" allowfullscreen></iframe>
+						</td>
+					</table>
+				</div>
+
+				<a onclick="selectSection('superSubSection', 'jellyCar3');"><h5>Jelly Car 3</h5></a>
+				<div id="jellyCar3" class="superSubSection">
+					<p>
+						We ported this game to Windows 8 and Windows Phone.
+					</p>
+
+					<table>
+						<td>
+							<h5>Buy</h5>
+
+							<a href="http://apps.microsoft.com/windows/en-nz/app/jellycar-3/e3aaaa50-398e-4956-b287-926aaad50587">Windows 8</a>
+							<br />
+							<a href="http://www.windowsphone.com/en-us/store/app/jellycar-3-wp/63f893e8-f2da-4241-a797-75c71ea3e5c8">Windows Phone</a>
+						<td>
+						<td>
+							<h5>Trailer</h5>
+
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/f8iTy12E5bs" frameborder="0" allowfullscreen></iframe>
+						</td>
+					</table>
+				</div>
+
+				<a onclick="selectSection('superSubSection', 'hiddenWorlds');"><h5>Disney Hidden Worlds</h5></a>
+				<div id="hiddenWorlds" class="superSubSection">
+					<p>
+						We ported this game to Windows 8 and Windows Phone.
+					</p>
+
+					<table>
+						<td>
+							<h5>Download</h5>
+
+							<a href="http://apps.microsoft.com/windows/en-nz/app/disney-hidden-worlds/a16336c5-1eef-4cd5-8402-46f816565200">Windows 8</a>
+							<br />
+							<a href="http://www.windowsphone.com/en-us/store/app/disney-hidden-worlds/39b40e68-d74c-4723-9701-c2bb44682a00">Windows Phone</a>
+						<td>
+						<td>
+							<h5>Trailer</h5>
+
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/qYp_GpQSOsI" frameborder="0" allowfullscreen></iframe>
+						</td>
+					</table>
+				</div>
+
+				<a onclick="selectSection('superSubSection', 'wordsOfWonder');"><h5>Words of Wonder</h5></a>
+				<div id="wordsOfWonder" class="superSubSection">
+					<p>
+						We ported this game to Windows 8 and Windows Phone.
+					</p>
+
+					<table>
+						<td>
+							<h5>Download</h5>
+
+							<a href="http://apps.microsoft.com/windows/en-nz/app/words-of-wonder/794e8866-6062-4dd6-86f4-f7acb5e43b4c">Windows 8</a>
+							<br />
+							<a href="http://www.windowsphone.com/en-us/store/app/words-of-wonder/473ae2cd-c5b4-4d6e-814e-458d82e3a5d3">Windows Phone</a>
+						<td>
+						<td>
+							<h5>Trailer</h5>
+
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/fBkerY825H4" frameborder="0" allowfullscreen></iframe>
+						</td>
+					</table>
+				</div>
+			</div>
+
+			<a onclick="selectSection('subSection', 'bravuraSolutions');"><h4>Bravura Solutions <a href="http://www.bravurasolutions.com">(website)</a></h4></a>
+			<div id="bravuraSolutions" class="subSection">
+				<p>
+					I worked primarily on two of their web based enterprise solutions, <a href="http://bravurasolutions.com/solutions/products/wealth-and-life-administration-systems/sonata">Sonata</a> (Web) and eTalis in Agile environments. Both used technology stacks that I had almost no experience with but by the end of my time there I was the authority on most of them in the office where I worked due to my quick ability to learn.
+				</p>
+
+				<p>
+					I also often worked on technical roadmap tasks designed to improve the robustness and maintainability of the software. These tasks were often related to the merging the two products Sonata (Web) and eTalis and taking the best approaches from both into the final result.
+				</p>
+
+				<p>
+					Before I left I was asked to perform training of employees wishing to move to development of web-based products which used a lot of different technologies and patterns from the desktop applications they had worked on previously.
+				</p>
+			</div>
+
+			<a onclick="selectSection('subSection', 'matrikon');"><h4>Matrikon <a href="http://www.matrikon.com">(website)</a></h4></a>
+			<div id="matrikon" class="subSection">
+				<p>
+					I developed customizations and extensions to the <a href="http://www.maximoassetmanagement.com">Maximo</a> system, an enterprise quality J2EE framework owned by IBM. I also developed integrations to Oracle Apps, SAP and others. The majority of this work was Java coding and database scripting with XML and JSP for the UI elements.
+				</p>
+
+				<p>
+					I liaised with clients, often unsupervised and on-site, determined their needs, designed and implemented solutions, tested these solutions and deployed them to the clients' systems.
+				</p>
+
+				<p>
+					At times I was responsible for teaching and delegating work to up to three other developers. When I left I was the senior Maximo developer in the Canadian HQ office.
+				</p>
+			</div>
+
+			<a onclick="selectSection('subSection', 'quadratek');"><h4>Quadratek <a href="http://www.quadratekgroup.com">(website)</a></h4></a>
+			<div id="quadratek" class="subSection">
+				<p>
+					I was given a three month contract to consult and develop on a military satellite communications project for the UAE with their client <a href="http://www.astrium.eads.net/">EADS Astrium</a>. In this instance the Service Management flavour of Maximo was being used for the ordering of certain communications required for military deployments.
+				</p>
+
+				<p>
+					I advised on the best practices and solutions that could be used to implement this functionality before engaging in designing, developing and testing those solutions in an Agile environment.
+				</p>
+
+				<p>
+					During this time I delegated work to up to two other developers. Although I was offered an extension to my contract by various parties I was not satisfied with the location of the work and so sought work elsewhere.
+				</p>
+			</div>
+		</div>
+
+		<a onclick="selectSection('section', 'mediaDesignSchool');"><h3>Media Design School <a href="http://www.mediadesignschool.com">(website)</a></h3></a>
+		<div id="mediaDesignSchool" class="section">
+			<p>
+				Here are a bunch of demos from my studies at Media Design School.
+			</p>
+
+			<a onclick="selectSection('subSection', 'gazEngine');"><h4>GazEngine</h4></a>
+			<div id="gazEngine" class="subSection">
+				<p>
+					GazEngine is the middleware that I developed during my time at Media Design School and is used with the majority of the demos that follow (except for a couple that use the GDE middleware provided by Media Design School). It was based on earlier work I had done to create <a href="https://github.com/simple-entertainment/simplicity">the simplicity engine</a> but that engine was in C++11 which could not be used for school projects.
+				</p>
+
+				<table>
+					<td>
+						<h5>Source</h5>
+
+						<a href="https://github.com/simplegsb/gazengine">Repository on GitHub</a>
+
+						<h5>Features</h5>
+
+						<ul>
+							<li>Plug and Play Engine Architecture - Allows engines to be swapped in and out with minimal changes required e.g. swapping from Direct3D to OpenGL.</li>
+							<li>Component Based Architecture - Entities are constructed using composition, not inheritance to avoid class heirarchy explosions. Components are also interfaced to minimise dependencies on particular implementations.</li>
+							<li>Messaging - Messages are mediated to allow swapping in and out of possible message sources and destinations with minimal changes e.g. swapping from WinApi to FreeGLUT.</li>
+							<li>ODBC - Wrapper classes for the ODBC API.</li>
+							<li>Maths - Matrix and Vector implementations and other useful functions.</li>
+							<li>WinApi Engine - An engine that creates a WinApi window and acts as a message source for WinApi events.</li>
+							<li>GDI Engine - An engine that renders models using the GDI API.</li>
+							<li>Direct3D Engine - An engine that renders models using Direct3D 10.</li>
+							<li>FreeGLUT Engine - An engine that creates a <a href="http://freeglut.sourceforge.net/">FreeGLUT</a> window and acts as a message source for <a href="http://freeglut.sourceforge.net/">FreeGLUT</a> events.</li>
+							<li>OpenGL Engine - An engine that renders models using <a href="https://www.opengl.org/">OpenGL 2</a> i.e. the fixed function pipeline.</li>
+							<li>Homegrown Physics Engine - A very basic partial implementation of physics.</li>
+							<li>PhysX Engine - An engine that simulates physics using <a href="http://www.geforce.com/hardware/technology/physx">PhysX</a>.</li>
+							<li>Bullet Engine - An engine that simulates physics using <a href="http://bulletphysics.org/">Bullet</a> physics.</li>
+						</ul>
+					<td>
+					<td style="width: 30%;">
+						<h5>Code</h5>
+
+						<code>
+							#include &lt;gazengine/GazEngine.h&gt;
+							</br>
+							</br>
+							int main()
+							</br>
+							{
+								</br>
+								&nbsp;&nbsp;&nbsp;&nbsp;GazEngine::addEngine(...);
+								</br>
+								&nbsp;&nbsp;&nbsp;&nbsp;GazEngine::addEntity(...);
+								</br>
+								&nbsp;&nbsp;&nbsp;&nbsp;GazEngine::play();
+								</br>
+								</br>
+								&nbsp;&nbsp;&nbsp;&nbsp;return 0;
+								</br>
+							}
+						</code>
+					</td>
+				</table>
+			</div>
+
+			<a onclick="selectSection('subSection', 'monsterTrainsOffDaRailz');"><h4>Monster Trains: Off Da Railz</h4></a>
+			<div id="monsterTrainsOffDaRailz" class="subSection">
+				<p>
+					This was a group project to rapid prototype a game. We used Unity3d as our middleware.
+				</p>
+
+				<p>
+					Off Da Railz is a game where you play a monster train that has gone off the rails and is out of control. You compete to obtain the most carriages. You can smash the carriages off of other trains by ramming them or shooting them.
+				</p>
+
+				<table>
+					<td>
+						<h5>Source</h5>
+
+						<a href="https://github.com/vox-populi/off-da-railz">Repository on GitHub</a>
+
+						<h5>Download</h5>
+
+						Windows: <a href="bin/offdarailz.zip">offdarailz.zip</a>
+
+						<h5>Controls</h5>
+
+						<ul>
+							<li>A/D/Left/Right - Steer the train.</li>
+							<li>Q/E/Mouse Scroll - Select a powerup.</li>
+							<li>Space - Use a powerup.</li>
+							<li>Esc - Show the menu.</li>
+						</ul>
+
+						<h5>Features</h5>
+
+						<ul>
+							<li>Multiplayer with up to 16 players over a LAN or the internet.</li>
+							<li>Shotgun and speed boost powerups.</li>
+							<li>No control over train speed.</li>
+							<li>Robust physics that ensure the train does not fall over and the carriages follow it correctly.</li>
+						</ul>
+					<td>
+					<td>
+						<h5>Trailer</h5>
+
+						<iframe width="560" height="315" src="http://www.youtube.com/embed/vdIptHqYp8w" frameborder="0" allowfullscreen></iframe>
+					</td>
+				</table>
+			</div>
+
+			<a onclick="selectSection('subSection', 'graphicsTechnicalDemo');"><h4>Graphics: Technical Demo</h4></a>
+			<div id="graphicsTechnicalDemo" class="subSection">
+				<p>
+					This demo combines vertex, pixel and geometry shaders, depth and stencil buffers, level of detail, normal mapping, skeletal animation and mesh loading implemented with the Direct3D 10 programmable pipeline.
+				</p>
+
+				<table>
+					<td>
+						<h5>Source</h5>
+
+						<a href="https://github.com/simplegsb/media-design-school/tree/master/Graphics/Summatives/TechnicalDemo">Repository on GitHub</a>
+
+						<h5>Download</h5>
+
+						Windows: <a href="bin/graphicstechnicaldemo.zip">graphicstechnicaldemo.zip</a>
+
+						<h5>Controls</h5>
+
+						<ul>
+							<li>WASD - Move chuck around the surface of the world.</li>
+							<li>F1 - Skip the intro.</li>
+							<li>F2 - Change the distance at which the LOD models change so that it is obvious when they change.</li>
+							<li>F3 - Toggle the use of normal maps.</li>
+							<li>F4 - Toggle the cartoon shading used on chuck.</li>
+							<li>F5 - Toggle the outlines (there is a known issue where the outlines can cause performance problems, disable this if it is running slowly).</li>
+							<li>F6 - Toggle the grayscale shading around chuck.</li>
+							<li>F7 - Toggle the shadow volume (I haven't got this finished so it looks a bit crazy!).</li>
+						</ul>
+
+						<h5>Features</h5>
+
+						<ul>
+							<li>Triangle flipping animation during the intro that constructs the models.</li>
+							<li>Discrete LOD on the tree models.</li>
+							<li>Normal mapping on the world models.</li>
+							<li>Cartoon shading on chuck.</li>
+							<li>Thick outlines around the models.</li>
+							<li>Greyscale shading on the world model around chuck.</li>
+							<li>A floating cube with skeletal animation.</li>
+						</ul>
+					<td>
+					<td>
+						<h5>Screenshot</h5>
+
+						<img src="images/graphicstechnicaldemo.png" />
+					</td>
+				</table>
+			</div>
+
+			<a onclick="selectSection('subSection', 'kilonzo');"><h4>Kilonzo</h4></a>
+			<div id="kilonzo" class="subSection">
+				<p>
+					A board game we designed using an iteritive process. Our lecturer went to wikipedia and pressed the 'random article' for each group to give us our themes. We got <a href="http://en.wikipedia.org/wiki/Charles_Kilonzo">Charles Kilonzo</a> - a Kenyan politician - and decided to make a game about Kenyan politics.
+				</p>
+
+				<table>
+					<td>
+						<h5>Download</h5>
+
+						<a href="bin/kilonzo.zip">kilonzo.zip</a>
+
+						<h5>A Guide to the Kenyan Political System</h5>
+
+						<a href="bin/KilonzoGuide.pdf">KilonzoGuide.pdf</a>
+
+						<h5>Features</h5>
+
+						<ul>
+							<li>Up to 4 players.</li>
+							<li>Gain influence in the different regions of Kenya.</li>
+							<li>Hold campaigns (and smear campaigns against your opponents).</li>
+							<li>Debate with your opponents.</li>
+						</ul>
+					<td>
+					<td>
+						<h5>Game Board</h5>
+
+						<img src="images/kilonzo.jpg" />
+					</td>
+				</table>
+			</div>
+
+			<a onclick="selectSection('subSection', 'snake');"><h4>Snake</h4></a>
+			<div id="snake" class="subSection">
+				<p>
+					A multiplayer version of the game 'snake' found on many a Nokia phone.
+				</p>
+
+				<table>
+					<td>
+						<h5>Source</h5>
+
+						<a href="https://github.com/simplegsb/media-design-school/tree/master/Technology Leverage/Summatives/Snake">Repository on GitHub</a>
+
+						<h5>Download</h5>
+
+						Windows: <a href="bin/Snake.exe">Snake.exe</a>
+
+						<h5>Controls</h5>
+
+						<ul>
+							<li>WASD - Move your snake around the level.</li>
+							<li>Tab - Show the score board.</li>
+						</ul>
+
+						<h5>Features</h5>
+
+						<ul>
+							<li>Up to 16 players (over a LAN)</li>
+							<li>Persistent high scores (requires appropriate ODBC data source)</li>
+						</ul>
+					<td>
+					<td>
+						<h5>Screenshot</h5>
+
+						<img src="images/snake.png" />
+					</td>
+				</table>
+			</div>
+
+			<a onclick="selectSection('subSection', 'greenCompanion');"><h4>Green Companion</h4></a>
+			<div id="greenCompanion" class="subSection">
+				<p>
+					A non-violent game prototype. We based our game on the concepts of futility, balance and collaboration. We used Unity3d as our middleware. Being a prototype, some of the features do not work correctly.
+				</p>
+
+				<table>
+					<td>
+						<h5>Source</h5>
+
+						<a href="https://github.com/simplegsb/moving-crystal-turtle/green-companion">Repository on GitHub</a>
+
+						<h5>Download</h5>
+
+						Windows: <a href="bin/greencompanion.zip">greencompanion.zip</a>
+
+						<h5>Controls</h5>
+
+						When the game starts it will give you a short tutorial, click the mouse or press any key to advance through the tutorial.
+
+						<h5>Features</h5>
+
+						<ul>
+							<li>Plants require nutrients to grow.</li>
+							<li>Add nutrients manually or find ways for the garden to sustain itself.</li>
+							<li>Trade plants with friends over a LAN or the internet.</li>
+						</ul>
+					<td>
+					<td>
+						<h5>Screenshot</h5>
+
+						<img src="images/greencompanion.png" />
+					</td>
+				</table>
+			</div>
+
+			<a onclick="selectSection('subSection', 'steering');"><h4>Steering</h4></a>
+			<div id="steering" class="subSection">
+				<p>
+					Steering behaviours give autonomous characters "the ability to navigate around their world in a life-like and improvisational manner" <a href="http://www.red3d.com/cwr/steer/">(?)</a>. This demo uses whiskers, repulsion zones and approach radii as well as various other techniques to acheive this.
+				</p>
+
+				<table>
+					<td>
+						<h5>Source</h5>
+
+						<a href="https://github.com/simplegsb/media-design-school/tree/master/AI/Formatives/Steering">Repository on GitHub</a>
+
+						<h5>Download</h5>
+
+						Windows: <a href="bin/steering.zip">steering.zip</a>
+
+						<h5>Controls</h5>
+
+						<p>
+							Move the mouse around the window so the cats have a moving target.
+						</p>
+
+						<h5>Features</h5>
+
+						<ul>
+							<li>Cats seek the mouse.</li>
+							<li>Cats have whiskers which they use to avoid collisions with other cats and static obstacles.</li>
+							<li>Trees and the ends of walls have repulsion zones which the cats react to.</li>
+							<li>Repulsion zones and whiskers effect both the speed and desired heading of the cats.</li>
+							<li>If a cat gets stuck, it will attempt to turn around.</li>
+							<li>The mouse is surrounded by a large approach radius, when the cats enter it they will begin to slow down.</li>
+							<li>Cats turn faster when they are facing away from the mouse.</li>
+							<li>Cats travel faster when they are not turning (or turning slowly).</li>
+						</ul>
+					<td>
+					<td>
+						<h5>Screenshot</h5>
+
+						<img src="images/steering.png" />
+					</td>
+				</table>
+			</div>
+
+			<a onclick="selectSection('subSection', 'grumpyBirds3d');"><h4>Grumpy Birds 3D</h4></a>
+			<div id="grumpyBirds3d" class="subSection">
+				<p>
+					A 3D take-off of Angry Birds that uses the PhysX physics library to simulate a 3D physical world.
+				</p>
+
+				<table>
+					<td>
+						<h5>Source</h5>
+
+						<a href="https://github.com/simplegsb/media-design-school/tree/master/Physics/Summatives/GrumpyBirds3D">Repository on GitHub</a>
+
+						<h5>Download</h5>
+
+						Windows: <a href="bin/grumpybirds3d.zip">grumpybirds3d.zip</a>
+
+						<h5>Controls</h5>
+
+						<ul>
+							<li>Mouse Scroll - Pull back on the slingshot.</li>
+							<li>Hold Left Mouse Button and Move Mouse - Aim the slingshot.</li>
+							<li>Let Go of the Left Mouse Button - Fire the slingshot.</li>
+						</ul>
+
+						<h5>Features</h5>
+
+						<ul>
+							<li>You get 10 'birds' to fire.</li>
+							<li>The birds explode after a certain time frame.</li>
+							<li>There are four 'pigs' to kill.</li>
+							<li>The 'pigs' are killed when enough force is applied to them.</li>
+							<li>The slingshot uses PhysX springs.</li>
+							<li>The fence uses PhysX fixed joints.</li>
+						</ul>
+					<td>
+					<td>
+						<h5>Screenshot</h5>
+
+						<img src="images/grumpybirds3d.png" />
+					</td>
+				</table>
+			</div>
+
+			<a onclick="selectSection('subSection', '3dWorld');"><h4>3D World</h4></a>
+			<div id="3dWorld" class="subSection">
+				<p>
+					A basic 3D world in which you can drive a tank.
+				</p>
+
+				<table>
+					<td>
+						<h5>Source</h5>
+
+						<a href="https://github.com/simplegsb/media-design-school/tree/master/Physics/Summatives/GrumpyBirds3D">Repository on GitHub</a>
+
+						<h5>Download</h5>
+
+						Windows: <a href="bin/3dworld.zip">3dworld.zip</a>
+
+						<h5>Controls</h5>
+
+						<ul>
+							<li>WASD - Drive the tank around the world.</li>
+							<li>Mouse - Aim the turret.</li>
+							<li>Left Mouse Button - Fire the main gun.</li>
+						</ul>
+
+						<h5>Features</h5>
+
+						<ul>
+							<li>Lighting</li>
+							<li>Materials</li>
+							<li>Physics</li>
+							<li>Textures</li>
+						</ul>
+					<td>
+					<td>
+						<h5>Screenshot</h5>
+
+						<img src="images/3dworld.png" />
+					</td>
+				</table>
+			</div>
+
+			<!--h4>Connect 4</h4>
+
+			<p>
+				This variation of Connect 4 allows multiple connections of 4 to be made by each player. The game ends when the board is full and the winner is the player who has made the most connections.
+			</p>
+
+			<table>
+				<td>
+					<h5>Source</h5>
+
+					<a href="https://github.com/simplegsb/media-design-school/tree/master/AI/Formatives/Connect4">Repository on GitHub</a>
+
+					<h5>Download</h5>
+
+					Windows: <a href="bin/connect4.zip">connect4.zip</a>
+
+					<h5>Controls</h5>
+
+					<p>
+						Use the left mouse button to select which column you want to drop a token into.
+					</p>
+
+					<h5>Features</h5>
+
+					<ul>
+						<li>An AI opponent who decides which move to take using a red-black tree with alpha-beta pruning.</li>
+					</ul>
+				<td>
+				<td>
+					<h5>Screenshot</h5>
+
+					<img src="images/connect4.png" />
+				</td>
+			</table>
+
+			<h4>Mob Mole Madness</h4>
+
+			<p>
+				The AI in this game combines path finding, steering, state machines, world exploration, visual debugging ...
+			</p>
+
+			<table>
+				<td>
+					<h5>Source</h5>
+
+					<a href="https://github.com/simplegsb/media-design-school/tree/master/AI/Summatives/MobMoleMadness">Repository on GitHub</a>
+
+					<h5>Download</h5>
+
+					Windows: <a href="bin/mobmolemadness.zip">mobmolemadness.zip</a>
+
+					<h5>Controls</h5>
+
+					<p>
+						Use the arrow keys to move the squirrel around the map. Moving gives off vibrations which the moles can detect so be careful not to move too much when close to them. Collect the acorns and take them back to your holes to complete the level.
+					</p>
+
+					<h5>Features</h5>
+
+					<ul>
+						<li>...</li>
+					</ul>
+				<td>
+				<td>
+					<h5>Screenshot</h5>
+
+					<img src="images/mobmolemadness.png" />
+				</td>
+			</table>
+
+			<h4>Grumpy Birds</h4>
+
+			<p>
+				...
+			</p>
+
+			<table>
+				<td>
+					<h5>Source</h5>
+
+					<a href="https://github.com/simplegsb/media-design-school/tree/master/Physics/Formatives/GrumpyBirds">Repository on GitHub</a>
+
+					<h5>Download</h5>
+
+					Windows: <a href="bin/grumpybirds.zip">grumpybirds.zip</a>
+
+					<h5>Controls</h5>
+
+					<p>
+						...
+					</p>
+
+					<h5>Features</h5>
+
+					<ul>
+						<li>...</li>
+					</ul>
+				<td>
+				<td>
+					<h5>Screenshot</h5>
+
+					<img src="images/grumpybirds.png" />
+				</td>
+			</table>
+
+			<h4>ZDay</h4>
+
+			<p>
+			
+			</p>
+
+			<table>
+				<td>
+					<h5>Download</h5>
+
+					<a href="bin/kilonzo.zip">kilonzo.zip</a>
+
+					<h5>A Guide to the Kenyan Political System</h5>
+
+					<a href="bin/KilonzoGuide.pdf">KilonzoGuide.pdf</a>
+
+					<h5>Features</h5>
+
+					<ul>
+						<li>Up to 4 players.</li>
+						<li>Gain influence in the different regions of Kenya.</li>
+						<li>Hold campaigns (and smear campaigns against your opponents).</li>
+						<li>Debate with your opponents.</li>
+					</ul>
+				<td>
+				<td>
+					<h5>Game Board</h5>
+
+					<img src="images/kilonzo.jpg" />
+				</td>
+			</table-->
+		</div>
 	</body>
 
 </html>
