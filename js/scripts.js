@@ -1,34 +1,20 @@
 
 function openSection(sectionClass, sectionId)
 {
-	var sections = document.getElementsByClassName(sectionClass);
-	for (index = 0; index < sections.length; index++)
-	{
-		if (sections[index].id === sectionId)
-		{
-			sections[index].style.display = 'block';
-		}
-		else
-		{
-			sections[index].style.display = 'none';
-		}
-	}
+    $('.' + sectionClass).slideUp();
+    $('#' + sectionId).slideDown();
 }
 
 function selectSection(sectionClass, sectionId)
 {
-	var sections = document.getElementsByClassName(sectionClass);
-	for (index = 0; index < sections.length; index++)
-	{
-		if (sections[index].id === sectionId && sections[index].style.display !== 'block')
-		{
-			sections[index].style.display = 'block';
-		}
-		else
-		{
-			sections[index].style.display = 'none';
-		}
-	}
+    var originalDisplay = $('#' + sectionId).css('display');
+
+    $('.' + sectionClass).slideUp();
+
+    if (originalDisplay === 'none')
+    {
+        $('#' + sectionId).slideDown();
+    }
 }
 
 function initGertrudeMap()

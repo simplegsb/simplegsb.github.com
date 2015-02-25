@@ -62,6 +62,11 @@ q
 .superSubSection
 {
 	display: none;
+
+	/* The following is to stop the jQuery slide from jumping, it looks quite nice too :) */
+	margin-bottom: -21px;
+	margin-top: -21px;
+	overflow: hidden;
 }
 
 /***************************************************
