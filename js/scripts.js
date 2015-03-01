@@ -1,20 +1,63 @@
 
+function fixSlide()
+{
+	$('h3').css('margin', '0px');
+	$('h4').css('margin', '0px');
+	$('h5').css('margin', '0px');
+
+	$('.section').before('<div style="height: 1px"></div>');
+	$('.subSection').before('<div style="height: 1px"></div>');
+	$('.superSubSection').before('<div style="height: 1px"></div>');
+
+	$('.section').after('<div style="height: 1px"></div>');
+	$('.subSection').after('<div style="height: 1px"></div>');
+	$('.superSubSection').after('<div style="height: 1px"></div>');
+}
+
 function openSection(sectionClass, sectionId)
 {
-    $('.' + sectionClass).slideUp();
-    $('#' + sectionId).slideDown();
+	$('.' + sectionClass).slideUp();
+	$('#' + sectionId).slideDown();
 }
 
 function selectSection(sectionClass, sectionId)
 {
-    var originalDisplay = $('#' + sectionId).css('display');
+	var originalDisplay = $('#' + sectionId).css('display');
 
-    $('.' + sectionClass).slideUp();
+	$('.' + sectionClass).slideUp();
 
-    if (originalDisplay === 'none')
-    {
-        $('#' + sectionId).slideDown();
-    }
+	if (originalDisplay === 'none')
+	{
+		$('#' + sectionId).slideDown();
+	}
+}
+
+function selectGalleryImage(galleryId, imageIndex)
+{
+	var images = document.getElementById(galleryId).getElementsByTagName('IMG');
+	var captions = document.getElementById(galleryId).getElementsByTagName('DIV');
+	for (index = 0; index < images.length; index++)
+	{
+		var image = images[index];
+		var caption = captions[index];
+
+		if (index === imageIndex && image.style.width !== '95%')
+		{
+			image.style.width = '95%';
+			caption.style.display = 'block';
+		}
+		else
+		{
+			image.style.width = '45%';
+			caption.style.display = 'none';
+		}
+	}
+}
+
+function setVideo(videoId, videoFile)
+{
+	var video = document.getElementById(videoId);
+	video.src = videoFile;
 }
 
 function initGertrudeMap()

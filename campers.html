@@ -12,7 +12,7 @@
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	</head>
 
-	<body>
+	<body onload="fixSlide();">
 		<div id="header">
 			<h1><a href="index.html">Gary Shawn Buyn / Prem Gyan</a></h1>
 			<div id="menu">
@@ -28,21 +28,24 @@
 			I like building camper vans.
 		</p>
 
-		<a onclick="selectSection('section', 'gertrude'); initGertrudeMap();"><h3>Gertrude</h3></a>
+		<a onclick="selectSection('section', 'gertrude');"><h3>Gertrude</h3></a>
 		<div id="gertrude" class="section">
 			<p>
 				Gertrude was my first camper van. She was given an ugly name to match her... well... ugliness. When I bought her she was already fitted out but I decided it was shit, pulled everything out and started from scratch. Lots of fun! Sadly Gertrude died and was unable to complete her last mission to Edinburgh. May she rest in peace.
 			</p>
 
-			<h4>Before</h4>
+			<a onclick="selectSection('subSection', 'before');"><h4>Before</h4></a>
+			<div id="before" class="subSection">
+			</div>
 
-			<h4>The Build</h4>
+			<a onclick="selectSection('subSection', 'theBuild');"><h4>The Build</h4></a>
+			<div id="theBuild" class="subSection">
+			</div>
 
-			<h4>After</h4>
-
-			<h4>The Journey</h4>
-
-			<div id="gertrudeMap" style="width: 700px; height: 600px;"></div>
+			<a onclick="selectSection('subSection', 'theJourney'); initGertrudeMap();"><h4>The Journey</h4></a>
+			<div id="theJourney" class="subSection">
+				<div id="gertrudeMap" style="width: 700px; height: 600px;"></div>
+			</div>
 		</div>
 
 		<a onclick="selectSection('section', 'lucille'); initLucilleMap();"><h3>Lucille</h3></a>
@@ -51,15 +54,22 @@
 				Lucille was a 16 seater mini-bus. I whipped out all of her seats and fitted her as a luxury moving home. Some lucky guy picker her up for cheap since I was leaving europe and needed a quick sale during winter...
 			</p>
 
-			<h4>Before</h4>
+			<a onclick="selectSection('subSection', 'before');"><h4>Before</h4></a>
+			<div id="theBuild" class="subSection">
+			</div>
 
-			<h4>The Build</h4>
+			<a onclick="selectSection('subSection', 'theBuild');"><h4>The Build</h4></a>
+			<div id="theBuild" class="subSection">
+			</div>
 
-			<h4>After</h4>
+			<a onclick="selectSection('subSection', 'after');"><h4>After</h4></a>
+			<div id="after" class="subSection">
+			</div>
 
-			<h4>The Journey</h4>
-
-			<div id="lucilleMap" style="width: 700px; height: 600px;"></div>
+			<a onclick="selectSection('subSection', 'theJourney'); initLucilleMap();"><h4>The Journey</h4></a>
+			<div id="theJourney" class="subSection">
+				<div id="lucilleMap" style="width: 700px; height: 600px;"></div>
+			</div>
 		</div>
 	</body>
 
