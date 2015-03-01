@@ -1,4 +1,6 @@
 
+$(document).ready(fixSlide);
+
 function fixSlide()
 {
 	$('h3').css('margin', '0px');
