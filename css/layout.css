@@ -18,10 +18,9 @@ body
 {
 	color: #666;
 	font-family: handwritten;
-	margin: 0px auto;
+	margin: 0px 50px;
 	padding: 0px;
 	position: relative;
-	width: 1000px;
 }
 
 h1
@@ -35,19 +34,37 @@ h1 a
 	color: #666;
 }
 
+html
+{
+	background-image: url("../images/background.jpg");
+}
+
 td
 {
 	vertical-align: top;
 }
 
+h2
+{
+	margin: 0px;
+}
+
 h3
 {
-	background-color: #ddd;
+	background-color: rgba(150, 150, 150, 0.5);
+	margin: 0px;
 }
 
 h4
 {
-	background-color: #eee;
+	background-color: rgba(200, 200, 200, 0.5);
+	margin: 0px;
+}
+
+h5
+{
+	font-size: 16px;
+	margin: 0px;
 }
 
 q
@@ -57,11 +74,31 @@ q
 	font-weight: bold;
 }
 
-.section,
-.subSection,
-.superSubSection
+.aside
 {
-	display: none;
+	float: right;
+	margin-left: 1em;
+	margin-top: 1em;
+}
+
+/* Round buttons adapted from http://codeitdown.com/css-round-buttons/ */
+.roundButton
+{
+	background-color: #08e;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+.roundButton:hover
+{
+	background-color: #0e8;
+}
+
+.roundButton img
+{
+	display: block;
+	padding: 12%;
+	width: 76%;
 }
 
 /***************************************************
@@ -89,5 +126,23 @@ q
 #title a
 {
 	display: table-cell;
+}
+
+/***************************************************
+ * Sections
+ **************************************************/
+
+.section,
+.subSection,
+.superSubSection
+{
+	display: none;
+	overflow: auto;
+	width: 100%
+}
+
+.slideFixer
+{
+	height: 1px;
 }
 
