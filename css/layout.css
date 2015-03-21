@@ -123,11 +123,6 @@ q
 	display: table-cell;
 }
 
-#title a
-{
-	display: table-cell;
-}
-
 /***************************************************
  * Sections
  **************************************************/
@@ -146,3 +141,45 @@ q
 	height: 1px;
 }
 
+/***************************************************
+ * Smaller screens (e.g. mobile)
+ **************************************************/
+
+@media only screen and (max-width: 700px)
+{
+	body
+	{
+		margin: 0px 5px;
+	}
+
+	h1
+	{
+		font-size: 24px;
+	}
+
+	img
+	{
+		max-width: 100%;
+	}
+
+	iframe
+	{
+		max-width: 100%;
+	}
+
+	.aside
+	{
+		margin-left: 0px;
+		width: 100%;
+	}
+
+	#menu
+	{
+		display: initial;
+	}
+
+	#menu a
+	{
+		display: block;
+	}
+}
