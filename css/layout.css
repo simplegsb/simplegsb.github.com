@@ -74,33 +74,6 @@ q
 	font-weight: bold;
 }
 
-.aside
-{
-	float: right;
-	margin-left: 1em;
-	margin-top: 1em;
-}
-
-/* Round buttons adapted from http://codeitdown.com/css-round-buttons/ */
-.roundButton
-{
-	background-color: #08e;
-	border-radius: 50%;
-	display: inline-block;
-}
-
-.roundButton:hover
-{
-	background-color: #0e8;
-}
-
-.roundButton img
-{
-	display: block;
-	padding: 12%;
-	width: 76%;
-}
-
 /***************************************************
  * Header
  **************************************************/
@@ -123,6 +96,13 @@ q
 	display: table-cell;
 }
 
+.aside
+{
+	float: right;
+	margin-left: 1em;
+	margin-top: 1em;
+}
+
 /***************************************************
  * Sections
  **************************************************/
@@ -142,10 +122,44 @@ q
 }
 
 /***************************************************
+ * Buttons
+ **************************************************/
+
+/* Round buttons adapted from http://codeitdown.com/css-round-buttons/ */
+.roundButton
+{
+	background-color: #08e;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+.roundButton:hover
+{
+	background-color: #0e8;
+}
+
+.roundButton img
+{
+	display: block;
+	padding: 12%;
+	width: 76%;
+}
+
+.selected
+{
+	background-color: #0e8;
+}
+
+.selected a
+{
+	cursor: default;
+}
+
+/***************************************************
  * Smaller screens (e.g. mobile)
  **************************************************/
 
-@media only screen and (max-width: 700px)
+@media only screen and (max-device-width: 700px)
 {
 	body
 	{
@@ -167,12 +181,6 @@ q
 		max-width: 100%;
 	}
 
-	.aside
-	{
-		margin-left: 0px;
-		width: 100%;
-	}
-
 	#menu
 	{
 		display: initial;
@@ -181,5 +189,11 @@ q
 	#menu a
 	{
 		display: block;
+	}
+
+	.aside
+	{
+		margin-left: 0px;
+		width: 100%;
 	}
 }

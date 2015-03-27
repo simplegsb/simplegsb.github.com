@@ -9,8 +9,10 @@
 		<link rel="shortcut icon" href="images/favicon.ico" />
 		<link rel="stylesheet" type="text/css" href="css/fonts.css" />
 		<link rel="stylesheet" type="text/css" href="css/layout.css" />
+
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-		<script type="text/javascript" src="js/scripts.js"></script>
+		<script type="text/javascript" src="js/sections.js"></script>
+		<script type="text/javascript" src="js/film.js"></script>
 	</head>
 
 	<body>
@@ -29,7 +31,7 @@
 			At University I took a couple of Screen and Media papers as my electorates. Most of what I've made has no seriousness at all and I like that.
 		</p>
 
-		<a onclick="selectSection('section', 'str8Gangsta');"><h3>Str8 Gangsta</h3></a>
+		<a onclick="selectSection('section', 'str8Gangsta'); pauseVideos();"><h3>Str8 Gangsta</h3></a>
 		<div id="str8Gangsta" class="section">
 			<div class="aside">
 				<video src="videos/str8-gangsta.ogg" controls="controls" preload="metadata">
@@ -41,11 +43,11 @@
 				An instant cult classic. The first film officially made by simple entertainment (me). This film may or may not depict graphic violence and strong course language.
 			</p>
 		</div>
-		
-		<a onclick="selectSection('section', 'bigDeal');"><h3>Big Deal</h3></a>
+
+		<a onclick="selectSection('section', 'bigDeal'); pauseVideos();"><h3>Big Deal</h3></a>
 		<div id="bigDeal" class="section">
 			<div class="aside">
-				<video src="videos/big-deal.ogg" controls="controls" preload="metadata">
+				<video id="bigDealVideo" controls="controls" preload="metadata">
 					No video for you sonny jim, your browser doesn't support it.
 				</video>
 			</div>
@@ -53,6 +55,17 @@
 			<p>
 				Now, after numerous extensions to the release date and exceeding the budget 10 fold, the most anticipated film of Summer 07-08 is here! What's more, all the critics are hailing it as 'worth the wait' and 'revolutionary'. P.S. Why is it that every second film you see an add for is 'revolutionary'? That's bullshit.
 			</p>
+
+			<div class="roundButton sd">
+				<a onclick="switchVideo($(this), 'bigDealVideo', 'videos/big-deal-360.mp4');">
+					<img src="images/sd.png" alt="SD" />
+				</a>
+			</div>
+			<div class="roundButton hd">
+				<a onclick="switchVideo($(this), 'bigDealVideo', 'videos/big-deal-720.mp4');">
+					<img src="images/hd.png" alt="HD" />
+				</a>
+			</div>
 		</div>
 	</body>
 

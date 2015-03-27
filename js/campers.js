@@ -1,77 +1,5 @@
 
-// Do stuff when the page opens!
-$(document).ready(function()
-{
-	fixSlide();
-});
-
-// The jQuery slide functions were jumpy, this fixes it.
-function fixSlide()
-{
-	$('.section').before('<div class="slideFixer"></div>');
-	$('.subSection').before('<div class="slideFixer"></div>');
-	$('.superSubSection').before('<div class="slideFixer"></div>');
-
-	$('.section').after('<div class="slideFixer"></div>');
-	$('.subSection').after('<div class="slideFixer"></div>');
-	$('.superSubSection').after('<div class="slideFixer"></div>');
-}
-
-// Sections
-/////////////////////////
-
-// Open the given section.
-function openSection(sectionClass, sectionId)
-{
-	$('.' + sectionClass).slideUp();
-	$('#' + sectionId).slideDown();
-}
-
-// Select the given section (toggles open/close).
-function selectSection(sectionClass, sectionId)
-{
-	var originalDisplay = $('#' + sectionId).css('display');
-
-	$('.' + sectionClass).slideUp();
-
-	if (originalDisplay === 'none')
-	{
-		$('#' + sectionId).slideDown();
-	}
-}
-
-function selectGalleryImage(galleryId, imageIndex)
-{
-	var images = document.getElementById(galleryId).getElementsByTagName('IMG');
-	var captions = document.getElementById(galleryId).getElementsByTagName('DIV');
-	for (index = 0; index < images.length; index++)
-	{
-		var image = images[index];
-		var caption = captions[index];
-
-		if (index === imageIndex && image.style.width !== '95%')
-		{
-			image.style.width = '95%';
-			caption.style.display = 'block';
-		}
-		else
-		{
-			image.style.width = '45%';
-			caption.style.display = 'none';
-		}
-	}
-}
-
-function setVideo(videoId, videoFile)
-{
-	var video = document.getElementById(videoId);
-	video.src = videoFile;
-}
-
-// Maps
-/////////////////////////
-
-// Gertrude's Journey
+// Gertrude's Journey.
 function initGertrudeMap()
 {
 	var latlng = new google.maps.LatLng(44.0, 0.0);
@@ -127,7 +55,7 @@ function initGertrudeMap()
 	new google.maps.Polyline({strokeColor: '#532009', map: map, path: path});
 }
 
-// Lucille's Journey
+// Lucille's Journey.
 function initLucilleMap()
 {
 	var latlng = new google.maps.LatLng(44.0, 0.0);
@@ -175,4 +103,3 @@ function initLucilleMap()
     
 	new google.maps.Polyline({strokeColor: '#532009', map: map, path: path});
 }
-
