@@ -34,7 +34,7 @@
 		<a onclick="selectSection('section', 'str8Gangsta'); pauseVideos();"><h3>Str8 Gangsta</h3></a>
 		<div id="str8Gangsta" class="section">
 			<div class="aside">
-				<video src="videos/str8-gangsta.ogg" controls="controls" preload="metadata">
+				<video id="str8GangstaVideo" controls="controls" preload="metadata">
 					No video for you sonny jim, your browser doesn't support it.
 				</video>
 			</div>
@@ -42,6 +42,17 @@
 			<p>
 				An instant cult classic. The first film officially made by simple entertainment (me). This film may or may not depict graphic violence and strong course language.
 			</p>
+
+			<div class="roundButton sd">
+				<a onclick="switchVideo($(this), 'str8GangstaVideo', 'videos/str8-gangsta-360.mp4');">
+					<img src="images/sd.png" alt="SD" />
+				</a>
+			</div>
+			<div class="roundButton hd">
+				<a onclick="switchVideo($(this), 'str8GangstaVideo', 'videos/str8-gangsta-720.mp4');">
+					<img src="images/hd.png" alt="HD" />
+				</a>
+			</div>
 		</div>
 
 		<a onclick="selectSection('section', 'bigDeal'); pauseVideos();"><h3>Big Deal</h3></a>

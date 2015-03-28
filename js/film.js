@@ -12,12 +12,14 @@ function initVideos()
 	{
 		$('video').attr('width', '100%');
 	    $('.sd').addClass('selected');
+	    $('#str8GangstaVideo').attr('src', 'videos/str8-gangsta-360.mp4');
 	    $('#bigDealVideo').attr('src', 'videos/big-deal-360.mp4');
 	}
 	else
 	{
 	    $('video').attr('width', '720px');
 	    $('.hd').addClass('selected');
+	    $('#str8GangstaVideo').attr('src', 'videos/str8-gangsta-720.mp4');
 	    $('#bigDealVideo').attr('src', 'videos/big-deal-720.mp4');
 	}
 }
