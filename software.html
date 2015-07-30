@@ -149,8 +149,8 @@
 				</div>
 			</div>
 
-			<a onclick="selectSection('subSection', 'simplicity');"><h4>Simplicity</h4></a>
-			<div id="simplicity" class="section">
+			<a onclick="selectSection('subSection', 'simplicity');"><h4>simplicity</h4></a>
+			<div id="simplicity" class="subSection">
 				<img src="images/the-simplicity-engine.png" alt="Simplicity" />
 
 				<div class="aside">
@@ -176,24 +176,37 @@
 				</div>
 
 				<p>
-					The Simplicity Engine is a homegrown component-based game engine I created. Originally it was written in Java but I ported it to C++11. This engine was superceded by the <a onclick="openSection('section', 'mediaDesignSchool'); openSection('subSection', 'gazEngine');">GazEngine</a> middleware I used for my projects at Media Design School where I could not use C++11. I have now taken the much more comprehensive and tested code from <a onclick="openSection('section', 'mediaDesignSchool'); openSection('subSection', 'gazEngine');">GazEngine</a> back to The Simplicity Engine and C++11 and continued to expand on it.
+					simplicity is a homegrown component-based game engine I created. Originally it was written in Java but I ported it to C++11. This engine was superceded by the <a onclick="openSection('section', 'mediaDesignSchool'); openSection('subSection', 'gazEngine');">GazEngine</a> middleware I used for my projects at Media Design School where I could not use C++11. I have now taken the much more comprehensive and tested code from <a onclick="openSection('section', 'mediaDesignSchool'); openSection('subSection', 'gazEngine');">GazEngine</a> back to simplicity and C++11 and continued to expand on it.
 				</p>
 
 				<h5>Features</h5>
 
 				<ul>
-					<li>Plug and Play Engine Architecture - Allows engines to be swapped in and out with minimal changes required e.g. swapping from Direct3D to OpenGL.</li>
-					<li>Component Based Architecture - Entities are constructed using composition, not inheritance to avoid class heirarchy explosions. Components are also interfaced to minimise dependencies on particular implementations.</li>
-					<li>Messaging - Messages are mediated to allow swapping in and out of possible message sources and destinations with minimal changes e.g. swapping from WinApi to FreeGLUT.</li>
-					<li>Maths - Matrix and Vector implementations and other useful functions.</li>
-					<li>FreeGLUT Engine - An engine that creates a <a href="http://freeglut.sourceforge.net/">FreeGLUT</a> window and acts as a message source for <a href="http://freeglut.sourceforge.net/">FreeGLUT</a> events.</li>
-					<li>OpenGL Engine - An engine that renders models using <a href="https://www.opengl.org/">OpenGL 4</a> i.e. the programmable pipeline.</li>
-					<li>WinApi Engine - An engine that creates a WinApi window and acts as a message source for WinApi events.</li>
-					<li>Direct3D Engine - An engine that renders models using Direct3D 11.</li>
-					<li>PhysX Engine - An engine that simulates physics using <a href="http://www.geforce.com/hardware/technology/physx">PhysX</a>.</li>
-					<li>Bullet Engine - An engine that simulates physics using <a href="http://bulletphysics.org/">Bullet</a> physics.</li>
-					<li>RakNet Engine - An engine that sends and receives messages over the network using <a href="http://www.jenkinssoftware.com/">RakNet</a>.</li>
-					<li>Rocket Engine - An engine that displays GUIs using <a href="http://librocket.com/">librocket</a>.</li>
+					<li>Plugin Architecture - Allows systems to be swapped in and out with minimal changes required e.g. swapping from Direct3D to OpenGL</li>
+					<li>Entities - Entities are constructed using composition, not inheritance to avoid class heirarchy explosions. Components are also interfaced to minimise dependencies on particular implementations</li>
+					<li>Input - Inputs from the mouse and keyboard are abstracted to allow swapping in and out of possiblen event sources e.g. swapping from FreeGLUT to GLFW</li>
+					<li>Logging - Logs to multiple resources with "fprint" style formatting, severities and tags</li>
+					<li>Maths - Matrix and Vector implementations and other useful functions</li>
+					<li>Messaging - Messages are mediated to allow swapping in and out of possible message sources and destinations with minimal changes e.g. swapping from FreeGLUT to GLFW</li>
+					<li>Models - Provides functions for the creation of basic mesh shapes e.g. cubes</li>
+					<li>Resources - Resources (e.g. files) are abstracted to allow for different platforms and resource types</li>
+					<li>Scripting - Scripts can be written in C++ with callbacks for various lifecycle events</li>
+				</ul>
+
+				<h5>Plugins</h5>
+
+				<ul>
+					<li><a href="https://github.com/simple-entertainment/simplicity-bullet">Bullet plugin</a> - Simulates physics using <a href="http://bulletphysics.org/">Bullet</a> physics</li>
+					<li><a href="https://github.com/simple-entertainment/simplicity-cef">CEF plugin</a> - Renders interactive HTML/CSS/JS to texture using <a href="https://bitbucket.org/chromiumembedded/cef">CEF (Chromium Embedded Framework)</a></li>
+					<!--li><a href="https://github.com/simple-entertainment/simplicity">Direct3D plugin</a> - Renders models using Direct3D 11</li-->
+					<li><a href="https://github.com/simple-entertainment/simplicity-freeglut">FreeGLUT plugin</a> - Creates a <a href="http://freeglut.sourceforge.net/">FreeGLUT</a> window and acts as a message source for <a href="http://freeglut.sourceforge.net/">FreeGLUT</a> events</li>
+					<li><a href="https://github.com/simple-entertainment/simplicity-glfw">GLFW plugin</a> - Creates a <a href="http://www.glfw.org/">GLFW</a> window and acts as a message source for <a href="http://www.glfw.org/">GLFW</a> events</li>
+					<li><a href="https://github.com/simple-entertainment/simplicity-live555">Live555 plugin</a> - Streams textures using <a href="http://www.live555.com/liveMedia/">Live555 Streaming Media</a></li>
+					<li><a href="https://github.com/simple-entertainment/simplicity-opengl">OpenGL plugin</a> - Renders models using <a href="https://www.opengl.org/">OpenGL 4</a></li>
+					<!--li><a href="https://github.com/simple-entertainment/simplicity-physx">PhysX plugin</a> - Simulates physics using <a href="http://www.geforce.com/hardware/technology/physx">PhysX</a>.</li-->
+					<li><a href="https://github.com/simple-entertainment/simplicity-raknet">RakNet plugin</a> - Sends and receives messages over the network using <a href="http://www.jenkinssoftware.com/">RakNet</a></li>
+					<li><a href="https://github.com/simple-entertainment/simplicity-rocket">Rocket plugin</a> - Displays GUIs using <a href="http://librocket.com/">librocket</a></li>
+					<!--li><a href="https://github.com/simple-entertainment/simplicity-winapi">WinApi plugin</a> - Creates a WinApi window and acts as a message source for WinApi events</li-->
 				</ul>
 
 				<div class="roundButton">
@@ -429,7 +442,7 @@
 				</div>
 
 				<p>
-					GazEngine is the middleware that I developed during my time at Media Design School and is used with the majority of the demos that follow (except for a couple that use the GDE middleware provided by Media Design School). It was based on earlier work I had done to create <a onclick="openSection('section', 'gameEngines');">The Simplicity Engine</a> but that engine was in C++11 which could not be used for school projects. <a onclick="openSection('section', 'gameEngines');">The Simplicity Engine</a> has now superceded GazEngine again.
+					GazEngine is the middleware that I developed during my time at Media Design School and is used with the majority of the demos that follow (except for a couple that use the GDE middleware provided by Media Design School). It was based on earlier work I had done to create <a onclick="openSection('section', 'openSource'); openSection('subSection', 'simplicity');">simplicity</a> but that engine was in C++11 which could not be used for school projects. <a onclick="openSection('section', 'openSource'); openSection('subSection', 'simplicity');">simplicity</a> has now superceded GazEngine again.
 				</p>
 
 				<h5>Features</h5>
