@@ -9,6 +9,7 @@
 		<link rel="shortcut icon" href="images/favicon.ico" />
 		<link rel="stylesheet" type="text/css" href="css/fonts.css" />
 		<link rel="stylesheet" type="text/css" href="css/layout.css" />
+
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 		<script type="text/javascript" src="js/scripts.js"></script>
 	</head>
@@ -97,110 +98,109 @@
 			</p>
 		</div>
 
-		<a onclick="selectSection('section', 'apps');"><h3>Apps</h3></a>
-		<div id="apps" class="section">
-			<h4>PC Remote for Android</h4>
+		<a onclick="selectSection('section', 'openSource');"><h3>Open Source</h3></a>
+		<div id="openSource" class="section">
+			<a onclick="selectSection('subSection', 'pcRemoteForAndroid');"><h4>PC Remote for Android</h4></a>
+			<div id="pcRemoteForAndroid" class="subSection">
+				<img src="images/pc-remote-for-android.png" alt="PC Remote for Android" />
 
-			<img src="images/pc-remote-for-android.png" alt="PC Remote for Android" />
+				<div class="aside">
+					<img src="images/pcremoteforandroid.png" />
+				</div>
 
-			<div class="aside">
-				<img src="images/pcremoteforandroid.png" />
+				<p>
+					I wanted an excuse to try my hand at Android development and this was the result. You can use it to control your PC using your Android device.
+				</p>
+
+				<h5>Features</h5>
+
+				<ul>
+					<li>Control the mouse and keyboard.</li>
+					<li>Automatically detect servers on the network.</li>
+					<li>Switch between multiple servers.</li>
+					<li>Switch between multiple control layouts.</li>
+					<li>Customise and create your own layouts with different controls.</li>
+				</ul>
+
+				<div class="roundButton">
+					<a href="bin/pcremoteforandroid.apk">
+						<img src="images/android.png" alt="Android" />
+					</a>
+				</div>
+				<div class="roundButton">
+					<a href="bin/pcremoteserver.zip">
+						<img src="images/linux.png" alt="Linux" />
+					</a>
+				</div>
+				<div class="roundButton">
+					<a href="bin/pcremoteserver.zip">
+						<img src="images/mac.png" alt="Mac" />
+					</a>
+				</div>
+				<div class="roundButton">
+					<a href="bin/pcremoteserver.zip">
+						<img src="images/windows.png" alt="Windows" />
+					</a>
+				</div>
+				<div class="roundButton">
+					<a href="https://github.com/simplegsb/pc-remote">
+						<img src="images/git.png" alt="Source" />
+					</a>
+				</div>
 			</div>
 
-			<p>
-				I wanted an excuse to try my hand at Android development and this was the result. You can use it to control your PC using your Android device.
-			</p>
+			<a onclick="selectSection('subSection', 'simplicity');"><h4>Simplicity</h4></a>
+			<div id="simplicity" class="section">
+				<img src="images/the-simplicity-engine.png" alt="Simplicity" />
 
-			<h5>Features</h5>
-
-			<ul>
-				<li>Control the mouse and keyboard.</li>
-				<li>Automatically detect servers on the network.</li>
-				<li>Switch between multiple servers.</li>
-				<li>Switch between multiple control layouts.</li>
-				<li>Customise and create your own layouts with different controls.</li>
-			</ul>
-
-			<div class="roundButton">
-				<a href="bin/pcremoteforandroid.apk">
-					<img src="images/android.png" alt="Android" />
-				</a>
-			</div>
-			<div class="roundButton">
-				<a href="bin/pcremoteserver.zip">
-					<img src="images/linux.png" alt="Linux" />
-				</a>
-			</div>
-			<div class="roundButton">
-				<a href="bin/pcremoteserver.zip">
-					<img src="images/mac.png" alt="Mac" />
-				</a>
-			</div>
-			<div class="roundButton">
-				<a href="bin/pcremoteserver.zip">
-					<img src="images/windows.png" alt="Windows" />
-				</a>
-			</div>
-			<div class="roundButton">
-				<a href="https://github.com/simplegsb/pc-remote">
-					<img src="images/git.png" alt="Source" />
-				</a>
-			</div>
-		</div>
-
-		<a onclick="selectSection('section', 'gameEngines');"><h3>Game Engines</h3></a>
-		<div id="gameEngines" class="section">
-			<h4>The Simplicity Engine</h4>
-
-			<img src="images/the-simplicity-engine.png" alt="The Simplicity Engine" />
-
-			<div class="aside">
-				<code>
-					#include &lt;simplicity/API.h&gt;
-					</br>
-					</br>
-					int main()
-					</br>
-					{
-						</br>
-						&nbsp;&nbsp;&nbsp;&nbsp;Simplicity::addEngine(...);
-						</br>
-						&nbsp;&nbsp;&nbsp;&nbsp;Simplicity::getScene()->addEntity(...);
-						</br>
-						&nbsp;&nbsp;&nbsp;&nbsp;Simplicity::play();
+				<div class="aside">
+					<code>
+						#include &lt;simplicity/API.h&gt;
 						</br>
 						</br>
-						&nbsp;&nbsp;&nbsp;&nbsp;return 0;
+						int main()
 						</br>
-					}
-				</code>
-			</div>
+						{
+							</br>
+							&nbsp;&nbsp;&nbsp;&nbsp;Simplicity::addEngine(...);
+							</br>
+							&nbsp;&nbsp;&nbsp;&nbsp;Simplicity::getScene()->addEntity(...);
+							</br>
+							&nbsp;&nbsp;&nbsp;&nbsp;Simplicity::play();
+							</br>
+							</br>
+							&nbsp;&nbsp;&nbsp;&nbsp;return 0;
+							</br>
+						}
+					</code>
+				</div>
 
-			<p>
-				The Simplicity Engine is a homegrown component-based game engine I created. Originally it was written in Java but I ported it to C++11. This engine was superceded by the <a onclick="openSection('section', 'mediaDesignSchool'); openSection('subSection', 'gazEngine');">GazEngine</a> middleware I used for my projects at Media Design School where I could not use C++11. I have now taken the much more comprehensive and tested code from <a onclick="openSection('section', 'mediaDesignSchool'); openSection('subSection', 'gazEngine');">GazEngine</a> back to The Simplicity Engine and C++11 and continued to expand on it.
-			</p>
+				<p>
+					The Simplicity Engine is a homegrown component-based game engine I created. Originally it was written in Java but I ported it to C++11. This engine was superceded by the <a onclick="openSection('section', 'mediaDesignSchool'); openSection('subSection', 'gazEngine');">GazEngine</a> middleware I used for my projects at Media Design School where I could not use C++11. I have now taken the much more comprehensive and tested code from <a onclick="openSection('section', 'mediaDesignSchool'); openSection('subSection', 'gazEngine');">GazEngine</a> back to The Simplicity Engine and C++11 and continued to expand on it.
+				</p>
 
-			<h5>Features</h5>
+				<h5>Features</h5>
 
-			<ul>
-				<li>Plug and Play Engine Architecture - Allows engines to be swapped in and out with minimal changes required e.g. swapping from Direct3D to OpenGL.</li>
-				<li>Component Based Architecture - Entities are constructed using composition, not inheritance to avoid class heirarchy explosions. Components are also interfaced to minimise dependencies on particular implementations.</li>
-				<li>Messaging - Messages are mediated to allow swapping in and out of possible message sources and destinations with minimal changes e.g. swapping from WinApi to FreeGLUT.</li>
-				<li>Maths - Matrix and Vector implementations and other useful functions.</li>
-				<li>FreeGLUT Engine - An engine that creates a <a href="http://freeglut.sourceforge.net/">FreeGLUT</a> window and acts as a message source for <a href="http://freeglut.sourceforge.net/">FreeGLUT</a> events.</li>
-				<li>OpenGL Engine - An engine that renders models using <a href="https://www.opengl.org/">OpenGL 4</a> i.e. the programmable pipeline.</li>
-				<li>WinApi Engine - An engine that creates a WinApi window and acts as a message source for WinApi events.</li>
-				<li>Direct3D Engine - An engine that renders models using Direct3D 11.</li>
-				<li>PhysX Engine - An engine that simulates physics using <a href="http://www.geforce.com/hardware/technology/physx">PhysX</a>.</li>
-				<li>Bullet Engine - An engine that simulates physics using <a href="http://bulletphysics.org/">Bullet</a> physics.</li>
-				<li>RakNet Engine - An engine that sends and receives messages over the network using <a href="http://www.jenkinssoftware.com/">RakNet</a>.</li>
-				<li>Rocket Engine - An engine that displays GUIs using <a href="http://librocket.com/">librocket</a>.</li>
-			</ul>
+				<ul>
+					<li>Plug and Play Engine Architecture - Allows engines to be swapped in and out with minimal changes required e.g. swapping from Direct3D to OpenGL.</li>
+					<li>Component Based Architecture - Entities are constructed using composition, not inheritance to avoid class heirarchy explosions. Components are also interfaced to minimise dependencies on particular implementations.</li>
+					<li>Messaging - Messages are mediated to allow swapping in and out of possible message sources and destinations with minimal changes e.g. swapping from WinApi to FreeGLUT.</li>
+					<li>Maths - Matrix and Vector implementations and other useful functions.</li>
+					<li>FreeGLUT Engine - An engine that creates a <a href="http://freeglut.sourceforge.net/">FreeGLUT</a> window and acts as a message source for <a href="http://freeglut.sourceforge.net/">FreeGLUT</a> events.</li>
+					<li>OpenGL Engine - An engine that renders models using <a href="https://www.opengl.org/">OpenGL 4</a> i.e. the programmable pipeline.</li>
+					<li>WinApi Engine - An engine that creates a WinApi window and acts as a message source for WinApi events.</li>
+					<li>Direct3D Engine - An engine that renders models using Direct3D 11.</li>
+					<li>PhysX Engine - An engine that simulates physics using <a href="http://www.geforce.com/hardware/technology/physx">PhysX</a>.</li>
+					<li>Bullet Engine - An engine that simulates physics using <a href="http://bulletphysics.org/">Bullet</a> physics.</li>
+					<li>RakNet Engine - An engine that sends and receives messages over the network using <a href="http://www.jenkinssoftware.com/">RakNet</a>.</li>
+					<li>Rocket Engine - An engine that displays GUIs using <a href="http://librocket.com/">librocket</a>.</li>
+				</ul>
 
-			<div class="roundButton">
-				<a href="https://github.com/simple-entertainment/simplicity">
-					<img src="images/git.png" alt="Source" />
-				</a>
+				<div class="roundButton">
+					<a href="https://github.com/simple-entertainment/simplicity">
+						<img src="images/git.png" alt="Source" />
+					</a>
+				</div>
 			</div>
 		</div>
 
