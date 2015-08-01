@@ -8,19 +8,23 @@ $(document).ready(function()
 // Size the videos appropriately for the device.
 function initVideos()
 {
+	$('.aside').css('background-color', 'black');
+
 	if(window.matchMedia('only screen and (max-device-width: 700px)').matches)
 	{
 		$('video').attr('width', '100%');
 	    $('.sd').addClass('selected');
-	    $('#str8GangstaVideo').attr('src', 'videos/str8-gangsta-360.mp4');
-	    $('#bigDealVideo').attr('src', 'videos/big-deal-360.mp4');
+	    $('#str8GangstaVideo').attr('src', 'https://googledrive.com/host/0B54v-1wOoeUGfnZOMmNqNXktMll0MGdJbXZYaXVKeVlOZkQ5Skx2M2lSWHd1UXdwMEQ1LW8/Str8 Gangsta (360).mp4');
+	    $('#bigDealVideo').attr('src', 'https://googledrive.com/host/0B54v-1wOoeUGfnNJYVhjdTNJaEVOUTlHRVgxRnN2WkZjS0t4MkMwd1h4ZWR1SzA3Y3BCVlU/Big Deal (360).mp4');
 	}
 	else
 	{
+	    $('video').attr('height', '480px');
 	    $('video').attr('width', '720px');
 	    $('.hd').addClass('selected');
-	    $('#str8GangstaVideo').attr('src', 'videos/str8-gangsta-720.mp4');
-	    $('#bigDealVideo').attr('src', 'videos/big-deal-720.mp4');
+	    $('#str8GangstaVideo').attr('height', '480px');
+	    $('#str8GangstaVideo').attr('src', 'https://googledrive.com/host/0B54v-1wOoeUGfnZOMmNqNXktMll0MGdJbXZYaXVKeVlOZkQ5Skx2M2lSWHd1UXdwMEQ1LW8/Str8 Gangsta (720).mp4');
+	    $('#bigDealVideo').attr('src', 'https://googledrive.com/host/0B54v-1wOoeUGfnNJYVhjdTNJaEVOUTlHRVgxRnN2WkZjS0t4MkMwd1h4ZWR1SzA3Y3BCVlU/Big Deal (720).mp4');
 	}
 }
 
