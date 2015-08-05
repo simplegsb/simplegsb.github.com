@@ -28,10 +28,36 @@
 		</div>
 
 		<p>
-			I have a BCMS from the University of Waikato and half a dozen years of industry experience. I have a passion for high quality code that is as simple as possible, I pay a lot of attention to the details and I learn new tech and concepts very quickly.
+			I have a wide range of experience after 6+ years in the industry. During that time I have consistently stood out as one of the most sought after members of any team from J2EE enterprise applications to mobile apps and game ports. <span><strong><a id="bragMore" onclick="$('#bragMore').fadeOut(); selectSection('section', 'brag');">More about my abilities...</a></strong></span>
 		</p>
 
-		<a onclick="selectSection('section', 'competitions');"><h3>Competitions</h3></a>
+		<div id="brag" class="section">
+			<p>
+				<strong>I have a passion for high quality code that is as simple as possible.</strong> In my experience the number one cause of bugs and hard to maintain software is complexity. Writing simpler code that does the same job makes it easier for other developers to understand, reduces the chance for bugs, makes it easier to change later on and often even improves performance.
+			</p>
+
+			<p>
+				<strong>I learn new tech and concepts very quickly.</strong> I often jump into existing code-bases which almost inevitably use a technology or language that I have no previous experience with. I approach the new code-base and technologies etc. task by task, determining how much needs to be learned to effectively complete the task at hand without attempting to learn everything. This means that I can join a project and be effective straight away.
+			</p>
+
+			<p>
+				<strong>I pay a lot of attention to the details.</strong> Although I do not attempt to learn everything about a given technology to perform a single task in a project that uses it, I will learn what I need to know to perform that task to a high standard. Not just to get it done but to get it done well. I always try to find the canonical method and use the strengths of the project, languages and technologies. I will also look for weaknesses in the project. If I find one I will either improve it, raise it as a problem to be dealt with later or just leave it. I stay on task, I do not attempt to fix everything.
+			</p>
+
+			<p>
+				I have experience with lots of platforms: Android, iOS, Windows RT, Windows Phone and Linux
+			</p>
+
+			<p>
+				using lots of languages: C++, Java, C#, HTML/CSS, JavaScript, Python and Objective-C
+			</p>
+
+			<p>
+				and too many technologies, libraries and frameworks etc. to list here.
+			</p>
+		</div>
+
+		<a onclick="selectSection('section', 'competitions'); $('#bragMore').fadeIn();"><h3>Competitions</h3></a>
 		<div id="competitions" class="section">
 			<a onclick="selectSection('subSection', 'hacktivateMileHigh');"><h4>Hacktivate: Mile High</h4></a>
 			<div id="hacktivateMileHigh" class="subSection">
@@ -86,7 +112,7 @@
 			</div>
 		</div>
 
-		<a onclick="selectSection('section', 'talks');"><h3>Talks</h3></a>
+		<a onclick="selectSection('section', 'talks'); $('#bragMore').fadeIn();"><h3>Talks</h3></a>
 		<div id="talks" class="section">
 			<h4>Pecha Kucha Night Auckland #34</h4>
 
@@ -99,7 +125,7 @@
 			</p>
 		</div>
 
-		<a onclick="selectSection('section', 'openSource');"><h3>Open Source</h3></a>
+		<a onclick="selectSection('section', 'openSource'); $('#bragMore').fadeIn();"><h3>Open Source</h3></a>
 		<div id="openSource" class="section">
 			<a onclick="selectSection('subSection', 'pcRemoteForAndroid');"><h4>PC Remote for Android</h4></a>
 			<div id="pcRemoteForAndroid" class="subSection">
@@ -152,8 +178,6 @@
 
 			<a onclick="selectSection('subSection', 'simplicity');"><h4>simplicity</h4></a>
 			<div id="simplicity" class="subSection">
-				<img src="images/the-simplicity-engine.png" alt="Simplicity" />
-
 				<div class="aside">
 					<code>
 						#include &lt;simplicity/API.h&gt;
@@ -177,7 +201,7 @@
 				</div>
 
 				<p>
-					simplicity is a homegrown component-based game engine I created. Originally it was written in Java but I ported it to C++11. This engine was superceded by the <a onclick="openSection('section', 'mediaDesignSchool'); openSection('subSection', 'gazEngine');">GazEngine</a> middleware I used for my projects at Media Design School where I could not use C++11. I have now taken the much more comprehensive and tested code from <a onclick="openSection('section', 'mediaDesignSchool'); openSection('subSection', 'gazEngine');">GazEngine</a> back to simplicity and C++11 and continued to expand on it.
+					simplicity is a game engine I am creating. Originally it was written in Java but I ported it to C++11. This engine was superceded by the <a onclick="openSection('section', 'mediaDesignSchool'); openSection('subSection', 'gazEngine');">GazEngine</a> middleware I used for my projects at Media Design School where I could not use C++11. I have now taken the much more comprehensive and tested code from <a onclick="openSection('section', 'mediaDesignSchool'); openSection('subSection', 'gazEngine');">GazEngine</a> back to simplicity and C++11 and continued to expand on it.
 				</p>
 
 				<h5>Features</h5>
@@ -218,7 +242,7 @@
 			</div>
 		</div>
 
-		<a onclick="selectSection('section', 'professional');"><h3>Professional</h3></a>
+		<a onclick="selectSection('section', 'professional'); $('#bragMore').fadeIn();"><h3>Professional</h3></a>
 		<div id="professional" class="section">
 			<a onclick="selectSection('subSection', 'rushDigital');"><h4>Rush Digital</h4></a>
 			<div id="rushDigital" class="subSection">
@@ -236,7 +260,11 @@
 					Here are some of those projects:
 				</p>
 
-				<a onclick="selectSection('superSubSection', 'meatPackHunt');"><h5>Monteith's MeatPack Hunt</h5></a>
+				<div class="roundButton">
+					<a onclick="selectSection('superSubSection', 'meatPackHunt');">
+						<h5>Monteith's MeatPack Hunt</h5>
+					</a>
+				</div>
 				<div id="meatPackHunt" class="superSubSection">
 					<div class="aside">
 						<iframe width="560" height="315" src="https://www.youtube.com/embed/wKGvWgLrt30" frameborder="0" allowfullscreen></iframe>
@@ -258,7 +286,11 @@
 					</div>
 				</div>
 
-				<a onclick="selectSection('superSubSection', 'jellyCar3');"><h5>Jelly Car 3</h5></a>
+				<div class="roundButton">
+					<a onclick="selectSection('superSubSection', 'jellyCar3');">
+						<h5>Jelly Car 3</h5>
+					</a>
+				</div>
 				<div id="jellyCar3" class="superSubSection">
 					<div class="aside">
 						<iframe width="560" height="315" src="https://www.youtube.com/embed/f8iTy12E5bs" frameborder="0" allowfullscreen></iframe>
@@ -280,7 +312,11 @@
 					</div>
 				</div>
 
-				<a onclick="selectSection('superSubSection', 'hiddenWorlds');"><h5>Disney Hidden Worlds</h5></a>
+				<div class="roundButton">
+					<a onclick="selectSection('superSubSection', 'hiddenWorlds');">
+						<h5>Disney Hidden Worlds</h5>
+					</a>
+				</div>
 				<div id="hiddenWorlds" class="superSubSection">
 					<div class="aside">
 						<iframe width="560" height="315" src="https://www.youtube.com/embed/qYp_GpQSOsI" frameborder="0" allowfullscreen></iframe>
@@ -302,7 +338,11 @@
 					</div>
 				</div>
 
-				<a onclick="selectSection('superSubSection', 'wordsOfWonder');"><h5>Words of Wonder</h5></a>
+				<div class="roundButton">
+					<a onclick="selectSection('superSubSection', 'wordsOfWonder');">
+						<h5>Words of Wonder</h5>
+					</a>
+				</div>
 				<div id="wordsOfWonder" class="superSubSection">
 					<div class="aside">
 						<iframe width="560" height="315" src="https://www.youtube.com/embed/fBkerY825H4" frameborder="0" allowfullscreen></iframe>
@@ -324,7 +364,11 @@
 					</div>
 				</div>
 
-				<a onclick="selectSection('superSubSection', 'artRage');"><h5>ArtRage</h5></a>
+				<div class="roundButton">
+					<a onclick="selectSection('superSubSection', 'artRage');">
+						<h5>ArtRage</h5>
+					</a>
+				</div>
 				<div id="artRage" class="superSubSection">
 					<div class="aside">
 						<img src="images/artrage.jpg" />
@@ -406,7 +450,7 @@
 			</div>
 		</div>
 
-		<a onclick="selectSection('section', 'mediaDesignSchool');"><h3>Media Design School</h3></a>
+		<a onclick="selectSection('section', 'mediaDesignSchool'); $('#bragMore').fadeIn();"><h3>Media Design School</h3></a>
 		<div id="mediaDesignSchool" class="section">
 			<div class="roundButton">
 				<a href="http://www.mediadesignschool.com">

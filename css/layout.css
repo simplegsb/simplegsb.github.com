@@ -53,18 +53,21 @@ h3
 {
 	background-color: rgba(150, 150, 150, 0.5);
 	margin: 0px;
+	padding: 3px;
 }
 
 h4
 {
 	background-color: rgba(200, 200, 200, 0.5);
 	margin: 0px;
+	padding: 3px;
 }
 
 h5
 {
 	font-size: 16px;
 	margin: 0px;
+	padding: 3px;
 }
 
 q
@@ -136,6 +139,11 @@ q
 .roundButton:hover
 {
 	background-color: #0e8;
+}
+
+.roundButton a
+{
+	color: black;
 }
 
 .roundButton img
