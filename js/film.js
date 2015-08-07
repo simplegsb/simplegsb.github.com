@@ -14,8 +14,8 @@ function initVideos()
 	    $('#str8GangstaVideo').attr('src', 'https://googledrive.com/host/0B54v-1wOoeUGfnZOMmNqNXktMll0MGdJbXZYaXVKeVlOZkQ5Skx2M2lSWHd1UXdwMEQ1LW8/Str8 Gangsta (360).mp4');
 	    $('#bigDealVideo').attr('src', 'https://googledrive.com/host/0B54v-1wOoeUGfnNJYVhjdTNJaEVOUTlHRVgxRnN2WkZjS0t4MkMwd1h4ZWR1SzA3Y3BCVlU/Big Deal (360).mp4');
 	    $('#destructiveLove01Video').attr('src', 'https://googledrive.com/host/0B54v-1wOoeUGfm9XRVNVa3RIMlRjTm81US1PWEx0Rmg1Ynl6NkxKODB1eWN2d3BBQlk5cUk/01 Pre-Production (360).mp4');
-	    $('#destructiveLove01Video').attr('src', 'https://googledrive.com/host/0B54v-1wOoeUGfm9XRVNVa3RIMlRjTm81US1PWEx0Rmg1Ynl6NkxKODB1eWN2d3BBQlk5cUk/02 Production (360).mp4');
-	    $('#destructiveLove01Video').attr('src', 'https://googledrive.com/host/0B54v-1wOoeUGfm9XRVNVa3RIMlRjTm81US1PWEx0Rmg1Ynl6NkxKODB1eWN2d3BBQlk5cUk/03 Post-Production (360).mp4');
+	    $('#destructiveLove02Video').attr('src', 'https://googledrive.com/host/0B54v-1wOoeUGfm9XRVNVa3RIMlRjTm81US1PWEx0Rmg1Ynl6NkxKODB1eWN2d3BBQlk5cUk/02 Production (360).mp4');
+	    $('#destructiveLove03Video').attr('src', 'https://googledrive.com/host/0B54v-1wOoeUGfm9XRVNVa3RIMlRjTm81US1PWEx0Rmg1Ynl6NkxKODB1eWN2d3BBQlk5cUk/03 Post-Production (360).mp4');
 	    $('#supernovaVideo').attr('src', 'https://googledrive.com/host/0B54v-1wOoeUGfmMzcUphZGdCX243clRWUmFWVk9yMGdzZXdPUTNjZUpIZ2tybUowd1JLUDQ/Supernova (360).mp4');
 	}
 	else
@@ -24,8 +24,8 @@ function initVideos()
 	    $('#str8GangstaVideo').attr('src', 'https://googledrive.com/host/0B54v-1wOoeUGfnZOMmNqNXktMll0MGdJbXZYaXVKeVlOZkQ5Skx2M2lSWHd1UXdwMEQ1LW8/Str8 Gangsta (720).mp4');
 	    $('#bigDealVideo').attr('src', 'https://googledrive.com/host/0B54v-1wOoeUGfnNJYVhjdTNJaEVOUTlHRVgxRnN2WkZjS0t4MkMwd1h4ZWR1SzA3Y3BCVlU/Big Deal (720).mp4');
 	    $('#destructiveLove01Video').attr('src', 'https://googledrive.com/host/0B54v-1wOoeUGfm9XRVNVa3RIMlRjTm81US1PWEx0Rmg1Ynl6NkxKODB1eWN2d3BBQlk5cUk/01 Pre-Production (720).mp4');
-	    $('#destructiveLove01Video').attr('src', 'https://googledrive.com/host/0B54v-1wOoeUGfm9XRVNVa3RIMlRjTm81US1PWEx0Rmg1Ynl6NkxKODB1eWN2d3BBQlk5cUk/02 Production (720).mp4');
-	    $('#destructiveLove01Video').attr('src', 'https://googledrive.com/host/0B54v-1wOoeUGfm9XRVNVa3RIMlRjTm81US1PWEx0Rmg1Ynl6NkxKODB1eWN2d3BBQlk5cUk/03 Post-Production (720).mp4');
+	    $('#destructiveLove02Video').attr('src', 'https://googledrive.com/host/0B54v-1wOoeUGfm9XRVNVa3RIMlRjTm81US1PWEx0Rmg1Ynl6NkxKODB1eWN2d3BBQlk5cUk/02 Production (720).mp4');
+	    $('#destructiveLove03Video').attr('src', 'https://googledrive.com/host/0B54v-1wOoeUGfm9XRVNVa3RIMlRjTm81US1PWEx0Rmg1Ynl6NkxKODB1eWN2d3BBQlk5cUk/03 Post-Production (720).mp4');
 	    $('#supernovaVideo').attr('src', 'https://googledrive.com/host/0B54v-1wOoeUGfmMzcUphZGdCX243clRWUmFWVk9yMGdzZXdPUTNjZUpIZ2tybUowd1JLUDQ/Supernova (720).mp4');
 	}
 }
