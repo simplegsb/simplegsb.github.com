@@ -77,6 +77,11 @@ q
 	font-weight: bold;
 }
 
+video
+{
+	display: block;
+}
+
 /***************************************************
  * Header
  **************************************************/
@@ -99,16 +104,17 @@ q
 	display: table-cell;
 }
 
-.aside
-{
-	float: right;
-	margin-left: 1em;
-	margin-top: 1em;
-}
-
 /***************************************************
  * Sections
  **************************************************/
+
+.aside
+{
+	float: right;
+	margin-bottom: 1em;
+	margin-left: 1em;
+	margin-top: 1em;
+}
 
 .section,
 .subSection,
