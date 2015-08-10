@@ -1,67 +1,101 @@
 
+// Do stuff when the page opens!
+$(document).ready(function()
+{
+	showCampers();
+	initGertrudeMap();
+});
+
+function createWaypoints(locations)
+{
+	var waypoints = [];
+
+	for (var index = 0; index < locations.length; index++)
+	{
+		waypoints.push({ location: locations[index], stopover: true });
+	}
+
+	return waypoints;
+}
+
 // Gertrude's Journey.
 function initGertrudeMap()
 {
-	var latlng = new google.maps.LatLng(44.0, 0.0);
-	var map = new google.maps.Map(document.getElementById('gertrudeMap'), {zoom : 4, center : latlng, mapTypeId : google.maps.MapTypeId.ROADMAP});
+	var map = new google.maps.Map(document.getElementById('gertrudeMap'));
+	var directionsService = new google.maps.DirectionsService();
 
-	var path =
+	var directionsRenderer = new google.maps.DirectionsRenderer({ draggable: true });
+	directionsRenderer.setMap(map);
+	//directionsRenderer.setPanel(directionsPanel);
+
+	var stopoverLocations =
 	[
-		new google.maps.LatLng(52.9154232, -0.6402773), // Grantham, Lincolnshire, UK
-		new google.maps.LatLng(51.3814282, -2.3574537), // Bath, Bath and North East Somerset, UK
-		new google.maps.LatLng(51.1727310, -1.7932490), // Stonehenge Rd, UK
-		new google.maps.LatLng(51.3814282, -2.3574537), // Bath, Bath and North East Somerset, UK
-		new google.maps.LatLng(51.4813069, -3.1804979), // Cardiff, UK
-		new google.maps.LatLng(51.9931750, -4.9750314), // Fishguard, Pembrokeshire, UK
-		new google.maps.LatLng(52.2730241, -6.3865618), // Rosslare, Co. Wexford, Ireland
-		new google.maps.LatLng(53.3441040, -6.2674937), // Dublin, Co. Fingal, Ireland
-		new google.maps.LatLng(52.8067765, -8.4415884), // Killaloe, Co. Clare, Ireland
-		new google.maps.LatLng(53.5476339, -9.8947102), // Connemara National Park, Co. Galway, Ireland
-		new google.maps.LatLng(53.9525385, -9.9965613), // Achill Island, Co. Mayo, Ireland
-		new google.maps.LatLng(54.5972686, -5.9301088), // Belfast, UK
-		new google.maps.LatLng(54.7210869, -5.7912053), // Carrickfergus, UK
-		new google.maps.LatLng(55.9501755, -3.1875359), // Edinburgh, UK
-		new google.maps.LatLng(53.7996388, -1.5491221), // Leeds, UK
-		new google.maps.LatLng(52.9154232, -0.6402773), // Grantham, Lincolnshire, UK
-		new google.maps.LatLng(51.5001524, -0.1262362), // Westminster, London, UK
-		new google.maps.LatLng(51.1297054, 1.3111373), // Dover, Kent, UK
-		new google.maps.LatLng(50.9512900, 1.8586860), // Calais, France
-		new google.maps.LatLng(48.8566140, 2.3522219), // Paris, France
-		new google.maps.LatLng(41.3879170, 2.1699187), // Barcelona, Spain
-		new google.maps.LatLng(41.6468598, 1.1392149), // Tàrrega, Spain
-		new google.maps.LatLng(41.3879170, 2.1699187), // Barcelona, Spain
-		new google.maps.LatLng(40.7123115, 0.5799720), // Amposta, Spain
-		new google.maps.LatLng(39.8086190, -0.1457780), // Moncofa, Spain
-		new google.maps.LatLng(39.3826653, -0.3323321), // El Saler, Valencia, Spain
-		new google.maps.LatLng(39.4702393, -0.3768049), // Valencia, Spain
-		new google.maps.LatLng(36.7450300, -3.8766489), // Nerja, Spain
-		new google.maps.LatLng(36.1449106, -5.3532522), // Gibraltar
-		new google.maps.LatLng(35.7666667, -5.8000000), // Tangier, Morocco
-		new google.maps.LatLng(34.0333333, -5.0000000), // Fes, Morocco
-		new google.maps.LatLng(35.7666667, -5.8000000), // Tangier, Morocco
-		new google.maps.LatLng(36.1449106, -5.3532522), // Gibraltar
-		new google.maps.LatLng(38.0156245, -7.8652348), // Beja, Portugal
-		new google.maps.LatLng(38.7069320, -9.1356321), // Lisbon, Portugal
-		new google.maps.LatLng(43.3889678, -4.1091800), // Santillana del Mar, Spain
-		new google.maps.LatLng(43.3789178, -2.9830019), // Sopelana, Spain
-		new google.maps.LatLng(51.5001524, -0.1262362) // Westminster, London, UK
+		"Bath, Bath and North East Somerset, UK",
+		"Stonehenge Rd, UK",
+		"Bath, Bath and North East Somerset, UK",
+		"Cardiff, UK",
+		"Fishguard, Pembrokeshire, UK",
+		"Rosslare, Co. Wexford, Ireland",
+		"Dublin, Co. Fingal, Ireland"/*,
+		"Killaloe, Co. Clare, Ireland",
+		"Connemara National Park, Co. Galway, Ireland",
+		"Achill Island, Co. Mayo, Ireland",
+		"Belfast, UK",
+		"Carrickfergus, UK",
+		"Edinburgh, UK",
+		"Leeds, UK",
+		"Grantham, Lincolnshire, UK",
+		"Westminster, London, UK",
+		"Dover, Kent, UK",
+		"Calais, France",
+		"Paris, France",
+		"Barcelona, Spain",
+		"Tàrrega, Spain",
+		"Barcelona, Spain",
+		"Amposta, Spain",
+		"Moncofa, Spain",
+		"El Saler, Valencia, Spain",
+		"Valencia, Spain",
+		"Nerja, Spain",
+		"Gibraltar",
+		"Tangier, Morocco",
+		"Fes, Morocco",
+		"Tangier, Morocco",
+		"Gibraltar",
+		"Beja, Portugal",
+		"Lisbon, Portugal",
+		"Santillana del Mar, Spain",
+		"Sopelana, Spain"*/
 	];
-    
-	for (index in path)
+	var waypoints = createWaypoints(stopoverLocations);
+
+	var directionsRequest =
 	{
-		new google.maps.Marker({position: path[index], map: map, icon: 'images/map-marker.png'});
-	}
-    
-	new google.maps.Polyline({strokeColor: '#532009', map: map, path: path});
+		origin: "Grantham, Lincolnshire, UK",
+		destination: "Westminster, London, UK",
+		waypoints: waypoints,
+		travelMode: google.maps.DirectionsTravelMode.DRIVING
+	};
+
+	directionsService.route(directionsRequest, function (response, status)
+	{
+		if (status == google.maps.DirectionsStatus.OK)
+		{
+			directionsRenderer.setDirections(response);
+		}
+		else
+		{
+			//handle error
+		}
+	});
 }
 
 // Lucille's Journey.
 function initLucilleMap()
 {
-	var latlng = new google.maps.LatLng(44.0, 0.0);
-	var map = new google.maps.Map(document.getElementById('lucilleMap'), {zoom : 4, center : latlng, mapTypeId : google.maps.MapTypeId.ROADMAP});
+	var map = new google.maps.Map(document.getElementById('lucilleMap'));
 
-	var path =
+	/*var path =
 	[
 		new google.maps.LatLng(52.9154232, -0.6402773), // Grantham, Lincolnshire, UK
 		new google.maps.LatLng(54.5000000, -3.1666667), // Lake District National Park, UK
@@ -98,8 +132,9 @@ function initLucilleMap()
     
 	for (index in path)
 	{
-		new google.maps.Marker({position: path[index], map: map, icon: 'images/map-marker.png'});
+		new google.maps.Marker({position: path[index], map: map, icon: 'images/camper.png'});
 	}
     
-	new google.maps.Polyline({strokeColor: '#532009', map: map, path: path});
+	new google.maps.Polyline({strokeColor: '#532009', map: map, path: path});*/
 }
+

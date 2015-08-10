@@ -11,9 +11,126 @@
 		<link rel="stylesheet" type="text/css" href="css/layout.css" />
 
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy4uezjac97xYeOHIt-Rmd9YxHYP-STjE"></script>
 		<script type="text/javascript" src="js/sections.js"></script>
 		<script type="text/javascript" src="js/campers.js"></script>
+
+		<script type="text/javascript" src="js/lib/J3DI.js"></script>
+		<script type="text/javascript" src="js/lib/J3DIMath.js"></script>
+		<script type="text/javascript" src="js/lib/webgl-debug.js"></script>
+		<script type="text/javascript" src="js/lib/webgl-utils.js"></script>
+
+		<script type="text/javascript" src="js/simplicityjs/Camera.js"></script>
+		<script type="text/javascript" src="js/simplicityjs/Entity.js"></script>
+		<script type="text/javascript" src="js/simplicityjs/Model.js"></script>
+		<script type="text/javascript" src="js/simplicityjs/ModelFactory.js"></script>
+		<script type="text/javascript" src="js/simplicityjs/Pipeline.js"></script>
+		<script type="text/javascript" src="js/simplicityjs/RenderingEngine.js"></script>
+		<script type="text/javascript" src="js/simplicityjs/Script.js"></script>
+		<script type="text/javascript" src="js/simplicityjs/ScriptingEngine.js"></script>
+		<script type="text/javascript" src="js/simplicityjs/Simplicity.js"></script>
+
+		<script type="text/javascript" src="js/simplicityjs-campers/Animator.js"></script>
+		<script type="text/javascript" src="js/simplicityjs-campers/Main.js"></script>
+		<script type="text/javascript" src="js/simplicityjs-campers/Spinner.js"></script>
+
+		<script id="mirrorVertexShader" type="x-shader/x-vertex">
+			uniform mat4 cameraTransform;
+			uniform mat4 worldTransform;
+
+			attribute vec3 normal;
+			attribute vec3 position;
+			attribute vec2 texCoord;
+
+			varying vec3 normalOut;
+			varying vec2 texCoordOut;
+
+			void main()
+			{
+				mat4 mirrorWorldTransform = worldTransform;
+				mirrorWorldTransform[3][1] -= mirrorWorldTransform[3][1] * 2.0;
+
+				mat4 mirrorWorldRotation = mirrorWorldTransform;
+				mirrorWorldRotation[3][0] = 0.0;
+				mirrorWorldRotation[3][1] = 0.0;
+				mirrorWorldRotation[3][2] = 0.0;
+				mirrorWorldRotation[3][3] = 1.0;
+				normalOut = (mirrorWorldRotation * vec4(normal, 1.0)).xyz;
+
+				vec2 mirrorTexCoord = texCoord;
+				mirrorTexCoord.t = 1.0 - mirrorTexCoord.t;
+
+				texCoordOut = mirrorTexCoord;
+
+				gl_Position = cameraTransform * mirrorWorldTransform * vec4(position, 1.0);
+			}
+		</script>
+
+		<script id="mirrorFragmentShader" type="x-shader/x-fragment">
+			precision mediump float;
+
+			uniform sampler2D sampler;
+
+			varying vec3 normalOut;
+			varying vec2 texCoordOut;
+
+			void main()
+			{
+				float ambientFactor = 0.2;
+				float diffuseFactor = dot(normalOut, vec3(0.0, 0.0, 1.0));
+				vec4 color = texture2D(sampler, texCoordOut);
+				vec3 litColor = color.xyz * ambientFactor + color.xyz * diffuseFactor;
+
+				float transparency = texCoordOut.t * 0.9;
+
+				gl_FragColor = vec4(litColor, transparency);
+			}
+		</script>
+
+		<script id="simpleVertexShader" type="x-shader/x-vertex">
+			uniform mat4 cameraTransform;
+			uniform mat4 worldTransform;
+
+			attribute vec3 normal;
+			attribute vec3 position;
+			attribute vec2 texCoord;
+
+			varying vec3 normalOut;
+			varying vec2 texCoordOut;
+
+			void main()
+			{
+				mat4 worldRotation = worldTransform;
+				worldRotation[3][0] = 0.0;
+				worldRotation[3][1] = 0.0;
+				worldRotation[3][2] = 0.0;
+				worldRotation[3][3] = 1.0;
+				normalOut = (worldRotation * vec4(normal, 1.0)).xyz;
+
+				texCoordOut = texCoord;
+
+				gl_Position = cameraTransform * worldTransform * vec4(position, 1.0);
+			}
+		</script>
+
+		<script id="simpleFragmentShader" type="x-shader/x-fragment">
+			precision mediump float;
+
+			uniform sampler2D sampler;
+
+			varying vec3 normalOut;
+			varying vec2 texCoordOut;
+
+			void main()
+			{
+				float ambientFactor = 0.2;
+				float diffuseFactor = dot(normalOut, vec3(0.0, 0.0, 1.0));
+				vec4 color = texture2D(sampler, texCoordOut);
+				vec3 litColor = color.xyz * ambientFactor + color.xyz * diffuseFactor;
+
+				gl_FragColor = vec4(litColor, color.w);
+			}
+		</script>
 	</head>
 
 	<body>
@@ -36,12 +153,16 @@
 		<a onclick="selectSection('section', 'gertrude');"><h3>Gertrude</h3></a>
 		<div id="gertrude" class="section">
 			<p>
-				Gertrude was my first camper van. She was given an ugly name to match her... well... ugliness. When I bought her she was already fitted out but I decided it was shit, pulled everything out and started from scratch. Lots of fun! Sadly Gertrude died and was unable to complete her last mission to Edinburgh. May she rest in peace.
+				Gertrude was my first camper van. She was given an ugly name to match her... well... ugliness. When I bought her she was already fitted out but I decided it was shit, pulled everything out and started from scratch. Lots of fun! Sadly Gertrude died and was unable to complete her last mission to Edinburgh. May she rest in peace... as a cube... because I had her crushed into a cube.
 			</p>
 
-			<p>
-				Coming soon...
-			</p>
+			<canvas id="gertrudeCanvas" width="720px" height="480px">
+				If you're seeing this your web browser doesn't support the &lt;canvas&gt;&gt; element. Ouch!
+			</canvas>
+
+			<div class="aside">
+				<div id="gertrudeMap" style="display: inline-block; width: 720px; height: 480px;"></div>
+			</div>
 		</div>
 
 		<a onclick="selectSection('section', 'lucille');"><h3>Lucille</h3></a>
