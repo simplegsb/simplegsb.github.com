@@ -38,10 +38,12 @@
 			uniform mat4 cameraTransform;
 			uniform mat4 worldTransform;
 
+			attribute vec4 color;
 			attribute vec3 normal;
 			attribute vec3 position;
 			attribute vec2 texCoord;
 
+			varying vec4 colorOut;
 			varying vec3 normalOut;
 			varying vec2 texCoordOut;
 
@@ -49,6 +51,8 @@
 			{
 				mat4 mirrorWorldTransform = worldTransform;
 				mirrorWorldTransform[3][1] -= mirrorWorldTransform[3][1] * 2.0;
+
+				colorOut = color;
 
 				mat4 mirrorWorldRotation = mirrorWorldTransform;
 				mirrorWorldRotation[3][0] = 0.0;
@@ -59,7 +63,6 @@
 
 				vec2 mirrorTexCoord = texCoord;
 				mirrorTexCoord.t = 1.0 - mirrorTexCoord.t;
-
 				texCoordOut = mirrorTexCoord;
 
 				gl_Position = cameraTransform * mirrorWorldTransform * vec4(position, 1.0);
@@ -70,20 +73,29 @@
 			precision mediump float;
 
 			uniform sampler2D sampler;
+			uniform int samplerEnabled;
 
+			varying vec4 colorOut;
 			varying vec3 normalOut;
 			varying vec2 texCoordOut;
 
 			void main()
 			{
+				if (samplerEnabled == 1)
+				{
+					gl_FragColor = texture2D(sampler, texCoordOut);
+				}
+				else
+				{
+					gl_FragColor = colorOut;
+				}
+
 				float ambientFactor = 0.2;
 				float diffuseFactor = dot(normalOut, vec3(0.0, 0.0, 1.0));
-				vec4 color = texture2D(sampler, texCoordOut);
-				vec3 litColor = color.xyz * ambientFactor + color.xyz * diffuseFactor;
+				gl_FragColor.xyz = gl_FragColor.xyz * ambientFactor + gl_FragColor.xyz * diffuseFactor;
 
 				float transparency = texCoordOut.t * 0.9;
-
-				gl_FragColor = vec4(litColor, transparency);
+				gl_FragColor.w *= transparency;
 			}
 		</script>
 
@@ -91,15 +103,19 @@
 			uniform mat4 cameraTransform;
 			uniform mat4 worldTransform;
 
+			attribute vec4 color;
 			attribute vec3 normal;
 			attribute vec3 position;
 			attribute vec2 texCoord;
 
+			varying vec4 colorOut;
 			varying vec3 normalOut;
 			varying vec2 texCoordOut;
 
 			void main()
 			{
+				colorOut = color;
+
 				mat4 worldRotation = worldTransform;
 				worldRotation[3][0] = 0.0;
 				worldRotation[3][1] = 0.0;
@@ -117,18 +133,26 @@
 			precision mediump float;
 
 			uniform sampler2D sampler;
+			uniform int samplerEnabled;
 
+			varying vec4 colorOut;
 			varying vec3 normalOut;
 			varying vec2 texCoordOut;
 
 			void main()
 			{
+				if (samplerEnabled == 1)
+				{
+					gl_FragColor = texture2D(sampler, texCoordOut);
+				}
+				else
+				{
+					gl_FragColor = colorOut;
+				}
+
 				float ambientFactor = 0.2;
 				float diffuseFactor = dot(normalOut, vec3(0.0, 0.0, 1.0));
-				vec4 color = texture2D(sampler, texCoordOut);
-				vec3 litColor = color.xyz * ambientFactor + color.xyz * diffuseFactor;
-
-				gl_FragColor = vec4(litColor, color.w);
+				gl_FragColor.xyz = gl_FragColor.xyz * ambientFactor + gl_FragColor.xyz * diffuseFactor;
 			}
 		</script>
 	</head>
@@ -150,7 +174,7 @@
 			I like building camper vans.
 		</p>
 
-		<a onclick="selectSection('section', 'gertrude');"><h3>Gertrude</h3></a>
+		<a onclick="selectCamperSection('section', 'gertrude');"><h3>Gertrude</h3></a>
 		<div id="gertrude" class="section">
 			<p>
 				Gertrude was my first camper van. She was given an ugly name to match her... well... ugliness. When I bought her she was already fitted out but I decided it was shit, pulled everything out and started from scratch. Lots of fun! Sadly Gertrude died and was unable to complete her last mission to Edinburgh. May she rest in peace... as a cube... because I had her crushed into a cube.
@@ -161,11 +185,11 @@
 			</canvas>
 
 			<div class="aside">
-				<div id="gertrudeMap" style="display: inline-block; width: 720px; height: 480px;"></div>
+				<div id="gertrudeMap" style="width: 720px; height: 480px;"></div>
 			</div>
 		</div>
 
-		<a onclick="selectSection('section', 'lucille');"><h3>Lucille</h3></a>
+		<a onclick="selectCamperSection('section', 'lucille');"><h3>Lucille</h3></a>
 		<div id="lucille" class="section">
 			<p>
 				Lucille was a 16 seater mini-bus. I whipped out all of her seats and fitted her as a luxury moving home. Some lucky guy picker her up for cheap since I was leaving europe and needed a quick sale during winter...

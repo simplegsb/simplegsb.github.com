@@ -68,10 +68,10 @@ RenderingEngine.prototype.init = function()
 	gl.enable(gl.DEPTH_TEST);
 	gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
 
-	// Enable all of the vertex attribute arrays.
 	gl.enableVertexAttribArray(0);
 	gl.enableVertexAttribArray(1);
 	gl.enableVertexAttribArray(2);
+	gl.enableVertexAttribArray(3);
 
 	gl.viewport(0, 0, this.canvas.width, this.canvas.height);
 }
@@ -84,14 +84,17 @@ RenderingEngine.prototype.render = function(entity, model)
 
 	gl.bindTexture(gl.TEXTURE_2D, model.texture);
 
-	gl.bindBuffer(gl.ARRAY_BUFFER, model.normalBuffer);
-	gl.vertexAttribPointer(0, 3, gl.FLOAT, false, 0, 0);
+	gl.bindBuffer(gl.ARRAY_BUFFER, model.colorBuffer);
+	gl.vertexAttribPointer(0, 4, gl.FLOAT, false, 0, 0);
 
-	gl.bindBuffer(gl.ARRAY_BUFFER, model.vertexBuffer);
+	gl.bindBuffer(gl.ARRAY_BUFFER, model.normalBuffer);
 	gl.vertexAttribPointer(1, 3, gl.FLOAT, false, 0, 0);
 
+	gl.bindBuffer(gl.ARRAY_BUFFER, model.vertexBuffer);
+	gl.vertexAttribPointer(2, 3, gl.FLOAT, false, 0, 0);
+
 	gl.bindBuffer(gl.ARRAY_BUFFER, model.texCoordBuffer);
-	gl.vertexAttribPointer(2, 2, gl.FLOAT, false, 0, 0);
+	gl.vertexAttribPointer(3, 2, gl.FLOAT, false, 0, 0);
 
 	gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, model.indexBuffer);
 
@@ -102,6 +105,15 @@ RenderingEngine.prototype.render = function(entity, model)
 
 		this.camera.getTransform().setUniform(gl, gl.getUniformLocation(program, "cameraTransform"), false);
 		worldTransform.setUniform(gl, gl.getUniformLocation(program, "worldTransform"), false);
+
+		if (model.texture === null)
+		{
+			gl.uniform1i(gl.getUniformLocation(program, "samplerEnabled"), 0);
+		}
+		else
+		{
+			gl.uniform1i(gl.getUniformLocation(program, "samplerEnabled"), 1);
+		}
 
 		gl.drawElements(gl.TRIANGLES, model.indexCount, gl.UNSIGNED_BYTE, 0);
 	}

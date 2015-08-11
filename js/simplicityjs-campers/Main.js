@@ -4,28 +4,10 @@ function createGertrude()
 	var gertrude = new Entity();
 	gertrude.transform.translate(0, 0.55, -4);
 
-	var frontFace = ModelFactory.createSquare(0.5);
-	frontFace.texture = loadImageTexture(gl, "images/gertrude-exterior-front.png");
-	frontFace.transform.translate(0, 0, 1.1);
-	gertrude.components.push(frontFace);
-
-	var leftFace = ModelFactory.createRectangle(1, 0.5);
-	leftFace.texture = loadImageTexture(gl, "images/gertrude-exterior-left.png");
-	leftFace.transform.translate(0.6, 0, 0);
-	leftFace.transform.rotate(90, 0, 1, 0);
-	gertrude.components.push(leftFace);
-
-	var backFace = ModelFactory.createSquare(0.5);
-	backFace.texture = loadImageTexture(gl, "images/gertrude-exterior-back.png");
-	backFace.transform.translate(0, 0, -1.1);
-	backFace.transform.rotate(180, 0, 1, 0);
-	gertrude.components.push(backFace);
-
-	var rightFace = ModelFactory.createRectangle(1, 0.5);
-	rightFace.texture = loadImageTexture(gl, "images/gertrude-exterior-right.png");
-	rightFace.transform.translate(-0.6, 0, 0);
-	rightFace.transform.rotate(270, 0, 1, 0);
-	gertrude.components.push(rightFace);
+	addPhoto(gertrude, "images/gertrude-exterior-back.png", 0.5, 0.5, 0, 0, -1.1, 180);
+	addPhoto(gertrude, "images/gertrude-exterior-front.png", 0.5, 0.5, 0, 0, 1.1, 0);
+	addPhoto(gertrude, "images/gertrude-exterior-left.png", 1, 0.5, 0.6, 0, 0, 90);
+	addPhoto(gertrude, "images/gertrude-exterior-right.png", 1, 0.5, -0.6, 0, 0, 270);
 
 	var spinner = new Spinner(gertrude);
 	gertrude.components.push(spinner);
@@ -36,7 +18,40 @@ function createGertrude()
 	return gertrude;
 }
 
-function showCampers()
+function addPhoto(entity, image, halfWidth, halfHeight, x, y, z, rotation)
+{
+	var photoOffset = [0, 0, 0];
+	if (x !== 0)
+	{
+		photoOffset[0] = x / Math.abs(x) * 0.001;
+	}
+	if (y !== 0)
+	{
+		photoOffset[1] = y / Math.abs(y) * 0.001;
+	}
+	if (z !== 0)
+	{
+		photoOffset[2] = z / Math.abs(z) * 0.001;
+	}
+
+	var photo = ModelFactory.createRectangle(halfWidth, halfHeight);
+	photo.texture = loadImageTexture(gl, image);
+	photo.transform.translate(x + photoOffset[0], y + photoOffset[1], z + photoOffset[2]);
+	photo.transform.rotate(rotation, 0, 1, 0);
+	entity.components.push(photo);
+
+	var frame = ModelFactory.createRectangle(halfWidth + 0.02, halfHeight + 0.02, [1, 1, 1, 1]);
+	frame.transform.translate(x, y, z);
+	frame.transform.rotate(rotation, 0, 1, 0);
+	entity.components.push(frame);
+
+	var back = ModelFactory.createRectangle(halfWidth + 0.02, halfHeight + 0.02, [0.375, 0.375, 0.375, 1]);
+	back.transform.translate(x, y, z);
+	back.transform.rotate(rotation + 180, 0, 1, 0);
+	entity.components.push(back);
+}
+
+function initGertrudeViewer()
 {
 	var canvas = document.getElementById("gertrudeCanvas");
 	var renderingEngine = new RenderingEngine(canvas);

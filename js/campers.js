@@ -1,10 +1,11 @@
 
-// Do stuff when the page opens!
-$(document).ready(function()
+function selectCamperSection(sectionClass, sectionId)
 {
-	showCampers();
-	initGertrudeMap();
-});
+	selectSection(sectionClass, sectionId);
+
+	setTimeout(initGertrudeMap, 1000);
+	setTimeout(initGertrudeViewer, 1000);
+}
 
 function createWaypoints(locations)
 {
@@ -24,7 +25,7 @@ function initGertrudeMap()
 	var map = new google.maps.Map(document.getElementById('gertrudeMap'));
 	var directionsService = new google.maps.DirectionsService();
 
-	var directionsRenderer = new google.maps.DirectionsRenderer({ draggable: true });
+	var directionsRenderer = new google.maps.DirectionsRenderer();
 	directionsRenderer.setMap(map);
 	//directionsRenderer.setPanel(directionsPanel);
 
