@@ -29,7 +29,7 @@ body
 {
 	color: #666;
 	font-family: handwritten;
-	margin: 0px 50px;
+	margin: 0px 5%;
 	padding: 0px;
 	position: relative;
 }
@@ -184,13 +184,8 @@ video
  * Smaller screens (e.g. mobile)
  **************************************************/
 
-@media only screen and (max-device-width: 700px)
+@media only screen and (max-width: 899px)
 {
-	body
-	{
-		margin: 0px 5px;
-	}
-
 	h1
 	{
 		font-size: 24px;
@@ -222,3 +217,4 @@ video
 		width: 100%;
 	}
 }
+

@@ -56,8 +56,23 @@ function showGertrudeViewer()
 	var canvas = document.getElementById("gertrudeCanvas");
 	var renderingEngine = new RenderingEngine(canvas);
 
+	var resizeCanvas = function()
+	{
+		var canvasWidth = Math.min(720, window.innerWidth * 0.4);
+		if (window.innerWidth < 900)
+		{
+			canvasWidth = window.innerWidth * 0.9;
+		}
+
+		canvas.width = canvasWidth;
+		canvas.height = canvas.width / 1.5;
+		renderingEngine.onResize();
+	};
+	resizeCanvas();
+	$(window).resize(resizeCanvas);
+
 	renderingEngine.camera = new Camera();
-	renderingEngine.camera.projection.perspective(30, canvas.width / canvas.height, 1, 10000);
+	renderingEngine.camera.projection.perspective(30, 720 / 480, 1, 10000);
 	renderingEngine.camera.projection.lookat(0, 0.5, 0, 0, 0.5, -1, 0, 1, 0);
 
 	renderingEngine.pipeline = new Pipeline("simpleVertexShader", "simpleFragmentShader");

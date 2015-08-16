@@ -87,6 +87,20 @@ $(document).ready(function()
 	directionsService = new google.maps.DirectionsService();
 	getDirections('gertrude', gertrudeLocations);
 	//getDirections('lucille', lucilleLocations);
+
+	var onResize = function()
+	{
+		var mapWidth = Math.min(720, window.innerWidth * 0.4);
+		if (window.innerWidth < 900)
+		{
+			mapWidth = window.innerWidth * 0.9;
+		}
+
+		$('#gertrudeMap').width(mapWidth);
+		$('#gertrudeMap').height($('#gertrudeMap').width() / 1.5);
+	};
+	onResize();
+	$(window).resize(onResize);
 });
 
 function selectCamperSection(sectionClass, sectionId)

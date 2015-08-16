@@ -73,6 +73,11 @@ RenderingEngine.prototype.init = function()
 	gl.enableVertexAttribArray(2);
 	gl.enableVertexAttribArray(3);
 
+	this.onResize();
+}
+
+RenderingEngine.prototype.onResize = function()
+{
 	gl.viewport(0, 0, this.canvas.width, this.canvas.height);
 }
 
