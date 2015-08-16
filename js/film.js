@@ -5,6 +5,19 @@ $(document).ready(function()
 	initVideos();
 });
 
+function selectFilmSection(sectionClass, sectionId)
+{
+	selectSection(sectionClass, sectionId);
+
+	pauseVideos();
+
+	var video = $('#' + sectionId + ' > .aside > video');
+	if (video.length == 1)
+	{
+		video.get(0).play();
+	}
+}
+
 // Size the videos appropriately for the device.
 function initVideos()
 {
