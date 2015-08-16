@@ -51,7 +51,7 @@ function addPhoto(entity, image, halfWidth, halfHeight, x, y, z, rotation)
 	entity.components.push(back);
 }
 
-function initGertrudeViewer()
+function showGertrudeViewer()
 {
 	var canvas = document.getElementById("gertrudeCanvas");
 	var renderingEngine = new RenderingEngine(canvas);
