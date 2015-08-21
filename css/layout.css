@@ -28,16 +28,16 @@ a h5:hover
 body
 {
 	color: #666;
-	font-family: handwritten;
-	margin: 0px 5%;
-	padding: 0px;
+	font-family: handwritten, sans-serif;
+	margin: 0 5%;
+	padding: 0;
 	position: relative;
 }
 
 h1
 {
 	font-size: 48px;
-	margin: 0px;
+	margin: 0;
 }
 
 h1 a
@@ -57,27 +57,27 @@ td
 
 h2
 {
-	margin: 0px;
+	margin: 0;
 }
 
 h3
 {
 	background-color: rgba(150, 150, 150, 0.5);
-	margin: 0px;
+	margin: 0;
 	padding: 3px;
 }
 
 h4
 {
 	background-color: rgba(200, 200, 200, 0.5);
-	margin: 0px;
+	margin: 0;
 	padding: 3px;
 }
 
 h5
 {
 	font-size: 16px;
-	margin: 0px;
+	margin: 0;
 	padding: 3px;
 }
 
@@ -91,6 +91,11 @@ q
 video
 {
 	display: block;
+}
+
+#loading
+{
+	position: absolute;
 }
 
 /***************************************************
@@ -213,8 +218,7 @@ video
 
 	.aside
 	{
-		margin-left: 0px;
+		margin-left: 0;
 		width: 100%;
 	}
 }
-

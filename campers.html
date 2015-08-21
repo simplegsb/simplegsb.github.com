@@ -30,6 +30,7 @@
 		<script type="text/javascript" src="js/simplicityjs/ScriptingEngine.js"></script>
 		<script type="text/javascript" src="js/simplicityjs/Simplicity.js"></script>
 
+		<script type="text/javascript" src="js/camper-viewer/AlphaPipeline.js"></script>
 		<script type="text/javascript" src="js/camper-viewer/Animator.js"></script>
 		<script type="text/javascript" src="js/camper-viewer/Main.js"></script>
 		<script type="text/javascript" src="js/camper-viewer/Spinner.js"></script>
@@ -49,29 +50,31 @@
 
 			void main()
 			{
-				mat4 mirrorWorldTransform = worldTransform;
-				mirrorWorldTransform[3][1] -= mirrorWorldTransform[3][1] * 2.0;
-
 				colorOut = color;
 
-				mat4 mirrorWorldRotation = mirrorWorldTransform;
-				mirrorWorldRotation[3][0] = 0.0;
-				mirrorWorldRotation[3][1] = 0.0;
-				mirrorWorldRotation[3][2] = 0.0;
-				mirrorWorldRotation[3][3] = 1.0;
-				normalOut = (mirrorWorldRotation * vec4(normal, 1.0)).xyz;
+				mat4 worldRotation = worldTransform;
+				worldRotation[3][0] = 0.0;
+				worldRotation[3][1] = 0.0;
+				worldRotation[3][2] = 0.0;
+				worldRotation[3][3] = 1.0;
+				normalOut = (worldRotation * vec4(normal, 1.0)).xyz;
 
-				vec2 mirrorTexCoord = texCoord;
-				mirrorTexCoord.t = 1.0 - mirrorTexCoord.t;
-				texCoordOut = mirrorTexCoord;
+				texCoordOut = texCoord;
+				texCoordOut.s = 1.0 - texCoordOut.s;
 
-				gl_Position = cameraTransform * mirrorWorldTransform * vec4(position, 1.0);
+				vec3 flippedPosition = position;
+				flippedPosition.x *= -1.0;
+
+				gl_Position = worldTransform * vec4(flippedPosition, 1.0);
+				gl_Position.y *= -1.0;
+				gl_Position = cameraTransform * gl_Position;
 			}
 		</script>
 
 		<script id="mirrorFragmentShader" type="x-shader/x-fragment">
 			precision mediump float;
 
+			uniform float alpha;
 			uniform sampler2D sampler;
 			uniform int samplerEnabled;
 
@@ -93,6 +96,7 @@
 				float ambientFactor = 0.2;
 				float diffuseFactor = dot(normalOut, vec3(0.0, 0.0, 1.0));
 				gl_FragColor.xyz = gl_FragColor.xyz * ambientFactor + gl_FragColor.xyz * diffuseFactor;
+				gl_FragColor.w *= alpha;
 
 				float transparency = texCoordOut.t * 0.9;
 				gl_FragColor.w *= transparency;
@@ -125,13 +129,15 @@
 
 				texCoordOut = texCoord;
 
-				gl_Position = cameraTransform * worldTransform * vec4(position, 1.0);
+				gl_Position = worldTransform * vec4(position, 1.0);
+				gl_Position = cameraTransform * gl_Position;
 			}
 		</script>
 
 		<script id="simpleFragmentShader" type="x-shader/x-fragment">
 			precision mediump float;
 
+			uniform float alpha;
 			uniform sampler2D sampler;
 			uniform int samplerEnabled;
 
@@ -153,6 +159,7 @@
 				float ambientFactor = 0.2;
 				float diffuseFactor = dot(normalOut, vec3(0.0, 0.0, 1.0));
 				gl_FragColor.xyz = gl_FragColor.xyz * ambientFactor + gl_FragColor.xyz * diffuseFactor;
+				gl_FragColor.w *= alpha;
 			}
 		</script>
 	</head>
@@ -180,6 +187,8 @@
 				Gertrude was my first camper van. She was given an ugly name to match her... well... ugliness. When I bought her she was already fitted out but I decided it was shit, pulled everything out and started from scratch. Lots of fun! Sadly Gertrude died and was unable to complete her last mission to Edinburgh. May she rest in peace... as a cube... because I had her crushed into a cube.
 			</p>
 
+			<div id="loading">Loading...</div>
+
 			<canvas id="gertrudeCanvas">
 				If you're seeing this your web browser doesn't support the &lt;canvas&gt;&gt; element. Ouch!
 			</canvas>
@@ -202,4 +211,3 @@
 	</body>
 
 </html>
-

@@ -14,5 +14,9 @@ Pipeline.prototype.addPass = function(vertexShader, fragmentShader)
 	gl.uniform1i(gl.getUniformLocation(program, "sampler"), 0);
 
 	this.programs.push(program);
-}
+};
 
+Pipeline.prototype.applyPass = function(pass)
+{
+	gl.useProgram(this.programs[pass]);
+};

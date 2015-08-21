@@ -79,4 +79,3 @@ var ModelFactory = new function()
 		return ModelFactory.createRectangle(halfExtent, halfExtent);
 	};
 };
-

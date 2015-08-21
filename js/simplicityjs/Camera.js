@@ -13,8 +13,10 @@ Camera.prototype.getTransform = function()
 	var transform = new J3DIMatrix4();
 
 	transform.load(this.projection);
-	transform.multiply(this.view);
+
+	var invertedView = new J3DIMatrix4(this.view);
+	invertedView.invert();
+	transform.multiply(invertedView);
 
 	return transform;
-}
-
+};

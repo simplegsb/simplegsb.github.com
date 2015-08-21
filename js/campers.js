@@ -216,4 +216,3 @@ function createWaypoints(locations)
 
 	return waypoints;
 }
-

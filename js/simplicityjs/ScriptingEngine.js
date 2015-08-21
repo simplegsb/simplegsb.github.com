@@ -18,5 +18,4 @@ ScriptingEngine.prototype.advance = function()
 			}
 		}
 	}
-}
-
+};

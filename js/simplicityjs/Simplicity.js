@@ -29,4 +29,3 @@ var Simplicity = new function()
 		Simplicity.requestId = window.requestAnimFrame(Simplicity.playContinuously);
 	};
 };
-

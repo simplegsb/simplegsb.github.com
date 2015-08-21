@@ -10,4 +10,3 @@ function Model()
 	this.transform = new J3DIMatrix4();
 	this.vertexBuffer = null;
 }
-

@@ -105,8 +105,9 @@ RenderingEngine.prototype.render = function(entity, model)
 
 	for (var index = 0; index < this.pipeline.programs.length; index++)
 	{
+		this.pipeline.applyPass(index);
+
 		var program = this.pipeline.programs[index];
-		gl.useProgram(program);
 
 		this.camera.getTransform().setUniform(gl, gl.getUniformLocation(program, "cameraTransform"), false);
 		worldTransform.setUniform(gl, gl.getUniformLocation(program, "worldTransform"), false);
