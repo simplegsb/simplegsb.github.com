@@ -86,7 +86,7 @@ $(document).ready(function()
 {
 	directionsService = new google.maps.DirectionsService();
 	getDirections('gertrude', gertrudeLocations);
-	//getDirections('lucille', lucilleLocations);
+	getDirections('lucille', lucilleLocations);
 
 	var onResize = function()
 	{
@@ -98,6 +98,8 @@ $(document).ready(function()
 
 		$('#gertrudeMap').width(mapWidth);
 		$('#gertrudeMap').height($('#gertrudeMap').width() / 1.5);
+		$('#lucilleMap').width(mapWidth);
+		$('#lucilleMap').height($('#lucilleMap').width() / 1.5);
 	};
 	onResize();
 	$(window).resize(onResize);
@@ -107,18 +109,37 @@ function selectCamperSection(sectionClass, sectionId)
 {
 	selectSection(sectionClass, sectionId);
 
-	// Wait until the section is open before showing the goodies :)
-	setTimeout(showGertrudeMap, 1000);
-	setTimeout(showGertrudeViewer, 1000);
+	if (sectionId === 'gertrude' && maps.get('gertrude') === undefined)
+	{
+		// Wait until the section is open before showing the goodies :)
+		setTimeout(showGertrudeMap, 1000);
+		setTimeout(showGertrudeViewer, 1000);
+	}
+	else if (sectionId === 'lucille' && maps.get('lucille') === undefined)
+	{
+		// Wait until the section is open before showing the goodies :)
+		setTimeout(showLucilleMap, 1000);
+		//setTimeout(showLucilleViewer, 1000);
+	}
 }
 
 function showGertrudeMap()
 {
 	maps.set('gertrude', new google.maps.Map(document.getElementById('gertrudeMap')));
 
-	if (directionsReady.get('gertrude') === true)
+	if (directionsReady.get('gertrude'))
 	{
 		showDirections('gertrude');
+	}
+}
+
+function showLucilleMap()
+{
+	maps.set('lucille', new google.maps.Map(document.getElementById('lucilleMap')));
+
+	if (directionsReady.get('lucille'))
+	{
+		showDirections('lucille');
 	}
 }
 
