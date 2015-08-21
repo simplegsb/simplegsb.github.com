@@ -8,8 +8,10 @@ function Animator(entity, pipeline, direction)
 
 	this.entity = entity;
 	this.direction = direction;
+	this.loading = false;
 	this.pipeline = pipeline;
-	this.position = 0.01;
+	this.position = 0.001;
+	this.ready = true;
 	this.rotation = 0;
 
 	if (this.direction === "down")
@@ -38,54 +40,75 @@ function Animator(entity, pipeline, direction)
 	}
 }
 
-Animator.prototype.execute = function ()
+Animator.prototype.animate = function()
 {
-	if (g_loadingImages.length === 0)
+	$('#loading').hide();
+
+	var speed = Math.min(this.position, 1 - this.position) / 20;
+	var delta = speed * Simplicity.deltaTime;
+
+	this.position += delta;
+	if (this.position + 0.001 > 1)
 	{
-		$('#loading').hide();
+		this.position = 1;
+	}
 
-		var speed = Math.min(this.position, 1 - this.position) / 10;
-		var delta = speed * Simplicity.deltaTime;
+	var deltaRotation = 0;
+	if (this.position === 1)
+	{
+		deltaRotation = this.fullRotation - this.rotation;
+	}
+	else
+	{
+		deltaRotation = delta * this.fullRotation;
+	}
+	this.rotation += deltaRotation;
 
-		this.position += delta;
-		if (this.position + 0.01 > 1)
-		{
-			this.position = 1;
-		}
+	for (var index = 0; index < this.entity.components.length; index++)
+	{
+		var component = this.entity.components[index];
 
-		var deltaRotation = 0;
-		if (this.position === 1)
+		if (component instanceof Model)
 		{
-			deltaRotation = this.fullRotation - this.rotation;
+			component.transform.rotate(deltaRotation, 1, 0, 0);
 		}
-		else
-		{
-			deltaRotation = delta * this.fullRotation;
-		}
-		this.rotation += deltaRotation;
+	}
 
-		for (var index = 0; index < this.entity.components.length; index++)
-		{
-			var component = this.entity.components[index];
-
-			if (component instanceof Model)
-			{
-				component.transform.rotate(deltaRotation, 1, 0, 0);
-			}
-		}
-
-		if (this.direction === "down")
-		{
-			this.pipeline.alpha = 1 - this.position;
-		}
-		else if (this.direction === "up")
-		{
-			this.pipeline.alpha = this.position;
-		}
+	if (this.direction === "down")
+	{
+		this.pipeline.alpha = 1 - this.position;
+	}
+	else if (this.direction === "up")
+	{
+		this.pipeline.alpha = this.position;
 	}
 
 	if (this.position === 1)
 	{
 		this.entity.components.splice(this.entity.components.indexOf(this), 1);
 	}
+};
+
+Animator.prototype.execute = function()
+{
+	if (g_loadingImages.length > 0)
+	{
+		this.loading = true;
+		this.ready = false;
+	}
+	else if (this.loading)
+	{
+		this.loading = false;
+		setTimeout(this.start.bind(this), 1000);
+	}
+
+	if (this.ready)
+	{
+		this.animate();
+	}
+};
+
+Animator.prototype.start = function()
+{
+	this.ready = true;
 };
