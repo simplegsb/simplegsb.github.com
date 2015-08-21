@@ -22,7 +22,6 @@ function showGertrudeViewer()
 	renderingEngine.camera = new Camera();
 	renderingEngine.camera.projection.perspective(30, 720 / 480, 1, 10000);
 	renderingEngine.camera.projection.lookat(0, 0, 0, 0, 0, -1, 0, 1, 0);
-	renderingEngine.camera.view.translate(0, 0.55, 0);
 
 	renderingEngine.pipeline = new AlphaPipeline("simpleVertexShader", "simpleFragmentShader");
 	renderingEngine.pipeline.addPass("mirrorVertexShader", "mirrorFragmentShader");
@@ -32,6 +31,11 @@ function showGertrudeViewer()
 	Simplicity.engines.push(renderingEngine);
 	Simplicity.engines.push(scriptingEngine);
 
+	var cameraController = new Entity();
+	cameraController.components.push(new CameraSpringer("gertrudeCanvas", renderingEngine.camera, [0, 0.55, 0],
+		[0, 0, 4]));
+
+	Simplicity.entities.push(cameraController);
 	Simplicity.entities.push(createGertrude(renderingEngine.pipeline));
 
 	Simplicity.play();
@@ -40,55 +44,52 @@ function showGertrudeViewer()
 function createGertrude(pipeline)
 {
 	var gertrude = new Entity();
-	gertrude.transform.translate(0, 0.05, -4);
+	gertrude.transform.translate(0, 0.05, 0);
 
-	addPhoto(gertrude, "images/gertrude-exterior-back.png", 0.5, 0.5, 0, 0, -1.1, 180);
-	addPhoto(gertrude, "images/gertrude-exterior-front.png", 0.5, 0.5, 0, 0, 1.1, 0);
-	addPhoto(gertrude, "images/gertrude-exterior-left.png", 1, 0.5, 0.6, 0, 0, 90);
-	addPhoto(gertrude, "images/gertrude-exterior-right.png", 1, 0.5, -0.6, 0, 0, 270);
+	addPhoto(gertrude, "images/gertrude-exterior-back.png", 0.5, 0.5, [0, 0, -1.1], 180);
+	addPhoto(gertrude, "images/gertrude-exterior-front.png", 0.5, 0.5, [0, 0, 1.1], 0);
+	addPhoto(gertrude, "images/gertrude-exterior-left.png", 1, 0.5, [0.6, 0, 0], 90);
+	addPhoto(gertrude, "images/gertrude-exterior-right.png", 1, 0.5, [-0.6, 0, 0], 270);
 
-	var spinner = new Spinner(gertrude);
-	gertrude.components.push(spinner);
-
-	var animator = new Animator(gertrude, pipeline, "up");
-	gertrude.components.push(animator);
+	gertrude.components.push(new Animator(gertrude, pipeline, "up"));
+	gertrude.components.push(new Spinner("gertrudeCanvas", gertrude));
 
 	return gertrude;
 }
 
-function addPhoto(entity, image, halfWidth, halfHeight, x, y, z, rotation)
+function addPhoto(entity, image, halfWidth, halfHeight, position, rotation)
 {
 	var frameWidth = 0.02;
 	var halfFrameWidth = halfWidth + frameWidth;
 	var halfFrameHeight = halfHeight + frameWidth;
 
 	var photoOffset = [0, 0, 0];
-	if (x !== 0)
+	if (position[0] !== 0)
 	{
-		photoOffset[0] = x / Math.abs(x) * 0.001;
+		photoOffset[0] = position[0] / Math.abs(position[0]) * 0.001;
 	}
-	if (y !== 0)
+	if (position[1] !== 0)
 	{
-		photoOffset[1] = y / Math.abs(y) * 0.001;
+		photoOffset[1] = position[1] / Math.abs(position[1]) * 0.001;
 	}
-	if (z !== 0)
+	if (position[2] !== 0)
 	{
-		photoOffset[2] = z / Math.abs(z) * 0.001;
+		photoOffset[2] = position[2] / Math.abs(position[2]) * 0.001;
 	}
 
 	var photo = createPhotoRectangle(halfWidth, halfHeight, halfFrameHeight);
 	photo.texture = loadImageTexture(gl, image);
-	photo.transform.translate(x + photoOffset[0], y + photoOffset[1], z + photoOffset[2]);
+	photo.transform.translate(position[0] + photoOffset[0], position[1] + photoOffset[1], position[2] + photoOffset[2]);
 	photo.transform.rotate(rotation, 0, 1, 0);
 	entity.components.push(photo);
 
 	var frame = createPhotoRectangle(halfFrameWidth, halfFrameHeight, halfFrameHeight, [1, 1, 1, 1]);
-	frame.transform.translate(x, y, z);
+	frame.transform.translate(position[0], position[1], position[2]);
 	frame.transform.rotate(rotation, 0, 1, 0);
 	entity.components.push(frame);
 
 	var back = createPhotoRectangle(halfFrameWidth, halfFrameHeight, halfFrameHeight, [0.375, 0.375, 0.375, 1]);
-	back.transform.translate(x, y, z);
+	back.transform.translate(position[0], position[1], position[2]);
 	back.transform.rotate(rotation + 180, 0, 1, 0);
 	entity.components.push(back);
 }
