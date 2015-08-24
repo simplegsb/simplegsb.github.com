@@ -2,14 +2,14 @@
 CameraSpringer.prototype = Object.create(Script.prototype);
 CameraSpringer.prototype.constructor = CameraSpringer;
 
-function CameraSpringer(canvasId, camera, pivot, offset)
+function CameraSpringer(canvasId, camera)
 {
 	Script.call(this);
 
 	this.camera = camera;
 	this.mode = "free";
-	this.offset = offset;
-	this.pivot = pivot;
+	this.offset = new J3DIVector3();
+	this.pivot = new J3DIVector3();
 	this.rotation = 0;
 	this.speed = 0;
 	this.yNew = 0;
@@ -25,7 +25,7 @@ CameraSpringer.prototype.execute = function()
 {
 	if (this.mode === "free")
 	{
-		var acceleration = -this.rotation / 10;
+		var acceleration = -this.rotation * Simplicity.deltaTime * 0.005;
 
 		// Dampening
 		if (this.rotation > 0 && this.speed > 0 ||

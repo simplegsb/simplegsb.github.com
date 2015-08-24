@@ -1,8 +1,15 @@
 
+var viewEngine = null;
+var views = new Map();
+
 function showGertrudeViewer()
 {
 	var canvas = document.getElementById("gertrudeCanvas");
+	canvas.addEventListener("wheel", onMouseWheel, false);
+
 	var renderingEngine = new RenderingEngine(canvas);
+
+	createViews();
 
 	var resizeCanvas = function()
 	{
@@ -27,21 +34,54 @@ function showGertrudeViewer()
 	renderingEngine.pipeline.addPass("mirrorVertexShader", "mirrorFragmentShader");
 
 	var scriptingEngine = new ScriptingEngine(canvas);
+	var cameraSpringer = new CameraSpringer("gertrudeCanvas", renderingEngine.camera);
+	cameraSpringer.pivot[1] = 0.55;
+	cameraSpringer.offset[2] = 4;
+
+	viewEngine = new ViewEngine(renderingEngine.pipeline, cameraSpringer);
+	viewEngine.switchTo(views.get("exterior"));
 
 	Simplicity.engines.push(renderingEngine);
 	Simplicity.engines.push(scriptingEngine);
+	Simplicity.engines.push(viewEngine);
 
 	var cameraController = new Entity();
-	cameraController.components.push(new CameraSpringer("gertrudeCanvas", renderingEngine.camera, [0, 0.55, 0],
-		[0, 0, 4]));
+	cameraController.components.push(cameraSpringer);
 
 	Simplicity.entities.push(cameraController);
-	Simplicity.entities.push(createGertrude(renderingEngine.pipeline));
 
 	Simplicity.play();
 }
 
-function createGertrude(pipeline)
+function onMouseWheel(event)
+{
+	event.preventDefault();
+
+	if (event.wheelDelta > 0 && viewEngine.newView.name === "exterior")
+	{
+		viewEngine.switchTo(views.get("interior"));
+	}
+	else if (event.wheelDelta < 0 && viewEngine.newView.name === "interior")
+	{
+		viewEngine.switchTo(views.get("exterior"));
+	}
+}
+
+function createViews()
+{
+	var exterior = new View();
+	exterior.cameraOffset = new J3DIVector3(0, 0, 4);
+	exterior.entity = createGertrudeExterior();
+	exterior.name = "exterior";
+	views.set(exterior.name, exterior);
+
+	var interior = new View();
+	interior.entity = createGertrudeInterior();
+	interior.name = "interior";
+	views.set(interior.name, interior);
+}
+
+function createGertrudeExterior()
 {
 	var gertrude = new Entity();
 	gertrude.transform.translate(0, 0.05, 0);
@@ -51,46 +91,70 @@ function createGertrude(pipeline)
 	addPhoto(gertrude, "images/gertrude-exterior-left.png", 1, 0.5, [0.6, 0, 0], 90);
 	addPhoto(gertrude, "images/gertrude-exterior-right.png", 1, 0.5, [-0.6, 0, 0], 270);
 
-	gertrude.components.push(new Animator(gertrude, pipeline, "up"));
 	gertrude.components.push(new Spinner("gertrudeCanvas", gertrude));
 
 	return gertrude;
 }
 
-function addPhoto(entity, image, halfWidth, halfHeight, position, rotation)
+function createGertrudeInterior()
+{
+	var gertrude = new Entity();
+	gertrude.transform.translate(0, 0.05, 0);
+
+	addPhoto(gertrude, "images/gertrude-exterior-back.png", 0.5, 0.5, [0, 0, -2.2], 0, true);
+	addPhoto(gertrude, "images/gertrude-exterior-front.png", 0.5, 0.5, [0, 0, 2.2], 180, true);
+	addPhoto(gertrude, "images/gertrude-exterior-left.png", 1, 0.5, [1.2, 0, 0], 270, true);
+	addPhoto(gertrude, "images/gertrude-exterior-right.png", 1, 0.5, [-1.2, 0, 0], 90, true);
+
+	gertrude.components.push(new Spinner("gertrudeCanvas", gertrude));
+
+	return gertrude;
+}
+
+
+function addPhoto(entity, image, halfWidth, halfHeight, position, rotation, faceInward)
 {
 	var frameWidth = 0.02;
 	var halfFrameWidth = halfWidth + frameWidth;
 	var halfFrameHeight = halfHeight + frameWidth;
 
+	var photoOffsetDistance = 0.001;
+	if (faceInward)
+	{
+		photoOffsetDistance *= -1;
+	}
+
 	var photoOffset = [0, 0, 0];
 	if (position[0] !== 0)
 	{
-		photoOffset[0] = position[0] / Math.abs(position[0]) * 0.001;
+		photoOffset[0] = position[0] / Math.abs(position[0]) * photoOffsetDistance;
 	}
 	if (position[1] !== 0)
 	{
-		photoOffset[1] = position[1] / Math.abs(position[1]) * 0.001;
+		photoOffset[1] = position[1] / Math.abs(position[1]) * photoOffsetDistance;
 	}
 	if (position[2] !== 0)
 	{
-		photoOffset[2] = position[2] / Math.abs(position[2]) * 0.001;
+		photoOffset[2] = position[2] / Math.abs(position[2]) * photoOffsetDistance;
 	}
 
 	var photo = createPhotoRectangle(halfWidth, halfHeight, halfFrameHeight);
 	photo.texture = loadImageTexture(gl, image);
 	photo.transform.translate(position[0] + photoOffset[0], position[1] + photoOffset[1], position[2] + photoOffset[2]);
 	photo.transform.rotate(rotation, 0, 1, 0);
+	photo.transform.rotate(90, 1, 0, 0);
 	entity.components.push(photo);
 
 	var frame = createPhotoRectangle(halfFrameWidth, halfFrameHeight, halfFrameHeight, [1, 1, 1, 1]);
 	frame.transform.translate(position[0], position[1], position[2]);
 	frame.transform.rotate(rotation, 0, 1, 0);
+	frame.transform.rotate(90, 1, 0, 0);
 	entity.components.push(frame);
 
 	var back = createPhotoRectangle(halfFrameWidth, halfFrameHeight, halfFrameHeight, [0.375, 0.375, 0.375, 1]);
 	back.transform.translate(position[0], position[1], position[2]);
 	back.transform.rotate(rotation + 180, 0, 1, 0);
+	back.transform.rotate(90, 1, 0, 0);
 	entity.components.push(back);
 }
 

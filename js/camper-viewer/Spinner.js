@@ -23,15 +23,15 @@ Spinner.prototype.execute = function()
 {
 	if (this.mode === "free")
 	{
-		this.speed += (this.targetSpeed - this.speed) / 10;
+		this.speed += (this.targetSpeed - this.speed) * Simplicity.deltaTime * 0.01;
 	}
 	else if (this.mode === "user")
 	{
-		this.speed = (this.xNew - this.xOld) * 0.2;
+		this.speed = (this.xNew - this.xOld) * Simplicity.deltaTime * 0.02;
 		this.xOld = this.xNew;
 	}
 
-	this.entity.transform.rotate(this.speed * Simplicity.deltaTime, 0, 1, 0);
+	this.entity.transform.rotate(this.speed, 0, 1, 0);
 };
 
 Spinner.prototype.onMouseDown = function(event)

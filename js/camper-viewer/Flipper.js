@@ -1,14 +1,15 @@
 
-Animator.prototype = Object.create(Script.prototype);
-Animator.prototype.constructor = Animator;
+Flipper.prototype = Object.create(Script.prototype);
+Flipper.prototype.constructor = Flipper;
 
-function Animator(entity, pipeline, direction)
+function Flipper(entity, pipeline, direction, onComplete)
 {
 	Script.call(this);
 
 	this.entity = entity;
 	this.direction = direction;
 	this.loading = false;
+	this.onComplete = onComplete;
 	this.pipeline = pipeline;
 	this.position = 0.001;
 	this.ready = true;
@@ -28,24 +29,11 @@ function Animator(entity, pipeline, direction)
 	}
 
 	this.fullRotation = this.endRotation - this.startRotation;
-
-	for (var index = 0; index < this.entity.components.length; index++)
-	{
-		var component = this.entity.components[index];
-
-		if (component instanceof Model)
-		{
-			component.transform.rotate(this.startRotation, 1, 0, 0);
-		}
-	}
 }
 
-Animator.prototype.animate = function()
+Flipper.prototype.flip = function()
 {
-	$('#loading').hide();
-
-	var speed = Math.min(this.position, 1 - this.position) / 20;
-	var delta = speed * Simplicity.deltaTime;
+	var delta = Math.min(this.position, 1 - this.position) * Simplicity.deltaTime * 0.01;
 
 	this.position += delta;
 	if (this.position + 0.001 > 1)
@@ -86,15 +74,22 @@ Animator.prototype.animate = function()
 	if (this.position === 1)
 	{
 		this.entity.components.splice(this.entity.components.indexOf(this), 1);
+
+		if (this.onComplete !== undefined)
+		{
+			this.onComplete();
+		}
 	}
 };
 
-Animator.prototype.execute = function()
+Flipper.prototype.execute = function()
 {
-	if (g_loadingImages.length > 0)
+	if (g_loadingImages.length > 0 && this.direction === "up")
 	{
 		this.loading = true;
 		this.ready = false;
+
+		$('#loading').show();
 	}
 	else if (this.loading)
 	{
@@ -104,11 +99,13 @@ Animator.prototype.execute = function()
 
 	if (this.ready)
 	{
-		this.animate();
+		this.flip();
 	}
 };
 
-Animator.prototype.start = function()
+Flipper.prototype.start = function()
 {
 	this.ready = true;
+
+	$('#loading').hide();
 };

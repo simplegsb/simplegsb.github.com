@@ -4,28 +4,27 @@ var Simplicity = new function()
 	this.deltaTime = 0;
 	this.engines = [];
 	this.entities = [];
-	this.playTime = 0;
-	this.totalTime = 0;
+	this.frameStartTime = undefined;
 
 	this.play = function()
 	{
-		this.playTime = performance.now();
-
 		this.playContinuously();
 	};
 
-	this.playContinuously = function()
+	this.playContinuously = function(now)
 	{
-		var frameStartTime = performance.now();
+		if (Simplicity.frameStartTime !== undefined)
+		{
+			Simplicity.deltaTime = now - Simplicity.frameStartTime;
+		}
+
+		Simplicity.frameStartTime = now;
 
 		for (var index = 0; index < Simplicity.engines.length; index++)
 		{
 			Simplicity.engines[index].advance();
 		}
 
-		this.deltaTime = performance.now() - frameStartTime;
-		this.totalTime = performance.now() - this.playTime;
-
-		Simplicity.requestId = window.requestAnimFrame(Simplicity.playContinuously);
+		Simplicity.requestId = window.requestAnimationFrame(Simplicity.playContinuously);
 	};
 };
