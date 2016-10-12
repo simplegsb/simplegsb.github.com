@@ -1,0 +1,81 @@
+
+@font-face
+{
+	font-family: handwritten;
+	src: url('ArchitectsDaughter.ttf')
+}
+
+a
+{
+	cursor: pointer;
+}
+
+body
+{
+	background-image: url("/images/background.jpg");
+}
+
+h1
+{
+	text-align: center;
+}
+
+.main.container
+{
+	padding-top: 2em;
+}
+
+.main.header
+{
+	font-family: handwritten, sans-serif;
+}
+
+.main.menu
+{
+	box-shadow: none;
+	transition:
+		box-shadow 0.5s ease,
+		padding 0.5s ease
+	;
+}
+
+.main.menu.fixed
+{
+	background-image: url("/images/background.jpg");
+	border: 1px solid #ddd;
+	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.ui.segment
+{
+	background-image: url("/images/background.jpg");
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+	padding: 25px;
+}
+
+.ui.vertical.tabular.menu .active.item
+{
+	background-color: rgba(0, 0, 0, 0.25);
+}
+
+.cv
+{
+	display: none;
+}
+
+.software.group
+{
+	display: none;
+}
+
+.rush.projects .segment
+{
+	display: none;
+}
+
+.rush.projects .segment img
+{
+	max-width: 560px;
+}

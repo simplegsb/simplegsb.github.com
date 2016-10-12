@@ -1,216 +1,47 @@
-<!DOCTYPE html>
-<html>
+<div class="ui segment">
+	<div class="ui text container">
+		<p>I like building camper vans.</p>
+	</div>
+</div>
 
-	<head>
-		<title>Gary / Gyan</title>
+<div class="ui inverted segment">
+	<div class="ui text container">
+		<h2>Stealth Campers Alpha</h2>
 
-		<meta name=viewport content="width=device-width, initial-scale=1">
+		<p>I've bought a shiny new Hiace. Under construction...</p>
+	</div>
+</div>
 
-		<link rel="shortcut icon" href="images/favicon.ico" />
-		<link rel="stylesheet" type="text/css" href="css/fonts.css" />
-		<link rel="stylesheet" type="text/css" href="css/layout.css" />
+<div class="ui segment">
+	<div class="ui text container">
+		<h2>Lucille</h2>
 
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy4uezjac97xYeOHIt-Rmd9YxHYP-STjE"></script>
-		<script type="text/javascript" src="js/sections.js"></script>
-		<script type="text/javascript" src="js/campers.js"></script>
+		<p>Lucille was a 16 seater mini-bus. I whipped out all of her seats and fitted her as a luxury moving home. Some lucky guy picker her up for cheap since I was leaving europe and needed a quick sale during winter...</p>
 
-		<script type="text/javascript" src="js/simplicityjs/lib/J3DI.js"></script>
-		<script type="text/javascript" src="js/simplicityjs/lib/J3DIMath.js"></script>
-		<script type="text/javascript" src="js/simplicityjs/lib/webgl-debug.js"></script>
-		<script type="text/javascript" src="js/simplicityjs/lib/webgl-utils.js"></script>
-		<script type="text/javascript" src="js/simplicityjs/Camera.js"></script>
-		<script type="text/javascript" src="js/simplicityjs/Entity.js"></script>
-		<script type="text/javascript" src="js/simplicityjs/Math.js"></script>
-		<script type="text/javascript" src="js/simplicityjs/Model.js"></script>
-		<script type="text/javascript" src="js/simplicityjs/ModelFactory.js"></script>
-		<script type="text/javascript" src="js/simplicityjs/Pipeline.js"></script>
-		<script type="text/javascript" src="js/simplicityjs/RenderingEngine.js"></script>
-		<script type="text/javascript" src="js/simplicityjs/Script.js"></script>
-		<script type="text/javascript" src="js/simplicityjs/ScriptingEngine.js"></script>
-		<script type="text/javascript" src="js/simplicityjs/Simplicity.js"></script>
+		<div id="me-lucille-map"></div>
+	</div>
+</div>
 
-		<script type="text/javascript" src="js/camper-viewer/CameraSpringer.js"></script>
-		<script type="text/javascript" src="js/camper-viewer/AlphaPipeline.js"></script>
-		<script type="text/javascript" src="js/camper-viewer/Flipper.js"></script>
-		<script type="text/javascript" src="js/camper-viewer/Main.js"></script>
-		<script type="text/javascript" src="js/camper-viewer/Spinner.js"></script>
-		<script type="text/javascript" src="js/camper-viewer/View.js"></script>
-		<script type="text/javascript" src="js/camper-viewer/ViewEngine.js"></script>
+<div class="ui inverted segment">
+	<div class="ui text container">
+		<h2>Gertrude</h2>
 
-		<script id="mirrorVertexShader" type="x-shader/x-vertex">
-			uniform mat4 cameraTransform;
-			uniform mat4 worldTransform;
+		<p>Gertrude was my first camper van. She was given an ugly name to match her... well... ugliness. When I bought her she was already fitted out but I decided it was shit, pulled everything out and started from scratch. Lots of fun! Sadly Gertrude died and was unable to complete her last mission to Edinburgh. May she rest in peace... as a cube... because I had her crushed into a cube.</p>
 
-			attribute vec4 color;
-			attribute vec3 normal;
-			attribute vec3 position;
-			attribute vec2 texCoord;
+		<!--div id="loading">Loading...</div>
 
-			varying vec4 colorOut;
-			varying vec3 normalOut;
-			varying vec2 texCoordOut;
+		<canvas id="me-gertrude-canvas">
+			If you're seeing this your web browser doesn't support the &lt;canvas&gt;&gt; element. Ouch!
+		</canvas-->
 
-			void main()
-			{
-				colorOut = color;
+		<div id="me-gertrude-map"></div>
+	</div>
+</div>
 
-				mat4 worldRotation = worldTransform;
-				worldRotation[3][0] = 0.0;
-				worldRotation[3][1] = 0.0;
-				worldRotation[3][2] = 0.0;
-				worldRotation[3][3] = 1.0;
-				normalOut = (worldRotation * vec4(normal, 1.0)).xyz;
+<div class="ui segment">
+	<div class="ui text container">
+		<h2>Timmy</h2>
 
-				texCoordOut = texCoord;
-				texCoordOut.s = 1.0 - texCoordOut.s;
-
-				vec3 flippedPosition = position;
-				flippedPosition.x *= -1.0;
-
-				gl_Position = worldTransform * vec4(flippedPosition, 1.0);
-				gl_Position.y *= -1.0;
-				gl_Position = cameraTransform * gl_Position;
-			}
-		</script>
-
-		<script id="mirrorFragmentShader" type="x-shader/x-fragment">
-			precision mediump float;
-
-			uniform float alpha;
-			uniform sampler2D sampler;
-			uniform int samplerEnabled;
-
-			varying vec4 colorOut;
-			varying vec3 normalOut;
-			varying vec2 texCoordOut;
-
-			void main()
-			{
-				if (samplerEnabled == 1)
-				{
-					gl_FragColor = texture2D(sampler, texCoordOut);
-				}
-				else
-				{
-					gl_FragColor = colorOut;
-				}
-
-				float ambientFactor = 0.2;
-				float diffuseFactor = dot(normalOut, vec3(0.0, 0.0, 1.0));
-				gl_FragColor.xyz = gl_FragColor.xyz * ambientFactor + gl_FragColor.xyz * diffuseFactor;
-				gl_FragColor.w *= alpha;
-
-				float transparency = texCoordOut.t * 0.9;
-				gl_FragColor.w *= transparency;
-			}
-		</script>
-
-		<script id="simpleVertexShader" type="x-shader/x-vertex">
-			uniform mat4 cameraTransform;
-			uniform mat4 worldTransform;
-
-			attribute vec4 color;
-			attribute vec3 normal;
-			attribute vec3 position;
-			attribute vec2 texCoord;
-
-			varying vec4 colorOut;
-			varying vec3 normalOut;
-			varying vec2 texCoordOut;
-
-			void main()
-			{
-				colorOut = color;
-
-				mat4 worldRotation = worldTransform;
-				worldRotation[3][0] = 0.0;
-				worldRotation[3][1] = 0.0;
-				worldRotation[3][2] = 0.0;
-				worldRotation[3][3] = 1.0;
-				normalOut = (worldRotation * vec4(normal, 1.0)).xyz;
-
-				texCoordOut = texCoord;
-
-				gl_Position = worldTransform * vec4(position, 1.0);
-				gl_Position = cameraTransform * gl_Position;
-			}
-		</script>
-
-		<script id="simpleFragmentShader" type="x-shader/x-fragment">
-			precision mediump float;
-
-			uniform float alpha;
-			uniform sampler2D sampler;
-			uniform int samplerEnabled;
-
-			varying vec4 colorOut;
-			varying vec3 normalOut;
-			varying vec2 texCoordOut;
-
-			void main()
-			{
-				if (samplerEnabled == 1)
-				{
-					gl_FragColor = texture2D(sampler, texCoordOut);
-				}
-				else
-				{
-					gl_FragColor = colorOut;
-				}
-
-				float ambientFactor = 0.2;
-				float diffuseFactor = dot(normalOut, vec3(0.0, 0.0, 1.0));
-				gl_FragColor.xyz = gl_FragColor.xyz * ambientFactor + gl_FragColor.xyz * diffuseFactor;
-				gl_FragColor.w *= alpha;
-			}
-		</script>
-	</head>
-
-	<body>
-		<div id="header">
-			<h1><a href="index.html">Gary Shawn Buyn / Prem Gyan</a></h1>
-			<div id="menu">
-				<a href="osho.html">Osho</a>
-				<a href="software.html">Software</a>
-				<a href="film.html">Film</a>
-				<h2>Campers</h2>
-				<a href="poetry.html">Poetry</a>
-				<a href="contact.html">Contact</a>
-			</div>
-		</div>
-
-		<p>
-			I like building camper vans.
-		</p>
-
-		<a onclick="selectCamperSection('section', 'gertrude');"><h3>Gertrude</h3></a>
-		<div id="gertrude" class="section">
-			<p>
-				Gertrude was my first camper van. She was given an ugly name to match her... well... ugliness. When I bought her she was already fitted out but I decided it was shit, pulled everything out and started from scratch. Lots of fun! Sadly Gertrude died and was unable to complete her last mission to Edinburgh. May she rest in peace... as a cube... because I had her crushed into a cube.
-			</p>
-
-			<div id="loading">Loading...</div>
-
-			<canvas id="gertrudeCanvas">
-				If you're seeing this your web browser doesn't support the &lt;canvas&gt;&gt; element. Ouch!
-			</canvas>
-
-			<div class="aside">
-				<div id="gertrudeMap"></div>
-			</div>
-		</div>
-
-		<a onclick="selectCamperSection('section', 'lucille');"><h3>Lucille</h3></a>
-		<div id="lucille" class="section">
-			<p>
-				Lucille was a 16 seater mini-bus. I whipped out all of her seats and fitted her as a luxury moving home. Some lucky guy picker her up for cheap since I was leaving europe and needed a quick sale during winter...
-			</p>
-
-			<div class="aside">
-				<div id="lucilleMap"></div>
-			</div>
-		</div>
-	</body>
-
-</html>
+		<p>Timmy gets a special mention. He was not a full-fledged camper, just a station wagon I threw a matress into the back of. He was my home for a few months though so he deserves to be here :)</p>
+	</div>
+</div>

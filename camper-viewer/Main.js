@@ -111,7 +111,6 @@ function createGertrudeInterior()
 	return gertrude;
 }
 
-
 function addPhoto(entity, image, halfWidth, halfHeight, position, rotation, faceInward)
 {
 	var frameWidth = 0.02;
