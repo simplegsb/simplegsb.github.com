@@ -49,7 +49,7 @@ angular
 				.not($(this))
 				.removeClass('active');
 
-			$('http, body').animate({scrollTop: 0}, 'slow');
+			$('html,body').scrollTop(0);
 		});
 
 		$rootScope.$on('$viewContentLoaded', function()
