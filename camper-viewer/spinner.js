@@ -1,11 +1,5 @@
-
-Spinner.prototype = Object.create(Script.prototype);
-Spinner.prototype.constructor = Spinner;
-
 function Spinner(canvasId, entity)
 {
-	Script.call(this);
-
 	this.entity = entity;
 	this.mode = "free";
 	this.speed = 0.2;
@@ -23,11 +17,11 @@ Spinner.prototype.execute = function()
 {
 	if (this.mode === "free")
 	{
-		this.speed += (this.targetSpeed - this.speed) * Simplicity.deltaTime * 0.01;
+		this.speed += (this.targetSpeed - this.speed) * sim.deltaTime * 0.01;
 	}
 	else if (this.mode === "user")
 	{
-		this.speed = (this.xNew - this.xOld) * Simplicity.deltaTime * 0.02;
+		this.speed = (this.xNew - this.xOld) * sim.deltaTime * 0.02;
 		this.xOld = this.xNew;
 	}
 
@@ -57,3 +51,5 @@ Spinner.prototype.onMouseUp = function()
 		this.targetSpeed *= -1;
 	}
 };
+
+module.exports = Spinner;

@@ -15,6 +15,12 @@ body
 	background-image: url("/images/background.jpg");
 }
 
+canvas
+{
+	display: block;
+	cursor: pointer;
+}
+
 h1
 {
 	text-align: center;
@@ -44,6 +50,11 @@ h1
 	background-image: url("/images/background.jpg");
 	border: 1px solid #ddd;
 	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.ui.divider
+{
+	margin-top: 0;
 }
 
 .ui.segment
@@ -78,4 +89,9 @@ h1
 .rush.projects .segment img
 {
 	max-width: 560px;
+}
+
+.map
+{
+
 }

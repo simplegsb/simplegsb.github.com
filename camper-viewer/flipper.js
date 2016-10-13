@@ -1,11 +1,5 @@
-
-Flipper.prototype = Object.create(Script.prototype);
-Flipper.prototype.constructor = Flipper;
-
 function Flipper(entity, pipeline, direction, onComplete)
 {
-	Script.call(this);
-
 	this.entity = entity;
 	this.direction = direction;
 	this.loading = false;
@@ -33,7 +27,7 @@ function Flipper(entity, pipeline, direction, onComplete)
 
 Flipper.prototype.flip = function()
 {
-	var delta = Math.min(this.position, 1 - this.position) * Simplicity.deltaTime * 0.01;
+	var delta = Math.min(this.position, 1 - this.position) * sim.deltaTime * 0.01;
 
 	this.position += delta;
 	if (this.position + 0.001 > 1)
@@ -56,7 +50,7 @@ Flipper.prototype.flip = function()
 	{
 		var component = this.entity.components[index];
 
-		if (component instanceof Model)
+		if (component instanceof sim.Model)
 		{
 			component.transform.rotate(deltaRotation, 1, 0, 0);
 		}
@@ -75,7 +69,7 @@ Flipper.prototype.flip = function()
 	{
 		this.entity.components.splice(this.entity.components.indexOf(this), 1);
 
-		if (this.onComplete !== undefined)
+		if (this.onComplete)
 		{
 			this.onComplete();
 		}
@@ -84,7 +78,7 @@ Flipper.prototype.flip = function()
 
 Flipper.prototype.execute = function()
 {
-	if (g_loadingImages.length > 0 && this.direction === "up")
+	if (sim.RenderingFactory.isLoadingTextures().length > 0 && this.direction === "up")
 	{
 		this.loading = true;
 		this.ready = false;
@@ -109,3 +103,5 @@ Flipper.prototype.start = function()
 
 	$('#loading').hide();
 };
+
+module.exports = Flipper;

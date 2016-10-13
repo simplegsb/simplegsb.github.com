@@ -1,9 +1,10 @@
+var Flipper = require('./flipper');
 
 function ViewEngine(pipeline, cameraSpringer)
 {
 	this.cameraSpringer = cameraSpringer;
-	this.newView = null;
-	this.oldView = null;
+	this.newView = undefined;
+	this.oldView = undefined;
 	this.pipeline = pipeline;
 	this.switching = false;
 }
@@ -12,15 +13,15 @@ ViewEngine.prototype.advance = function()
 {
 	if (!this.newView.cameraOffset.equals(this.cameraSpringer.offset))
 	{
-		var fullMovement = new J3DIVector3();
+		var fullMovement = new sim.Vector3();
 		fullMovement.copyValues(this.newView.cameraOffset);
 		fullMovement.subtract(this.oldView.cameraOffset);
 
-		var toNewOffset = new J3DIVector3();
+		var toNewOffset = new sim.Vector3();
 		toNewOffset.copyValues(this.newView.cameraOffset);
 		toNewOffset.subtract(this.cameraSpringer.offset);
 
-		var fractionComplete = new J3DIVector3();
+		var fractionComplete = new sim.Vector3();
 		fractionComplete.copyValues(toNewOffset);
 		fractionComplete.divide(fullMovement);
 		var percentComplete = fractionComplete.vectorLength();
@@ -30,7 +31,7 @@ ViewEngine.prototype.advance = function()
 		}
 
 		var distanceToNewOffset = toNewOffset.vectorLength();
-		var distanceDelta = Math.min(percentComplete, 1 - percentComplete) * distanceToNewOffset * Simplicity.deltaTime * 5;
+		var distanceDelta = Math.min(percentComplete, 1 - percentComplete) * distanceToNewOffset * sim.deltaTime * 5;
 
 		if (distanceToNewOffset < distanceDelta)
 		{
@@ -38,7 +39,7 @@ ViewEngine.prototype.advance = function()
 		}
 		else
 		{
-			var delta = new J3DIVector3(toNewOffset);
+			var delta = new sim.Vector3(toNewOffset);
 			delta.copyValues(toNewOffset);
 			delta.divide(distanceToNewOffset);
 			delta.multiply(distanceDelta);
@@ -53,7 +54,7 @@ ViewEngine.prototype.advance = function()
 		this.newView.entity.components.push(new Flipper(this.newView.entity, this.pipeline, "up",
 			this.finish.bind(this)));
 
-		if (this.oldView !== null)
+		if (this.oldView)
 		{
 			this.oldView.entity.components.push(new Flipper(this.oldView.entity, this.pipeline, "down",
 				this.switchEntities.bind(this)));
@@ -73,12 +74,12 @@ ViewEngine.prototype.finish = function()
 
 ViewEngine.prototype.switchEntities = function()
 {
-	if (this.oldView !== null)
+	if (this.oldView)
 	{
-		Simplicity.entities.splice(Simplicity.entities.indexOf(this.oldView.entity), 1);
+		sim.entities.splice(sim.entities.indexOf(this.oldView.entity), 1);
 	}
 
-	Simplicity.entities.push(this.newView.entity);
+	sim.entities.push(this.newView.entity);
 };
 
 ViewEngine.prototype.switchTo = function(view)
@@ -88,3 +89,5 @@ ViewEngine.prototype.switchTo = function(view)
 		this.newView = view;
 	}
 };
+
+module.exports = ViewEngine;

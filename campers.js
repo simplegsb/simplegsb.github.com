@@ -94,13 +94,15 @@ angular
 					mapWidth = window.innerWidth * 0.9;
 				}
 
-				$('#me-gertrude-map').width(mapWidth);
-				$('#me-gertrude-map').height($('#me-gertrude-map').width() / 1.5);
-				$('#me-lucille-map').width(mapWidth);
-				$('#me-lucille-map').height($('#me-lucille-map').width() / 1.5);
+				$('#gertrude-map').width(mapWidth);
+				$('#gertrude-map').height($('#gertrude-map').width() / 1.5);
+				$('#lucille-map').width(mapWidth);
+				$('#lucille-map').height($('#lucille-map').width() / 1.5);
 			};
 			onResize();
 			$(window).resize(onResize);
+
+			showGertrudeViewer();
 		});
 
 		function getDirections(camper, locations, directions)
@@ -145,7 +147,7 @@ angular
 				else
 				{
 					var directionsRenderer = new google.maps.DirectionsRenderer({ markerOptions: { icon: 'images/camper.png' } });
-					directionsRenderer.setMap(new google.maps.Map(document.getElementById('me-' + camper + '-map')));
+					directionsRenderer.setMap(new google.maps.Map(document.getElementById(camper + '-map')));
 					directionsRenderer.setDirections(directions);
 				}
 			});
