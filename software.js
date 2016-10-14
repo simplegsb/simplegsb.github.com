@@ -1,6 +1,6 @@
 angular
 	.module('me.software', [])
-	.controller('me.software', ['$scope', function($scope)
+	.controller('me.software', ['$routeParams', '$scope', function($routeParams, $scope)
 	{
 		$scope.$watch('$viewContentLoaded', function()
 		{
@@ -40,5 +40,10 @@ angular
 
 			$('.software.menu .item').eq(0).click();
 			$('.rush.projects .menu .item').eq(0).click();
+
+			if ($routeParams.full)
+			{
+				$('#cv').click();
+			}
 		});
 	}]);

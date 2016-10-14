@@ -36,7 +36,7 @@ angular
 			templateUrl: 'software.html'
 		});
 	}])
-	.run(['$rootScope', '$window', function($rootScope, $window)
+	.run(['$location', '$rootScope', '$window', function($location, $rootScope, $window)
 	{
 		$('.main.menu').visibility({ type: 'fixed' });
 
@@ -55,7 +55,7 @@ angular
 		$rootScope.$on('$viewContentLoaded', function()
 		{
 			$('.main.menu .item').removeClass('active');
-			$('.main.menu .item[href="' + location.hash + '"]').addClass('active');
+			$('.main.menu .item[href="#' + $location.path() + '"]').addClass('active');
 		});
 
 		$rootScope.$on('$stateChangeSuccess', function(event)
