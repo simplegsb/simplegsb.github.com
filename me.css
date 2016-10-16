@@ -19,11 +19,17 @@ canvas
 {
 	display: block;
 	cursor: pointer;
+	max-width: 100%;
 }
 
 h1
 {
 	text-align: center;
+}
+
+iframe
+{
+	max-width: 100%;
 }
 
 .main.container
@@ -57,6 +63,16 @@ h1
 	margin-top: 0;
 }
 
+.ui.menu
+{
+	flex-wrap: wrap;
+}
+
+.ui.menu > .container
+{
+	flex-wrap: wrap;
+}
+
 .ui.segment
 {
 	background-image: url("/images/background.jpg");
@@ -88,10 +104,10 @@ h1
 
 .rush.projects .segment img
 {
-	max-width: 560px;
+	max-width: 100%;
 }
 
 .map
 {
-
+	max-width: 100%;
 }
