@@ -52,14 +52,32 @@ angular
 			$('html,body').scrollTop(0);
 		});
 
+		$rootScope.$on('$stateChangeSuccess', function(event)
+		{
+			$window.ga('send', 'pageview', $location.path());
+		});
+
 		$rootScope.$on('$viewContentLoaded', function()
 		{
 			$('.main.menu .item').removeClass('active');
 			$('.main.menu .item[href="#' + $location.path() + '"]').addClass('active');
+			resizeIFrames();
 		});
 
-		$rootScope.$on('$stateChangeSuccess', function(event)
+		$(window).resize(function()
 		{
-            $window.ga('send', 'pageview', $location.path());
-        });
+			resizeIFrames();
+		});
+
+		function resizeIFrames()
+		{
+			var iFrames = $('iframe');
+
+			iFrames.each(function(index)
+			{
+				var iFrame = iFrames.eq(index);
+				var aspectRatio = iFrame.attr('width') / iFrame.attr('height');
+				iFrame.css('height', iFrame.width() / aspectRatio);
+			});
+		}
 	}]);
