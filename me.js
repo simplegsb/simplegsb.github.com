@@ -52,9 +52,9 @@ angular
 			$('html,body').scrollTop(0);
 		});
 
-		$rootScope.$on('$stateChangeSuccess', function(event)
+		$rootScope.$on('$stateChangeSuccess', function()
 		{
-			$window.ga('send', 'pageview', $location.path());
+			ga('send', 'pageview', $location.path());
 		});
 
 		$rootScope.$on('$viewContentLoaded', function()
