@@ -12,7 +12,7 @@ a
 
 body
 {
-	background-image: url("/images/background.jpg");
+	background-image: url("images/background.jpg");
 }
 
 canvas
@@ -53,9 +53,9 @@ iframe
 
 .main.menu.fixed
 {
-	background-image: url("/images/background.jpg");
+	background-image: url("images/background.jpg");
 	border: 1px solid #ddd;
-	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
 
 .ui.divider
@@ -75,7 +75,7 @@ iframe
 
 .ui.segment
 {
-	background-image: url("/images/background.jpg");
+	background-image: url("images/background.jpg");
 	border: none;
 	border-radius: 0;
 	box-shadow: none;
