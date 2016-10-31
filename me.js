@@ -52,16 +52,13 @@ angular
 			$('html,body').scrollTop(0);
 		});
 
-		$rootScope.$on('$stateChangeSuccess', function()
-		{
-			ga('send', 'pageview', $location.path());
-		});
-
 		$rootScope.$on('$viewContentLoaded', function()
 		{
 			$('.main.menu .item').removeClass('active');
 			$('.main.menu .item[href="#' + $location.path() + '"]').addClass('active');
 			resizeIFrames();
+
+			ga('send', 'pageview', $location.path());
 		});
 
 		$(window).resize(function()
