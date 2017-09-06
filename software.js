@@ -21,6 +21,23 @@ angular
 					.css('display', 'initial');
 			});
 
+			$('.redfox.projects .menu .item').click(function()
+			{
+				$(this)
+					.addClass('active')
+					.closest('.ui.menu')
+					.find('.item')
+					.not($(this))
+					.removeClass('active');
+
+				$('.redfox.projects .segment')
+					.css('display', '');
+
+				$('.redfox.projects .segment')
+					.eq($('.redfox.projects .menu .item').index($(this)))
+					.css('display', 'initial');
+			});
+
 			$('.rush.projects .menu .item').click(function()
 			{
 				$(this)
@@ -39,6 +56,7 @@ angular
 			});
 
 			$('.software.menu .item').eq(0).click();
+			$('.redfox.projects .menu .item').eq(0).click();
 			$('.rush.projects .menu .item').eq(0).click();
 
 			if ($routeParams.full)

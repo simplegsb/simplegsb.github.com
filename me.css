@@ -97,11 +97,13 @@ iframe
 	display: none;
 }
 
+.redfox.projects .segment,
 .rush.projects .segment
 {
 	display: none;
 }
 
+.redfox.projects .segment img,
 .rush.projects .segment img
 {
 	max-width: 100%;
